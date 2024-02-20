@@ -2,7 +2,7 @@
 
 ---
 
-> [!IMPORTANT]
+> [!Note]
 > must have the pacakge.json in the project can be created via the npm and set the type to module in it
 
 #### to use:
