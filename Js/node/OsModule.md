@@ -33,3 +33,18 @@ the [**arch**] method returns the architecture of the os
 
 ---
 
+#### cpus:
+
+```javascript
+console.log(is.cpus());
+/*
+{
+  module: "intel----";
+  ----
+}
+*\
+```
+
+the [**cpus**] method returns data about the cpu like model, etc
+
+---
