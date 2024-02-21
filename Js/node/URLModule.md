@@ -28,7 +28,7 @@ the [hash] is a property that returnes the hash section of the url
 
 #### host:
 
-```javascript
+```javascript:
 console.log(myURL.host); //www.some.com:7070
 ```
 
