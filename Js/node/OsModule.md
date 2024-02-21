@@ -4,18 +4,18 @@
 
 ### to use it:
 
-'''javascript
+```javascript
 import os from 'os';
-'''
+```
 
 ---
 
 #### platform:
 
-'''javascript
+```javascript
 console.log(os.platform());
 //win 23
-'''
+```
 
 the [**platform**] method returns the name of the os platform
 
@@ -24,10 +24,10 @@ the [**platform**] method returns the name of the os platform
 #### arch:
 
 
-'''javascript
+```javascript
 console.log(arch());
 //x64
-'''
+```
 
 the [**arch**] method returns the architecture of the os
 
