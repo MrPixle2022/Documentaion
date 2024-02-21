@@ -3,7 +3,7 @@
 
 ### to use it:
 
-```javascript:
+```javascript
 import {URL} from "url";
 ```
 
