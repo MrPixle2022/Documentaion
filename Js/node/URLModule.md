@@ -10,7 +10,7 @@ import {URL} from "url";
 the creat a new url object by calling the URL Constructor.
 
 URL(path):
-```
+```javascript
 const myURL = new URL("www.some.com:7070/p/a?s=d#x");
 ```
 
@@ -28,7 +28,7 @@ the [hash] is a property that returnes the hash section of the url
 
 #### host:
 
-```javascript:
+```javascript
 console.log(myURL.host); //www.some.com:7070
 ```
 
