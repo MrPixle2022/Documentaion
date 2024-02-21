@@ -66,3 +66,10 @@ the [protocol] is a property that returnes the protocol section of the url
 
 ---
 
+#### searchParams:
+
+```javascript
+console.log(myURL.searchParams); //s=d
+```
+
+the [searchParams] is a property that returnes the query section of the url
