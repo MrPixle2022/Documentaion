@@ -71,3 +71,19 @@ the [**listen**] method starts the server to listen to the given porrt, the call
 
 # routing with http module:
 
+example for routing
+
+```javascript
+if(req.url === "/")
+{
+    res.end("<h1> home</h1>");
+}
+else if(req.url === "/about")
+{
+    req.end("<h1> about </h1>");
+}
+else
+{
+    req.end("Error 404, Page not found");
+}
+```
