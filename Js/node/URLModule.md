@@ -7,7 +7,7 @@
 import {URL} from "url";
 ```
 
-the creat a new url object by calling the URL Constructor.
+then creat a new url object by calling the URL Constructor.
 
 URL(path):
 ```javascript
