@@ -25,8 +25,8 @@ let response = fetch("www.someapi.com")
 ```
 
 > [!IMPORTANT]
-> the fetch api doesn't throw an error unless it's a contenction error
-> to check for the succes of the request use status and statusText in the then and use the ok property to check if every thing is good
+> the fetch api doesn't throw an error unless it's a contencion error
+> to check for the succes of the request use status and statusText in the then method, after that use the ok property to check if every thing is good
 
 ---
 
