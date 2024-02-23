@@ -78,7 +78,7 @@ the callback function can take some values:
 
 |param  |usage  |neccessity|
 |:---------:|:-------:| :----:|
-|value     |the current value| must|
+|value     |the current value| needed|
 |index    | the index of the current value|optional|
 |arry    |  the array the foreach is being invoked on| optional|
 <hr>
@@ -104,7 +104,7 @@ the [**reduce**] method calls the reduecer function on all the element in the ar
 | parameter |usage|need case|
 |:---------:|:---------:|:---------:|
 |previous value|the previous value|   needed      |
-|current value|the current value|neede|
+|current value|the current value|needed|
 |current index|the index of the current value|optional|
 |array|the array |    optional     |
 
