@@ -1,5 +1,7 @@
 # Expreesions:
 
+---
+
 to use js expressions in jsx you can use { }:
 
 ![Expression](Imgs/JSEXPRESSIONEXAMPLE-01.png)

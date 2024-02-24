@@ -1,5 +1,6 @@
 # Components:
 
+---
 
 > [!IMPORTANT]
 > any jsx has to have at least one parent
