@@ -16,14 +16,16 @@ after waiting for the files to be downloaded use:
 cd appname
 ```
 
-then use:
-```powershell
-npm start
-```
+
 
 ---
 
 # Files and server
+
+use:
+```powershell
+npm start
+```
 
 to start the test server, few seconds later and you will see this:
 ![react](Imgs/ReactBase.png)
