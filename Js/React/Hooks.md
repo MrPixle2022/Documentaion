@@ -10,6 +10,8 @@ to use hook you first should import them:
 import {hookname} from 'react';
 ```
 
+---
+
 ### useState(initialValue):
 
 the use state hook retuns an `array` of two elements the data and a function to update it
