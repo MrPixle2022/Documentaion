@@ -42,9 +42,13 @@ in this example we imported the `useState` hook and used to to create
 
 ---
 
-### useEffect(effect):
+### useEffect(effect, dependenciesArray):
 
-the `useEffect` hook allows you to run code when the component is rerendered, the `effect` is a function that you can excute 
+the `useEffect` hook allows you to run code when the component is [rerendered, mounted, unmounted] from the dom, the `effect` is a function that will be called each time the hook in invoked.
+
+the `dependenciesArray` [**optional**] are the states [values that 
+might change] that will invoke the hook when they change
+an empty array means that the hook will run once
 
 
 for example:
@@ -58,7 +62,7 @@ export default function App()
 
   const [value, setValue] = useState(0);
 
-  useEffect(() => console.log(value))
+  useEffect(() => console.log(value), [value])
 
   return(<>
       <h1>{value}</h1>
@@ -67,4 +71,5 @@ export default function App()
 }
 ```
 
-the `useEffect` here will log the value of `value` each time the component changes.
+the `useEffect` here will log the value of `value` each time the value [**state**] changes
+
