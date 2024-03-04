@@ -75,7 +75,7 @@ the `useEffect` here will log the value of `value` each time the value [**state*
 
 ---
 
-### useContext()
+### useContext(context)
 
 the `useContext` hook allows you to share states globally between nested components.
 
