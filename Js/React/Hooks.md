@@ -88,7 +88,7 @@ import {createContext} from 'react';
 then create a new object of the `createContext`
 
 ```javascript 
-const Data = createContext();
+export const Data = createContext();
 ```
 
 lastly use `Data.Provider` component and pass `value={ valueYouWantToPass }`in-between the `Data.Provider` component tags add any component you want to share the state between.
@@ -117,3 +117,6 @@ export default function App()
    return <h1>{info}</h1>
 }
 ```
+
+---
+
