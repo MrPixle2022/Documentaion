@@ -41,7 +41,6 @@ in the ``App.js`` file i imported this file:
 output:
 
 ![Output](Imgs/STYLINGOUTPUT03.png)
-=======
-# Styling in react:
+
 
 ---
