@@ -91,8 +91,8 @@ then create a new object of the `createContext`
 const Data = createContext();
 ```
 
-lastly use `Data.Provider` component and pass `value={ valueYouWantToPass }
-in-between the `Data.Provider` component tags add any component you want to share the state between.
+lastly use `Data.Provider` component and pass `value={ valueYouWantToPass }`
+in-between the``Data.Provider` component tags add any component you want to share the state between.
 
 like:
 
