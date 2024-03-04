@@ -73,3 +73,48 @@ export default function App()
 
 the `useEffect` here will log the value of `value` each time the value [**state**] changes
 
+---
+
+### useContext()
+
+the `useContext` hook allows you to share states globally between nested components.
+
+to use this hook you have to had imported the `createContext` by using
+
+```javascript
+import {createContext} from 'react';
+```
+
+then create a new object of the `createContext`
+
+```javascript 
+const Data = createContext();
+```
+
+lastly use `Data.Provider` component and pass `value={ valueYouWantToPass }
+in-between the `Data.Provider` component tags add any component you want to share the state between.
+
+like:
+
+```javascript
+<Data.Provider value ={"amr yasser"}>
+    <App />
+</Data.Provider>
+```
+
+then in the component file in this example `App.js` import the `useContext` hook and the `createContext` obj via:
+
+```javascript
+import {useContext} from 'react';
+import {Data} from './index.js';
+```
+in the component pass the `CreateContext` obj as a parameter to the `useContext` hook 
+
+```javascript
+export default function App()
+{
+   const info = useContext(Data);
+
+   return <h1>{info}</h1>
+}
+```
