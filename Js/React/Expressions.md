@@ -1,4 +1,4 @@
-# Expreesions:
+# Expressions:
 
 ---
 
