@@ -66,11 +66,11 @@ to call components in other componenets you have to import it, and then in the f
 
 for example:
 
-i created a component in a file name ``Main.jsx``
+i created a component in the file named ``Main.jsx``
 
 
 ```javascript
-function Main()
+export function Main()
 {
     return(
         <div>
