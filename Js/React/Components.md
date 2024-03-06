@@ -58,7 +58,7 @@ export class SomeClassComponent extends Component
 
 ---
 
-to call components in other componenets you have to import it
+to call components in other componenets you have to import it, and then in the final jsx use the component like:
 
 ```html
 <componentName />
