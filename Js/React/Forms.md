@@ -5,7 +5,22 @@
 forms in react work a little diffrent from html forms as they require ``hooks`` to work and function for example:
 
 
-![Example](Imgs/FORMSEXAMPLE01.png)
+```javascript
+
+import { useState} from "react";
+
+export default function FormComponent
+{
+    const [userName, setUserName] = useState('');
+    return(
+    <form onSubmit={e => {e.preventDefault(); console.log(userName)}}>
+        <input type='text' value = {userName} onChange= {e => setUserName(e.target.value)}/>
+        <input type='submit'/>
+    </form>)
+}
+
+```
+
 
 the ``onSubmit`` is an event that fires when the form is submitted
 
