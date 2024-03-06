@@ -2,7 +2,7 @@
 
 ---
 
-hooks allow your component to hook into a state so, like rerendring them when there state change 
+hooks allow your component to hook into a state, like rerendring them when there state change 
 
 to use hook you first should import them:
 
@@ -44,7 +44,7 @@ in this example we imported the `useState` hook and used to to create
 
 ### useEffect(effect, dependenciesArray):
 
-the `useEffect` hook allows you to run code when the component is [rerendered, mounted, unmounted] from the dom, the `effect` is a function that will be called each time the hook in invoked.
+the `useEffect` hook allows you to run code when the component is [rerendered, mounted, unmounted] from the dom, the `effect` is a function that will be called each time the hook is invoked.
 
 the `dependenciesArray` [**optional**] are the states [values that 
 might change] that will invoke the hook when they change
