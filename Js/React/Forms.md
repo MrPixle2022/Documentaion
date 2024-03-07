@@ -26,4 +26,4 @@ the ``onSubmit`` is an event that fires when the form is submitted
 
 ``preventDefault`` method on the ``e`` (the event object) prevenets the default behaviour of the onSubmit event (the page refresh)
 
-``onChange`` event that fires on the input when it's value (input give) changes
+``onChange`` event that fires on the input when it's value (input given) changes
