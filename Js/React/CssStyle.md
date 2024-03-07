@@ -48,12 +48,26 @@ here i created a new file ``ButtonStyle.css``
 
 and in this file i added this:
 
-![Example](Imgs/STYLINGEXAMPLE03.png)
+```css
+.btn
+{
+    color: blue;
+    font-size: 40px;
+}
+```
 
 
 in the ``App.js`` file i imported this file:
 
-![Example](Imgs/STYLINGEXAMPLE04.png)
+```javascript
+import './ButtonStyle.css';
+
+export function Button()
+{
+   return <button className="btn">clickme</button>
+}
+```
+
 
 output:
 
