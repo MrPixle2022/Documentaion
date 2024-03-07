@@ -8,6 +8,18 @@ styling in react can be done via a css file link or inline or as an object var
 
 ![Example](Imgs/STYLINGEXAMPLE01.png)
 
+```javascript
+function Button()
+{
+    return <button style={{color:'red'}}>Click me</button>
+}
+
+export default function App()
+{
+  return <Button/>
+}
+```
+
 output:
 
 ![Output](Imgs/STYLINGOUTPUT01.png)
