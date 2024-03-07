@@ -26,7 +26,13 @@ output:
 
 ### var styling:
 
-![Example](Imgs/STYLINGEXAMPLE02.png)
+```javascript
+export function Button()
+{
+    const bstyle = {color:'red', padding:'10px'};
+    return <button style ={bstyle}>click me</button >
+}
+```
 
 output:
 
