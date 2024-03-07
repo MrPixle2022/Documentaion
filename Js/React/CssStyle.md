@@ -6,7 +6,6 @@ styling in react can be done via a css file link or inline or as an object var
 
 ### inline:
 
-![Example](Imgs/STYLINGEXAMPLE01.png)
 
 ```javascript
 function Button()
