@@ -59,19 +59,18 @@ which will reset all changes (ignore them) or replace the `.` with the file or t
 
 ---
 
-# Unstage:
+# Status:
 
-if you mistakenly staged a file you don't want to stage use:
+the `status` command shows whether there is a change or not and the current brach 
+
+use it with:
 
 ```bash
-git reset .
+git status
 ```
-
-which will reset all changes (ignore them) or replace the `.` with the file or the path you want to unstage within the project
 
 
 ---
-
 # Commit:
 
 to finally apply any changes you 've staged to the repo use the `commit` command followed by your message[**needed**] between `" "` like:
@@ -94,6 +93,16 @@ git log
 
 > [!IMPORTANT]
 > after the log you won't be able to use the terminal until you press `q` to exit the log
+
+---
+
+# Restoring the file:
+
+if you edited a file then you wanted to cancel those changes use:
+
+```bash
+git restore filename
+```
 
 ---
 
