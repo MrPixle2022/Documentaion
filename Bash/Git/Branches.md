@@ -29,6 +29,14 @@ to switch between a branch and another use:
 git checkout brachName
 ```
 
+or just use:
+
+```bash
+git checkout -b branchName
+```
+
+this will create and enter the new branch
+
 ---
 
 # Merging branches:
