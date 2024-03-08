@@ -7,6 +7,19 @@ to create a react project use:
 ```powershell
 npx create-react-app appname
 ```
+
+or install create-react-app-offline:
+
+```powershell
+npm i -g create-react-app-offline
+```
+
+then use:
+
+```powershell
+npx crao -n appname
+```
+
 >[!NOTE]
 > the react app will auto initialize a git repo
 
