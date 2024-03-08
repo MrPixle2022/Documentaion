@@ -59,6 +59,19 @@ which will reset all changes (ignore them) or replace the `.` with the file or t
 
 ---
 
+# Unstage:
+
+if you mistakenly staged a file you don't want to stage use:
+
+```bash
+git reset .
+```
+
+which will reset all changes (ignore them) or replace the `.` with the file or the path you want to unstage within the project
+
+
+---
+
 # Commit:
 
 to finally apply any changes you 've staged to the repo use the `commit` command followed by your message[**needed**] between `" "` like:
