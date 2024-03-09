@@ -2,7 +2,7 @@
 
 ---
 
-hooks allow your component to hook into a state, like rerendering them when there state change 
+hooks allow your component to hook into a state(data within your component that may change) which means linking them to a state and when that state changes it triggers them which will change your component in a way or another, like rerendering them when there state change 
 
 to use hook you first should import them:
 
