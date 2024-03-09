@@ -120,3 +120,62 @@ export default function App()
 
 ---
 
+### useReducer(reducerFunction, initialState):
+
+the `useReducer` hook is similar to `useState` but it's used to handle complex state like showing some output based on current state.
+
+it returns an array of two `state`, `dispatch` the later is used to set action types to modify the state
+
+an example of `useReducer` will be like:
+
+```javascript
+import { useReducer } from "react";
+
+function Reducer(state, action)
+{
+    switch (action.type)
+    {
+        case 'increment':
+            return {...state, count: state.count + 1};
+        
+        case 'decrement':
+            return state.count >= 0? {...state, count: 0}: {...state, count: state.count - 1};  
+        
+        case 'reset':
+            return {...state, count:0};
+        
+        default:
+            return Error('action unknown?');
+    }
+}
+```
+
+here i setting up the reducer function for the hook which will take two objects as arguments:
+`state`: the object with the data you want to change.
+`action`: an object that holds string data about how to change the state.
+
+note that each time i return the state again by spreading it's value in an object and then i modify the value of `count` 
+
+```javascript
+export function App () 
+{
+    const [state,dispatch] = useReducer(Reducer, {count: 0});
+
+    return(
+        <section>
+            <h1>{state.count}</h1>
+            <button onClick={() => dispatch({type: 'increment'})}>+</button>
+            <button onClick={() => dispatch({type: 'reset'})}>reset</button>
+            <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+        </section>
+    )
+}
+```
+and here iam using the hook to create a state object and a dispatch function by destructuring the array.
+
+each time i use the `dispatch` i pass it an object with key `type` and a string value. if the value isn't defined in the switch case in the reducer function it will throw an error  because of:
+
+```javascript
+default:
+    return Error('action unknown?');
+```
