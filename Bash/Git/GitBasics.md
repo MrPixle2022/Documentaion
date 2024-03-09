@@ -8,7 +8,7 @@ git init
 
 this will create a hidden `.git` folder at the current path your are in, the `.git` can be removed to remove git from your project so that folder is no longer a repo.
 
-if you have files or a folder within your repo that you don't want to include create `.gitignore` files and in it put all paths to any file/folder you want to ignore
+if you have files or a folder within your repo that you don't want to include create `.gitignore` file and in it put all paths to any file/folder you want to ignore
 
 ---
 # Setting the user:
