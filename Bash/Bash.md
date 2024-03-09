@@ -1,6 +1,6 @@
 ### cd <path>:
 
-the `cd` command allows you to use the path on a specific directory
+the `cd` command allows you to use change the directory from within the terminal 
 
 ```bash
 cd ./Desktop
