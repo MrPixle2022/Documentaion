@@ -59,8 +59,4 @@ to git the latest changes that were commited to the remote repo use:
 git pull origin master
 ```
 
-which will pull all the new changes that were made to the master branch or use :
-
-```bash
-git pull
-```
+which will pull all the new changes that were made to the master branch.
