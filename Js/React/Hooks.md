@@ -2,19 +2,19 @@
 
 ---
 
-hooks allow your component to hook into a state, like rerendring them when there state change 
+hooks allow your component to hook into a state, like rerendering them when there state change 
 
 to use hook you first should import them:
 
 ```javascript
-import {hookname} from 'react';
+import {hookName} from 'react';
 ```
 
 ---
 
 ### useState(initialValue):
 
-the use state hook retuns an `array` of two elements the data and a function to update it
+the use state hook returns an `array` of two elements the data and a function to update it
 
 example:
 
