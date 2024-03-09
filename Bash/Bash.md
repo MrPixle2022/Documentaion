@@ -1,6 +1,6 @@
 ### cd <path>:
 
-the `cd` command allows you to use the path on a specific directory
+the `cd` command allows you to use change the directory from within the terminal 
 
 ```bash
 cd ./Desktop
@@ -33,7 +33,7 @@ the `touch` command allows you to create files directly from the terminal
 touch app.js ./files/file.txt
 ```
 
-here i create `app.js` which will be directly at the current path then created `file.txt` which will be created with int the `files` folder in this path.
+here i created `app.js` which will be directly at the current path then created `file.txt` which will be created with in the `files` folder in this path.
 
 ---
 
