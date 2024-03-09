@@ -40,3 +40,27 @@ to push changes (publish them) use:
 git push -u origin master
 ```
 this will publish the master branch to the gitHub repo
+
+or use:
+
+```bash
+git push
+```
+
+which will push the current branch to the remote repo
+
+---
+
+# Sync local with remote repo:
+
+to git the latest changes that were commited to the remote repo use:
+
+```bash
+git pull origin master
+```
+
+which will pull all the new changes that were made to the master branch or use :
+
+```bash
+git pull
+```
