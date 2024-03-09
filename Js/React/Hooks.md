@@ -179,3 +179,35 @@ each time i use the `dispatch` i pass it an object with key `type` and a string 
 default:
     return Error('action unknown?');
 ```
+
+---
+
+### useRef(initialValue):
+
+the `useRef` is a hook used to reference jsx tags in a component
+
+for example:
+
+```javascript
+import {useRef} from 'react';
+
+export function App()
+{
+    const target = useRef();
+    return <p ref={target}>some text being referenced</p>
+}
+```
+the hook allows you to access the target via a current object in the var you created to do something based on an event like:
+
+```javascript
+<button onClick= {() => target.current.scrollIntoView({
+    behavior: 'smooth', //scroll transition: smooth, instant, auto
+    block: 'end', //vertical alignment: start,center, end
+    inline: 'nearest' //horizontal alignment: start,center,end,nearest
+});}>Scroll to the para</button>
+```
+here when we click that button the page will scroll to the element with the `ref = {target}`
+
+there are a lot of things you do with the `.current` object like:
+
+another usage of this hook is to **store changeable data between rerenders** by passing an initial value which will be the value of `current`
