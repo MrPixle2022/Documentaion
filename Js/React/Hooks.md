@@ -184,7 +184,7 @@ default:
 
 ### useRef(initialValue):
 
-the `useRef` is a hook used to reference jsx tags in a component
+the `useRef` is a hook used to reference jsx data that won't trigger a rerendere
 
 for example:
 
