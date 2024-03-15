@@ -119,7 +119,7 @@ result:
 
 # Module:
 
-the module style. idk yet.
+the module style allows you to create styles while avoiding name clash (two style rules with the same selectors), you can use the name you like for the module, once compiled vue will automatically add the file name before the selector plus a hash code at the end.
 
 kabab case:
 
@@ -160,6 +160,25 @@ also you can assign a name to a module style but you will have to change the nam
 <style module = "moduleName">
 .m-class {
   color: blue;
+}
+</style>
+
+```
+
+to add multiple classes pass them as an array and separate them by commas.
+
+```vue
+<template>
+  <h1 :class="[$style['h1'], $style['head-elem']]">Content</h1>
+</template>
+
+<style module>
+h1 {
+  color: blue;
+}
+
+.head-elem {
+  font-size: 30px;
 }
 </style>
 
