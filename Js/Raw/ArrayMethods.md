@@ -83,7 +83,7 @@ the [**unshift**] method returns the new length of the array after it takes a va
 
 ---
 
-# slice(start, end):
+#### slice(start, end):
 the [**slice**] method takes returns a section in an array between `start` and `end`, both are excluded.
 
 ---
