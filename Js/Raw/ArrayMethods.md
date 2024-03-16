@@ -68,6 +68,7 @@ the [**push**] method returns the new length of the array after it takes a value
 ---
 
 #### unshift(value):
+
 ```javascript
 let arr = [2,3,4];
 let newArr = arr.unshift(1);
@@ -77,6 +78,7 @@ the [**unshift**] method returns the new length of the array after it takes a va
 ---
 
 #### slice(start, end):
+
 the [**slice**] method takes returns a section in an array between `start` and `end`, both are excluded.
 ---
 
