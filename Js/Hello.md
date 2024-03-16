@@ -2,7 +2,7 @@
 
 - Node:
     - [Filesystem Module](node/FilesystemModule.md)
-    - [HTTP module:](node/HTTPModule.md)
+    - [HTTP module](node/HTTPModule.md)
     - [OS Module](node/OsModule.md)
     - [Path Module](node/PathModule.md)
     - [URL module](node/URLModule.md)
@@ -10,10 +10,10 @@
 - VanillaJs:
     - [console](Raw/Console.md)
     - [Array Methods](Raw/ArrayMethods.md)
-    - [String Methods:](Raw/StringMethods.md)
+    - [String Methods](Raw/StringMethods.md)
     - [Objects](Raw/Objects.md)
-    - [OOP:](Raw/Oop.md)
-    - [Promises:](Raw/Promises.md)
+    - [OOP](Raw/Oop.md)
+    - [Promises](Raw/Promises.md)
     - [Fetch API](Raw/FetchApi.md)
     - [Dom](Raw/Dom.md)
 
@@ -36,3 +36,4 @@
     - [Directives](Vue/Directives.md)
     - [Styling](Vue/Styling.md)
     - [Reactivity](Vue/ReactivityState.md)
+    - [Props](Vue/Props.md)
