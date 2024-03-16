@@ -246,3 +246,23 @@ let items = ref([1, 2, 3, 4, 5])
 ```
 
 this code will create a new `p` element for each value in `items` each with a special value for their `key` attribute.
+
+when working with an array of objects you can use destructuring to make it easier to access data.
+
+for example:
+
+```vue
+<script setup>
+import { ref } from 'vue'
+let items = ref([
+  { name: 'amr', age: 16 },
+  { name: 'ali', age: 17 },
+  { name: 'mohammed', age: 15 }
+])
+</script>
+
+<template>
+  <p v-for="({ name, age }, i) in items" :key="i">{{ name }} -> {{ age }}</p>
+</template>
+
+```
