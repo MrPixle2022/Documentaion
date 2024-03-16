@@ -6,7 +6,8 @@ navigation:
 - [Attribute Binding](#attribute-binding)
 - [Dynamic Binding](#dynamic-binding)
 - [Conditional rendering](#conditional-rendering)
-- [List Rendering:](#list-rendering) 
+- [List Rendering](#list-rendering) 
+- [Two-way data binding](#two-way-data-binding)
 
 
 # Attribute Binding:
@@ -266,3 +267,40 @@ let items = ref([
 </template>
 
 ```
+
+also you can use it similar to python `for i in range` like:
+```html
+<p v-for='number in 5'>{{number}}</p>
+```
+
+this will loop and return nums between [1 to 5]
+
+---
+
+# Two-way data binding:
+
+the `v-model` directive allows you to connect your element to a model to synchronize the change in the model to directly change the element.
+
+example:
+
+```vue
+<script setup>
+import { ref } from 'vue'
+const formData = ref({ userName: '', email: '', password: '' })
+</script>
+
+<template>
+  <form>
+    <input type="text" placeholder="username" name="userName" v-model="formData.userName" />
+    <input type="email" name="email" placeholder="email" v-model="formData.email" />
+    <input type="password" name="password" placeholder="password" v-model="formData.password" />
+  </form>
+
+  <h1>{{ formData.userName }}</h1>
+  <h1>{{ formData.email }}</h1>
+  <h1>{{ formData.password }}</h1>
+</template>
+
+```
+
+in this example our model is `formData`, each time we change the data in on input field the `h1` connected to this value will update almost instantly.. 
