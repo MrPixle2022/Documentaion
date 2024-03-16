@@ -32,8 +32,7 @@
 - VueJs:
     - [Creating a Project](Vue/SetUp.md)
     - [Components](Vue/Components.md)
-    - [Attribute Binding](Vue/AttributeBindings.md)
     - [Js Expressions](Vue/JsExpressions.md)
-    - [Conditional rendering](Vue/ConditionalRendering.md)
+    - [Directives](Vue/Directives.md)
     - [Styling](Vue/Styling.md)
     - [Reactivity](Vue/ReactivityState.md)
