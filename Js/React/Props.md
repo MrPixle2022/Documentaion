@@ -5,7 +5,7 @@
 props are properties that are set as a parameter in the component that can be passed to it later by another component think of them like html attributes
 
 > [!NOTE]
-> using the props is condsidered a js expression that has to be used with in ``{ }`` in the jsx
+> using the props is considered a js expression that has to be used with in ``{ }`` in the jsx
 
 
 example:
@@ -32,7 +32,7 @@ here i am creating a new component named ``User`` that takes a prop so i can get
 
 
 
-here i am passing the value of name and age to that ``User`` componenet so it could be rendered properly
+here i am passing the value of name and age to that ``User`` component so it could be rendered properly
 
 output:
 
@@ -57,7 +57,7 @@ here i am destructuring the props into name and age so i can use them directly i
 
 ---
 
-# Children prosps:
+# Children props:
 
 
 ```javascript
@@ -72,7 +72,7 @@ export function User({name, age, content})
 }
 ```
 
-children props are delt with as other props and at the end you render them in therir place in beteween ``{ } ``
+children props are dealt with as other props and at the end you render them in their place in between ``{ } ``
 
 ```javascript
 export function App()
@@ -86,5 +86,5 @@ export function App()
 ```
 
 here and i changed the ``User`` component tag form
-``<User />`` to ``<User> </User>`` to be able to worl with children props, in this case it's ``<p> just a children prop``
+``<User />`` to ``<User> </User>`` to be able to work with children props, in this case it's ``<p> just a children prop``
 

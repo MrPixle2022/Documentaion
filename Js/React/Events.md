@@ -13,7 +13,7 @@ function Component()
 
 ```
 
-in this example this button will log ``Clicked`` to the console when clikce
+in this example this button will log ``Clicked`` to the console when clicked
 
 > [!NOTE]
 > we use an arrow function so that the event function is't triggered onload or once
@@ -26,4 +26,4 @@ export function Paragraph()
 ```
 
 
-here we created a `p` element that will log a messege to the conosle when it's content is copied
+here we created a `p` element that will log a message to the console when it's content is copied

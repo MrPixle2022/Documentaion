@@ -20,7 +20,7 @@ export default function App()
 
 here i am creating two function ``multiply`` and ``add``
 
-then iam appending the result of both fuctions to the text in the ``<p> </p>`` elements
+then iam appending the result of both functions to the text in the ``<p> </p>`` elements
 
 or in this case:
 

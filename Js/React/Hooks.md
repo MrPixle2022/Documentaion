@@ -1,4 +1,13 @@
 # Hooks:
+---
+
+navigation:
+- [useState(initialValue):](#usestateinitialvalue)
+- [useEffect(effect, dependenciesArray):](#useeffecteffect-dependenciesarray)
+- [useContext(context)](#usecontextcontext)
+- [useReducer(reducerFunction, initialState):](#usereducerreducerfunction-initialstate)
+- [useRef(initialValue):](#userefinitialvalue)
+
 
 ---
 
@@ -184,7 +193,7 @@ default:
 
 ### useRef(initialValue):
 
-the `useRef` is a hook used to reference jsx data that won't trigger a rerendere
+the `useRef` is a hook used to reference jsx data that won't trigger a rerender
 
 for example:
 

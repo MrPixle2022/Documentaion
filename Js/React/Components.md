@@ -5,7 +5,7 @@
 > [!IMPORTANT]
 > any jsx has to have at least one parent
 
-Components are the basis of react, they retrun what is called ``jsx`` wich is basicly html in javascript
+Components are the basis of react, they return what is called ``jsx`` which is basically html in javascript
 ``jsx`` elements can take the same attributes as the html files but some are changed:
 
 
@@ -26,10 +26,10 @@ return <section>
 
 ### to create a functional component:
 
-while in the ``App.js`` file for expample creat a new funcion with the first letter in uppercase like:
+while in the ``App.js`` file for example create a new function with the first letter in uppercase like:
 
 ```javascript
-export default function someCompoent()
+export default function someComponent()
 {
     return <h1>Good morning</h1>
 }
@@ -38,9 +38,9 @@ export default function someCompoent()
 
 ### to create a class component:
 
-while in the ``App.js`` file for expample creat a new funcion with the first letter in uppercase like:
+while in the ``App.js`` file for example create a new function with the first letter in uppercase like:
 > [!NOTE]
-> You must import the Componenet calss for this to work
+> You must import the Component class for this to work
 
 
 ```javascript
@@ -58,7 +58,7 @@ export class SomeClassComponent extends Component
 
 ---
 
-to call components in other componenets you have to import it, and then in the final jsx use the component like:
+to call components in other components you have to import it, and then in the final jsx use the component like:
 
 ```html
 <componentName />
@@ -86,7 +86,7 @@ export function Main()
 
 
 and then i imported this component in ``index.js`` and added it in the returns of the ``root.render()`` method return,
-not that i had to put a parent so i can compine both components in on render
+not that i had to put a parent so i can combine both components in on render
 
 ```html
 <div>
@@ -106,4 +106,4 @@ fragments examples:
 ```
 
 
-the `<>` & `</>` are fragments that you can think of as an imaginery container that won't be rendered in the html result
+the `<>` & `</>` are fragments that you can think of as an imaginary container that won't be rendered in the html result

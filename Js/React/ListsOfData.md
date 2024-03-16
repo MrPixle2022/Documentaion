@@ -4,7 +4,7 @@
 
 to render the data in an array as an html you can use ``.map(callbackfunction)``
 
-exampel: 
+example: 
 
 
 ```javascript
@@ -40,4 +40,4 @@ export default function App()
 ```
 
 
-here i created an array of object that has name and age of some useres and i used the ``.map(callbackfunction)`` to loop over them and get each object, access it's name and age values and render them out as an unorderd list
+here i created an array of object that has name and age of some users and i used the ``.map(callbackfunction)`` to loop over them and get each object, access it's name and age values and render them out as an unordered list

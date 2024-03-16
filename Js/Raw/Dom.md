@@ -52,7 +52,7 @@ const heads = document.querySelectorAll('.head-class')/*
 to access content within an element you have to get it as shown above and then use:
 
 - innerText => the formatted text within the element
-- innnerHTML => the text and tags within the element
+- innerHTML => the text and tags within the element
 - innerContent => the unformatted text in the element
 
 following the example above:
@@ -91,17 +91,17 @@ setting or accessing the values of html elements attributes is easy in js, after
 
 ---
 
-# Parents, children and sibiling:
+# Parents, children and sibling:
 
-accessing parents and sibilings in js can be done by accessing the values of:
+accessing parents and siblings in js can be done by accessing the values of:
 
 - parentElement => direct parent
 - children => all children
-- nextElementSibiling => the sibiling after
-- previousElementSibiling => the sibling before
+- nextElementSibling => the sibling after
+- previousElementSibling => the sibling before
 
 for example:
 
 ```javascript
-head1.nextElementSibiling; //will return the values of head2, head3
+head1.nextElementSibling; //will return the values of head2, head3
 ```

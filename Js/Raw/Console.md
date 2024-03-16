@@ -15,7 +15,7 @@ the log function is used to show output in the console
 ```javascript
 console.warn(msg);
 ```
-the warn function is used to show a warninig massage in the console
+the warn function is used to show a warning massage in the console
 
 <hr>
 
@@ -23,7 +23,7 @@ the warn function is used to show a warninig massage in the console
 ```javascript
 console.error(msg) 
 ```
-the error function is used to show an error massege in the console
+the error function is used to show an error massage in the console
 
 <hr>
 

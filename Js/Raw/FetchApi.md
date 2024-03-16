@@ -4,7 +4,7 @@
 
 ### fetch(url, { options }):
 
-the fetch api is a promise based api that takes a url by defalut to send a GET request to the url
+the fetch api is a promise based api that takes a url by default to send a GET request to the url
 the fetch returns a response object and since it uses promises it's async.
 
 example:
@@ -25,8 +25,8 @@ let response = fetch("www.someapi.com")
 ```
 
 > [!IMPORTANT]
-> the fetch api doesn't throw an error unless it's a contencion error
-> to check for the succes of the request use status and statusText in the then method, after that use the ok property to check if every thing is good
+> the fetch api doesn't throw an error unless it's a connection error
+> to check for the success of the request use status and statusText in the then method, after that use the ok property to check if every thing is good
 
 ---
 
