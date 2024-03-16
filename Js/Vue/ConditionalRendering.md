@@ -3,10 +3,10 @@
 
 conditional rendering in vue is done by using certain attribute like:
 
-- [(v-if)](#v-if--condition)
-- [(v-else-if)](#v-else-if--condition)
-- [(v-else)](#v-else)
-- [(v-show)](#v-show--condition)
+- [v-if](#v-if--condition)
+- [v-else-if](#v-else-if--condition)
+- [v-else](#v-else)
+- [v-show](#v-show--condition)
 
 ---
 
