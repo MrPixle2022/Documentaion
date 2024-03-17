@@ -3,9 +3,9 @@
 ---
 
 > [!Note]
-> must have the pacakge.json in the project can be created via the npm and set the type to module in it
+> must have the package.json in the project can be created via the npm and set the type to module in it
 
-### to use the promise falvoured:
+### to use the promise flavoured:
 
 ```javascript
 import * as fs from 'fs/promises';
@@ -22,7 +22,7 @@ await fs.mkdir('C:\\users\\Folder')
 the [**mkdir**] method creates a new folder at a givin path
 
 > [!CAUTION]
-> the mkdir by default can't create a new folder with in a none exisiting folder means that the file you want to make must be valid up to the dir before last.
+> the mkdir by default can't create a new folder with in a none existing folder means that the file you want to make must be valid up to the dir before last.
 
 to counter the case above there is a solution:
 
@@ -78,14 +78,14 @@ let data = await fs.readFile(".\\main.txt", "utf-8");
 console.log(data) //Hello
 ```
 
-the [**readFile**] method takes a path and retruns the content of the file, the encoder translates the data within the extracted files
+the [**readFile**] method takes a path and returns the content of the file, the encoder translates the data within the extracted files
 
 --- 
 
 #### appendFile(path, data):
 
 ```javascript
-await fs.appednFile(".\\main.txt", "Again");
+await fs.appendFile(".\\main.txt", "Again");
 let data = await fs.readFile(".\\main.txt", "utf-8");
 console.log(data) //Hello Again
 ```
@@ -126,7 +126,7 @@ import * as fs from 'fs';
 ```
 
 ---
-#### it's the same as the promise but all functions take a callback function to be excuted once an error happens
+#### it's the same as the promise but all functions take a callback function to be executed once an error happens
 
 ---
 ---

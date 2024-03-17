@@ -3,7 +3,7 @@
 ---
 
 > [!Note]
-> must have the pacakge.json in the project can be created via the npm and set the type to module in it
+> must have the package.json in the project can be created via the npm and set the type to module in it
 
 #### to use:
 
@@ -56,7 +56,7 @@ let ans = path.join('c:','\\users','\\Desktop\\');
 console.log(ans) //c:\\users\\Desktop\\
 ```
 
-the [**join**] method takes can take an infinite number of string argumetns and joins them into a path
+the [**join**] method takes can take an infinite number of string arguments and joins them into a path
 
 ---
 

@@ -8,7 +8,7 @@ import http from 'http'
 
 ---
 
-#### creat a server:
+#### create a server:
 to create a server you need to use the createServer(callback) function,
 
 the function takes a call back function as a parameter
@@ -23,7 +23,7 @@ you can use the respond and request parameters in the callback
 #### res.write(chunk):
 ```javascript
 res.write('<h1> server is running </h1>');
-//creates an h1 in the page the listen funcion is trageting
+//creates an h1 in the page the listen function is targeting
 ```
 
 #### res.end(msg):
@@ -65,7 +65,7 @@ res.writeHead(404, "bad", {"Content-Type": "text/html"})
 server.listen(8000, ()=> console.log("hi"))
 ```
 
-the [**listen**] method starts the server to listen to the given porrt, the callback:(optional) is excuted when the server starts
+the [**listen**] method starts the server to listen to the given port, the callback:(optional) is runs after the server starts
 
 ---
 
