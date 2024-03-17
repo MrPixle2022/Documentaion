@@ -16,7 +16,7 @@ to create a var in typescript you follow syntax of `let varName:type = value`, t
 ```typescript
 let var1:number = 2; //can only store numbers
 let var2:string = "amr"; //can only store string
-let var3:bool = true; //can only store bool
+let var3:boolean = true; //can only store boolean
 let var4:object = {}; //an object
 ```
 
@@ -46,7 +46,7 @@ let var1:number[] = [1,2,3,4];
 to create an array that allows for multiple types use `(type1|type2)[]`.
 
 ```typescript
-let var1:(number|bool) = [1,true,false,4]
+let var1:(number|boolean) = [1,true,false,4]
 ```
 
 another way of creating arrays is with tuples they specify the length,data types and order of elements.

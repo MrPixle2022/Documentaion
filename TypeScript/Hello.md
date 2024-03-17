@@ -5,3 +5,4 @@
 - [Data types](Raw/DataTypes.md)
 - [Type](Raw/Type.md)
 - [Interfaces](Raw/Interface.md)
+- [Generics](Raw/Generics.md)
