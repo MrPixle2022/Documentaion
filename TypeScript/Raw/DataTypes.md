@@ -73,7 +73,7 @@ let var2:any[] = ["amr", true, false, 2,3];
 
 ---
 
-# Functions, parameters and return types:
+# Functions, async , Promises, parameters and return types:
 
 functions stored in variables and created with the arrow syntax must have a type, the syntax is like
 
@@ -86,5 +86,11 @@ const secondFunc:() => void = () => {}
 
 the `void` keyword means no returned data.
 
----
+for async functions you must specify the return type of `Promise` and pass the Promise the type it must resolve into as `<number>` for example:
 
+```typescript
+const asyncFunc: () => Promise<any> = async () => {
+    return new Promise((res, rej) => res("Hi"));
+}
+```
+---
