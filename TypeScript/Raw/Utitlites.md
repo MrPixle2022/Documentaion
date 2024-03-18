@@ -2,8 +2,10 @@
 
 navigation:
 
-- 
-- 
+- [Omit](#omitt-k)
+- [Pick](#pickt-k)
+- [Partial](#partialt)
+- [Required](#requiredt)
 
 ---
 
@@ -52,3 +54,45 @@ const newP:PersonWithoutAgeAndEmail = {
 ```
 
 this created a new interface where only values are `age` and `email`
+
+---
+
+# Partial<T>:
+
+the `Partial` utility allows you to extend an interface and makes all it's keys optional.
+
+```typescript
+interface Person{
+    name: string,
+    age: number,
+    email: string
+}
+
+
+interface PersonPartial extends Partial<Person>{}
+
+const person_partial:PersonPartial = {
+    age: 10
+}
+```
+
+---
+
+# Required<T>:
+
+the `Required` utility allows you to extend an interface and make all it's keys required.
+
+```typescript
+interface Optional{
+    name?: string,
+    age? : number
+}
+
+interface OptionalRequired extends Required<Optional>{}
+
+const optional_required:OptionalRequired = {
+    name: "amr",
+    age: 10,
+}
+
+```
