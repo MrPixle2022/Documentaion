@@ -12,7 +12,7 @@ navigation:
 
 # Attribute Binding:
 
-attribute binding allows you to bind html attributes to js
+attribute binding allows you to use one-way data binding and bind html attributes to js
 
 there are two ways for binding the old and the short way:
 
