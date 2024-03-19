@@ -1,5 +1,7 @@
 # console
-<hr>
+
+---
+
 the console object is used to interact with the console
 
 ### methods:
@@ -9,7 +11,7 @@ console.log(msg);
 ```
 the log function is used to show output in the console
 
-<hr>
+---
 
 #### warn:  
 ```javascript
@@ -17,7 +19,7 @@ console.warn(msg);
 ```
 the warn function is used to show a warning massage in the console
 
-<hr>
+---
 
 #### error:
 ```javascript
@@ -25,7 +27,7 @@ console.error(msg)
 ```
 the error function is used to show an error massage in the console
 
-<hr>
+---
 
 #### table:
 ```javascript
@@ -50,7 +52,7 @@ console.table(obj);
     |Row2     | "value2"|
     |Row3     | "value3"|
 
-<hr>
+---
 
 #### clear:
 ```javascript

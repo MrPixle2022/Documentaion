@@ -1,16 +1,16 @@
 # Array Methods
 ---
 navigation:
-- [pop:](#pop)
-- [shift:](#shift)
-- [includes(target):](#includestarget)
-- [concat(secondArray):](#concatsecondarray)
-- [push(value):](#pushvalue)
-- [unshift(value):](#unshiftvalue)
-- [slice(start, end):](#slicestart-end)
-- [forEach(callbackFunction):](#foreachcallbackfunction)
-- [map (callbackFunction):](#map-callbackfunction)
-- [reduce(reducerfunction, initilavalue):](#reducereducerfunction-initilavalue)
+- [pop](#pop)
+- [shift](#shift)
+- [includes](#includestarget)
+- [concat](#concatsecondarray)
+- [push](#pushvalue)
+- [unshift](#unshiftvalue)
+- [slice](#slicestart-end)
+- [forEach](#foreachcallbackfunction)
+- [map](#map-callbackfunction)
+- [reduce](#reducereducerfunction-initilavalue)
 
 
 # toString:
@@ -127,10 +127,10 @@ the [**map**] returns a version of the array after applying the call back functi
 
 ---
 
-# reduce(reducerfunction, initilavalue):
+# reduce(reducerFunction, initialValue):
 ```javascript
 let arr = [1,2,3,4,5];
-let res = arr.reduce((prev, curr)=> prev+curr, 0)
+let res = arr.reduce((prev, cur)=> prev+cur, 0)
 console.log(res) //15
 ```
 the [**reduce**] method calls the reducer function on all the element in the array until it's only one value and the returns it, on each element it passes this element as the current value to the reducer function and uses, the previous value is the one returned when it was on the previous element, the initial value is the value passed as the previous on the first element

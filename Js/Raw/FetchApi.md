@@ -9,7 +9,7 @@ the fetch returns a response object and since it uses promises it's async.
 
 example:
 ```javascript
-let response = fetch("www.someapi.com")
+let response = fetch("www.someApi.com")
 ```
 
 ---
@@ -19,7 +19,7 @@ let response = fetch("www.someapi.com")
 to get the data as a json you use the json method:
 
 ```javascript
-let response = fetch("www.someapi.com")
+let response = fetch("www.someApi.com")
     .the(res => res.json())
     .then(json => json)
 ```

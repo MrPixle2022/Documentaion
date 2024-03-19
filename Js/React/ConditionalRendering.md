@@ -14,8 +14,7 @@ function Password({isValid})
 
 
 
-export function App()
-{
+export function App(){
     return <Password isValid={true}>;
 }
 ```

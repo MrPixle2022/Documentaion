@@ -2,11 +2,13 @@
 ---
 
 navigation:
-- [toLowerCase:](#tolowercase)
-- [trim:](#trim)
-- [substring(start, end):](#substringstart-end)
-- [replace(target, replacer):](#replacetarget-replacer)
-- [replaceAll(target, replacer):](#replacealltarget-replacer) 
+- [toUpperCase](#touppercase)
+- [toLowerCase](#tolowercase)
+- [trim](#trim)
+- [repeat](#repeatnumber)
+- [substring](#substringstart-end)
+- [replace](#replacetarget-replacer)
+- [replaceAll](#replacealltarget-replacer) 
 
 >[!NOTE]
 >String is considered an array so the array methods also applies to it
@@ -41,6 +43,17 @@ the [**trim**] method returns a new string after it removes the white space from
 
 ---
 
+# repeat(number):
+
+```javascript
+let str = 'hi ';
+console.log(str.repeat(4)) //hi hi hi hi
+```
+
+the [**repeat**] method returns a new version of the string by after repeating it's content a `number` number of times.
+
+---
+
 # substring(start, end):
 ```javascript
 let str = "amr yasser awad";
@@ -67,7 +80,7 @@ the [**replace**] takes two parameters the first is the what you want to replace
 ```javascript
 let str = "amr yasser awad";
 let newStr = str.replace("a", "x");
-console.log(newStr); //"xmr yxsser xwad"
+console.log(newStr); //"xmr yasser awad"
 ```
 the [**replaceAll**] takes two parameters the first is the what you want to replace and the second is what you want to replace it with
 

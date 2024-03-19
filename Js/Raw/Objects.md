@@ -9,7 +9,7 @@ objects can hold any data like
 - strings
 - numbers
 - booleans
-- funcitions
+- functions
 - other objects
 
 ```javascript
@@ -46,24 +46,24 @@ let obj = {
 }
 
 console.log(obj["firstName"]); //amr
-console.log(obj.["lastName"]; //yasser
+console.log(obj.["lastName"]); //yasser
 ```
-the second way is used when the key isn't accessable due to it's name like if the key name has a space it must be called like this
+the second way is used when the key isn't accessible due to it's name like if the key name has a space it must be called like this
 
 ```javascript
 let obj = {
     "first name": "amr",
     lastName: "yasser",
-    callname: () => console.log(`name: is amr yasser`)
+    callName: () => console.log(`name: is amr yasser`)
 }
 
 console.log(obj["first name"]); //amr
-obj.callname(); //name: is amr yasser
+obj.callName(); //name: is amr yasser
 ```
 
 
 > [!WARNING]
-> if the key doesn't exist in the object the key will be created and given the value of [ **undefined** ] by default unless you assing it a value
+> if the key doesn't exist in the object the key will be created and given the value of [ **undefined** ] by default unless you assign it a value
 
 ```javascript
 let obj = {
@@ -71,14 +71,14 @@ let obj = {
     lastName: "yasser",
 }
 
-console.log(obj.age); //undefiend
+console.log(obj.age); //undefined
 obj.mark = 5;
 console.log(obj.mark) //5
 ```
 
 ---
 #### deleting a key from the object:
-just use the delet keyword
+just use the `delete` keyword
 
 
 ```javascript
