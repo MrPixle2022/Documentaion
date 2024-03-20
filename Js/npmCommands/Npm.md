@@ -59,3 +59,12 @@ this will add it under the `"devDependencies"` in the `package.json` file.
 npm uninstall packagename
 ```
 
+#### link:
+
+to link a global package to your project use `link <packageName>`
+
+```powershell
+npm link express
+```
+
+for example this will link the project with the express that has been installed globally

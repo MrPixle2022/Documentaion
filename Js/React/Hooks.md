@@ -2,11 +2,11 @@
 ---
 
 navigation:
-- [useState(initialValue):](#usestateinitialvalue)
-- [useEffect(effect, dependenciesArray):](#useeffecteffect-dependenciesarray)
-- [useContext(context)](#usecontextcontext)
-- [useReducer(reducerFunction, initialState):](#usereducerreducerfunction-initialstate)
-- [useRef(initialValue):](#userefinitialvalue)
+- [useState](#usestateinitialvalue)
+- [useEffect](#useeffecteffect-dependenciesarray)
+- [useContext](#usecontextcontext)
+- [useReducer](#usereducerreducerfunction-initialstate)
+- [useRef](#userefinitialvalue)
 
 
 ---
