@@ -41,6 +41,10 @@ then to **create** a new db use `use _dbName_` like:
 use appDb
 ```
 
+to display the collection as a table use:
+`const res =db._collection_.find().toArray()`, then use `console.table(res)`
+
+
 to **remove** a db enter the db and use:
 
 ```powershell
