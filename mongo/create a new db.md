@@ -22,6 +22,10 @@ to start the mongo shell.
 
 ---
 
+to get the name of the current db use `db.getName()`
+
+---
+
 to see all dbs in your project first in the `mongo shell` use:
 
 ```powershell
