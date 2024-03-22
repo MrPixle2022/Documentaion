@@ -1,12 +1,12 @@
 # Update data:
 
-to update a field in a single record use `.updateOne()` it updates a single record, the method takes a query to look for a record by, and takes another object which specifies how to update it.
+to update a field in a single documents use `.updateOne()` it updates a single documents, the method takes a query to look for a documents by, and takes another object which specifies how to update it.
 
 ```powershell
 db.users.updateOne({$lt: {age: 18}}, {$set: {age: 10} }):
 ```
 
-this will update the first record where `age < 18` the sets the `age` to `18`
+this will update the first documents where `age < 18` the sets the `age` to `18`
 
 you can use:
 
@@ -21,4 +21,4 @@ you can use:
 |$pull|removes elements from an array|{$pull: {arr:val}}|
 
 > [!IMPORTANT]
-> to edit all records that meets the query use `updateMany` it takes the same params and applies for all.
+> to edit all documentss that meets the query use `updateMany` it takes the same params and applies for all.

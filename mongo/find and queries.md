@@ -1,13 +1,13 @@
 # find data:
 
 ### find():
-the `find` method allows you to get all records in the collection, for example:
+the `find` method allows you to get all documentss in the collection, for example:
 
 ```powershell
 db.users.find()
 ```
 
-which will log all records in the `users` collection.
+which will log all documentss in the `users` collection.
 
 you can limit the result to a specific number using the `limit` method after `find`.
 
@@ -15,25 +15,25 @@ you can limit the result to a specific number using the `limit` method after `fi
 
 ### findOne(---):
 
-use it to find one record that satisfies the query
+use it to find one documents that satisfies the query
 
 ---
 
 ### limit(n):
 
-the `limit` method limits the returned records from the `find` method to n number of records.
+the `limit` method limits the returned documentss from the `find` method to n number of documentss.
 
 ```powershell
 db.users.find().limit(2)
 ```
 
-this will return only the first 2 records in the `users` collection.
+this will return only the first 2 documentss in the `users` collection.
 
 ---
 
 ### sort({key: -1 || 1}):
 
-the `sort` method allows you to sort the records after finding them depending on the `key`, if `key` is set to:
+the `sort` method allows you to sort the documentss after finding them depending on the `key`, if `key` is set to:
 - `1`: ascending
 - `-1`: descending
 
@@ -45,13 +45,13 @@ db.users.find().sort({age: 1})
 
 ### skip(n):
 
-the `skip` method  is similar to the `limit` method since both takes a **number**, but the `skip` skips the first `n` number of records.
+the `skip` method  is similar to the `limit` method since both takes a **number**, but the `skip` skips the first `n` number of documentss.
 
 ```powershell
 db.users.find().skip(2)
 ```
 
-this will skip the first 2 records
+this will skip the first 2 documentss
 
 ---
 
@@ -59,7 +59,7 @@ this will skip the first 2 records
 
 ### find({key0: value}, {key1: 1||0}):
 
-the `find` method can take an object to get all records where they have the given key equal to the `value`, the second object specifies if the find should return that key or not:
+the `find` method can take an object to get all documentss where they have the given key equal to the `value`, the second object specifies if the find should return that key or not:
 
 - `1`: grab the key
 - `0`: don't grab the key
@@ -68,13 +68,13 @@ the `find` method can take an object to get all records where they have the give
 db.users.find({age:16}, {_id:0})
 ```
 
-this will return all records where `age` is equal to `16` and will return all data in them except the `_id`
+this will return all documentss where `age` is equal to `16` and will return all data in them except the `_id`
 
 ---
 
 ### query:
 
-to get records based on a condition use a query.
+to get documentss based on a condition use a query.
 
 syntax:
 
