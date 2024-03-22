@@ -17,7 +17,27 @@ to setup ejs for express first install it by using:
 npm install ejs
 ```
 
-then replace your views files `.html` extension with `.ejs` and replace the `sendFile` by `render` function.
+then replace your views files `.html` extension with `.ejs` and replace the `sendFile` by `render` function after setting the view engine and joining the path of the `__dirname` with the path of your views.
+
+```javascript
+const express = require('express');
+const app = express();
+const path = require('path');
+
+app.set('view engine', 'ejs');
+
+app.use(express.static(path.join(__dirname, 'views')));
+
+
+app.get('/', (req, res) => {
+  res.render('index.ejs'); 
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+```
+
 
 ---
 ---
