@@ -48,5 +48,6 @@
 
 - Mongoose:
     - [Setup](mongoose/Setup.md) 
-    - 
-    - 
+    - [Schemas and models](mongoose/Create%20a%20Schma%20and%20models.md)
+    - [Getting docs](mongoose/gettingDocs.md)
+    - [Update docs](mongoose/Updating%20docs.md)
