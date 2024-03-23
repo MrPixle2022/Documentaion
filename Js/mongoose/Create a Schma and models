@@ -36,4 +36,14 @@ export const createDoc = async (name, age) => {
 }
 ```
 
-then import this `createDoc` in the main js file and pass it the arguments it takes.
+then import this `createDoc` in the main js file and pass it the arguments it takes, for example:
+
+```javascript
+app.get("/:name/:age", (req,res) => {
+    createDoc(req.params.name, req.params.age)
+})
+```
+
+then if we for example used `http://localhost:8000/amr/10` i will see that in the db:
+
+![Database](Imgs/CreateDocExample0.png)
