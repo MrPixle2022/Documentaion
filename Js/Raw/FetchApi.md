@@ -46,7 +46,7 @@ fetch("www.someApi.com", {
     method: 'POST',
     headers: {
         'Content-type': 'application/json'
-    } 
+    },
     body: JSON.stringfy(data)
 }).then(res => res.json()).then(json => console.log(json))
 ```
