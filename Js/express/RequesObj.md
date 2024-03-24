@@ -8,7 +8,7 @@ navigation:
 
 ---
 
-# Path params:
+### Path params:
 
 to take a path param first in your url add `:` before the part that is a variable, then access it from `request.params` which is an object holding all path params as string.
 
@@ -25,7 +25,7 @@ so if i entered `http:\\localhost:3000\1\2` i will get `3`
 
 ---
 
-# Body params:
+### Body params:
 
 body params are usually sent as json object, to use them first you must allow json requests and then access the `body` object which holds all body params.
 
@@ -40,7 +40,7 @@ this request takes a body parameter named `name` and returns it in a message.
 
 ---
 
-# Query params:
+### Query params:
 
 query params are defined by keys and values in the url, the look like.
 `http:\\localhost\query?age=10`

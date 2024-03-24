@@ -12,7 +12,7 @@ this `FrontEndLang` type will only accept on of these values defined `'js'|'ts'|
 
 ---
 
-# Type combining:
+### Type combining:
 
 to combine multiple types in one use `&` also note that [Utilities](Utitlites.md) also works on types.
 

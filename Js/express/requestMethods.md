@@ -9,7 +9,7 @@ navigation:
 
 ---
 
-# get('url', (request, response) => {}):
+### get('url', (request, response) => {}):
 
 the `get` method allows you to handle a get request at `url` 
 
@@ -30,7 +30,7 @@ res.sendFile('./views/mainPage.html',{root: './'}, err => console.log(err));
 
 ---
 
-# post('url', (request, response) => {}):
+### post('url', (request, response) => {}):
 
 the `post` function allows you handle a post request at `url`.
 
@@ -44,7 +44,7 @@ this will send `2` when a post request is sent to `/post`.
 
 ---
 
-# delete('url', (request, response) => {}):
+### delete('url', (request, response) => {}):
 
 the `delete` method allows you to handle a delete request at `url`.
 
@@ -55,7 +55,7 @@ app.delete('/delete', (req,res) => res.send("done"))
 
 ---
 
-# patch('url', (request, response) => {}):
+### patch('url', (request, response) => {}):
 
 the `patch` method allows you to handle a patch request at `url`.
 

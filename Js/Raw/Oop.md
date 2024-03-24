@@ -4,7 +4,7 @@ in js every thing is considered an `obj` and each object has a base it extends c
 
 ---
 
-# Classes:
+### Classes:
 
 classes in js is a form of objects they can inherit and extend each other.
 
@@ -31,7 +31,7 @@ now you have access to all functions and properties of the `NewClass` class
 
 ---
 
-# Inheritance:
+### Inheritance:
 
 js supports class inheritance which allows you to extend the functionality of other classes to use Inheritance use:
 

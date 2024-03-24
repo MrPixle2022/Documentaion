@@ -10,7 +10,7 @@ document.title = 'my page'
 
 ---
 
-# Accessing elements by js:
+### Accessing elements by js:
 
 getting or accessing elements in js can be done by getting:
 
@@ -47,7 +47,7 @@ const heads = document.querySelectorAll('.head-class')/*
 
 ---
 
-# Access content:
+### Access content:
 
 to access content within an element you have to get it as shown above and then use:
 
@@ -75,7 +75,7 @@ which will create a new button in the `head3`
 
 ---
 
-# Setting and getting attributes:
+### Setting and getting attributes:
 
 setting or accessing the values of html elements attributes is easy in js, after getting the element in and storing it in a var you can access it directly with `.` or use:
 
@@ -91,7 +91,7 @@ setting or accessing the values of html elements attributes is easy in js, after
 
 ---
 
-# Parents, children and sibling:
+### Parents, children and sibling:
 
 accessing parents and siblings in js can be done by accessing the values of:
 

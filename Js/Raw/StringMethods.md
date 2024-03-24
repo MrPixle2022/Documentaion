@@ -13,7 +13,7 @@ navigation:
 >[!NOTE]
 >String is considered an array so the array methods also applies to it
 
-# toUpperCase:
+### toUpperCase:
 ```javascript
 let str = "amr yasser";
 let newStr = str.toUpperCase();
@@ -23,7 +23,7 @@ the [**toUpperCase**] method is used to returns a new version of the string with
 
 ---
 
-# toLowerCase:
+### toLowerCase:
 ```javascript
 let str = "AMR YASSER";
 let newStr = str.toLowerCase();
@@ -33,7 +33,7 @@ the [**toLowerCase**] method is used to returns a new version of the string with
 
 ---
 
-# trim:
+### trim:
 ```javascript
 let str = "   amr yasser   ";
 let newstr = str.trim();
@@ -43,7 +43,7 @@ the [**trim**] method returns a new string after it removes the white space from
 
 ---
 
-# repeat(number):
+### repeat(number):
 
 ```javascript
 let str = 'hi ';
@@ -54,7 +54,7 @@ the [**repeat**] method returns a new version of the string by after repeating i
 
 ---
 
-# substring(start, end):
+### substring(start, end):
 ```javascript
 let str = "amr yasser awad";
 let newStr = str.substring(0,5);
@@ -64,7 +64,7 @@ the [**substring**] method takes two parameters start index and end index and re
 
 ---
 
-# replace(target, replacer):
+### replace(target, replacer):
 > [!NOTE]
 > the replace method only replaces the first target only
 ```javascript
@@ -76,7 +76,7 @@ the [**replace**] takes two parameters the first is the what you want to replace
 
 ---
 
-# replaceAll(target, replacer):
+### replaceAll(target, replacer):
 ```javascript
 let str = "amr yasser awad";
 let newStr = str.replace("a", "x");

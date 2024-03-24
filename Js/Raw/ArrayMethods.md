@@ -13,7 +13,7 @@ navigation:
 - [reduce](#reducereducerfunction-initilavalue)
 
 
-# toString:
+### toString:
 ```javascript
 let arr = [1,2,3,4,5];
 let newArr = arr.toString();
@@ -23,7 +23,7 @@ the [**toString**] returns a string version of the array each value is separated
 
 ---
 
-# pop:
+### pop:
 ```javascript
 let arr = [1,2,3,4,5];
 console.log(arr.pop());
@@ -33,7 +33,7 @@ the [**pop**] removes the last element in the array and returns it
 
 ---
 
-# shift:
+### shift:
 ```javascript
 let arr = [1,2,3,4,5];
 console.log(arr.shift());
@@ -43,7 +43,7 @@ the [**shift**] removes the first element in the array and returns it
 
 ---
 
-# includes(target):
+### includes(target):
 ```javascript
 let arr = [1,2,3,4,5];
 console.log(arr.includes(1)); //true
@@ -52,7 +52,7 @@ the [**includes**] checks if the target exist in the array
 
 ---
 
-# concat(secondArray):
+### concat(secondArray):
 ```javascript
 let arr = [1,2];
 let secArr = [3,4];
@@ -63,7 +63,7 @@ the [**concat**] method takes an array as an argument and returns a new array by
 
 ---
 
-# push(value):
+### push(value):
 ```javascript
 let arr = [2,3,4,5];
 arr.push(1)
@@ -73,7 +73,7 @@ the [**push**] method returns the new length of the array after it takes a value
 
 ---
 
-# unshift(value):
+### unshift(value):
 ```javascript
 let arr = [2,3,4];
 let newArr = arr.unshift(1);
@@ -83,12 +83,12 @@ the [**unshift**] method returns the new length of the array after it takes a va
 
 ---
 
-#### slice(start, end):
+### slice(start, end):
 the [**slice**] method takes returns a section in an array between `start` and `end`, both are excluded.
 
 ---
 
-# sort(sortFunc):
+### sort(sortFunc):
 the [**sort**] method takes a comparison function which it uses to mutate the array, the comparison function  takes two params `a, b` and returns:
 - negative value: indicates that `a` must be before `b`
 - zero: indicates that `a` is equal to `b`
@@ -96,7 +96,7 @@ the [**sort**] method takes a comparison function which it uses to mutate the ar
 
 ---
 
-# forEach(callbackFunction):
+### forEach(callbackFunction):
 > [!IMPORTANT]
 > the forEach overwrites the array
 ```javascript
@@ -117,7 +117,7 @@ the callback function can take some values:
 ---
 
 
-# map (callbackFunction):
+### map (callbackFunction):
 ```javascript
 let arr = [2,3,4];
 let newArr = arr.map((x)=> x+1);
@@ -127,7 +127,7 @@ the [**map**] returns a version of the array after applying the call back functi
 
 ---
 
-# reduce(reducerFunction, initialValue):
+### reduce(reducerFunction, initialValue):
 ```javascript
 let arr = [1,2,3,4,5];
 let res = arr.reduce((prev, cur)=> prev+cur, 0)

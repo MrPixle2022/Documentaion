@@ -9,7 +9,7 @@ navigation:
 
 ---
 
-# Omit<T, K>:
+### Omit<T, K>:
 
 the `Omit` utility allows you to inherit from a type while removing some data from it like extending an interface while ignoring one of it's values.
 
@@ -33,7 +33,7 @@ this will create `PersonWithoutAgeAndEmail` interface which only has `name` in i
 
 ---
 
-# Pick<T, K>:
+### Pick<T, K>:
 
 the `Pick` utility is similar to the `Omit` but instead of excluding values it picks them.
 
@@ -57,7 +57,7 @@ this created a new interface where only values are `age` and `email`
 
 ---
 
-# Partial<T>:
+### Partial<T>:
 
 the `Partial` utility allows you to extend an interface and makes all it's keys optional.
 
@@ -78,7 +78,7 @@ const person_partial:PersonPartial = {
 
 ---
 
-# Required<T>:
+### Required<T>:
 
 the `Required` utility allows you to extend an interface and make all it's keys required.
 

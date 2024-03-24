@@ -1,4 +1,8 @@
-# Initialize a repo:
+#  Basics:
+
+---
+
+### Initialize a repo:
 
 to create a new local repo on your device use:
 
@@ -11,7 +15,7 @@ this will create a hidden `.git` folder at the current path your are in, the `.g
 if you have files or a folder within your repo that you don't want to include create `.gitignore` file and in it put all paths to any file/folder you want to ignore
 
 ---
-# Setting the user:
+### Setting the user:
 
 to set your git username(the name that will be attached to any commit you make) use:
 
@@ -29,7 +33,7 @@ both values are changeable any time you want
 
 ---
 
-# Staging:
+### Staging:
 
 to stage files (track there changes) use the `add` command either for all like
 
@@ -47,7 +51,7 @@ git add filename
 
 ---
 
-# Unstage:
+### Unstage:
 
 if you mistakenly staged a file you don't want to stage use:
 
@@ -59,7 +63,7 @@ which will reset all changes (ignore them) or replace the `.` with the file or t
 
 ---
 
-# Status:
+### Status:
 
 the `status` command shows whether there is a change or not and the current brach 
 
@@ -71,7 +75,7 @@ git status
 
 
 ---
-# Commit:
+### Commit:
 
 to finally apply any changes you 've staged to the repo use the `commit` command followed by your message[**needed**] between `" "` like:
 
@@ -81,7 +85,7 @@ git commit -m "your message"
 
 ---
 
-# Log:
+### Log:
 
 the `log` command displays all the commits made in this repo with the name and email of who ever commited them and a commit hash code to return to this specific commit and the date of the commit.
 
@@ -96,7 +100,7 @@ git log
 
 ---
 
-# Restoring the file:
+### Restoring the file:
 
 if you edited a file then you wanted to cancel those changes use:
 
@@ -106,7 +110,7 @@ git restore filename
 
 ---
 
-# Returning to an old commit:
+### Returning to an old commit:
 
 to return to a previous commit you need it's `hash code` that is displayed in it's log, then use:
 

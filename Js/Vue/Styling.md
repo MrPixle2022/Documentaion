@@ -9,7 +9,7 @@ styling in vue has four shapes:
 
 ---
 
-# Global:
+### Global:
 
 global styling happens when using `<style></style>` tags with out the `scoped` attribute. this will cause that all components with this class in the same file will have this style
 
@@ -59,7 +59,7 @@ result:
 
 ---
 
-# Local:
+### Local:
 
 in the local style you just add `scoped` attribute to the style tags so following the previous example `Global.vue` will look like:
 
@@ -84,7 +84,7 @@ result:
 
 ---
 
-# Combined:
+### Combined:
 
 the combined uses both styles in one so you use `<style></style>` and `<style scoped></style>`
 
@@ -117,7 +117,7 @@ result:
 
 ---
 
-# Module:
+### Module:
 
 the module style allows you to create styles while avoiding name clash (two style rules with the same selectors), you can use the name you like for the module, once compiled vue will automatically add the file name before the selector plus a hash code at the end.
 

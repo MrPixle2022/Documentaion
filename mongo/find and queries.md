@@ -1,5 +1,7 @@
 # find data:
 
+---
+
 ### find():
 
 the `find` method allows you to get all records in the collection, for example:

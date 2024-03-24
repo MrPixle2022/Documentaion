@@ -10,7 +10,7 @@ navigation:
 - [Two-way data binding](#two-way-data-binding)
 
 
-# Attribute Binding:
+### Attribute Binding:
 
 attribute binding allows you to use one-way data binding and bind html attributes to js
 
@@ -67,7 +67,7 @@ const img = {
 
 ```
 
-# Dynamic Binding:
+### Dynamic Binding:
 
 Dynamic binding allows you to bind attributes to js where the attribute name is the same as the key in an object, like:
 
@@ -93,7 +93,7 @@ this is the same as shown in the example above.
 
 ---
 
-# Event directives:
+### Event directives:
 the `v-on` directive is used to assign js code to an element on an event it's syntax may vary as the dev may want you could use it like:
 - `v-on:eventName = 'code'`
 - `@:eventName = 'code'`
@@ -134,7 +134,7 @@ const number = ref(0)
 
 ---
 
-# Conditional rendering:
+### Conditional rendering:
 conditional rendering in vue is done by using certain directives like:
 - [v-if](#v-if--condition)
 - [v-else-if](#v-else-if--condition)
@@ -143,7 +143,7 @@ conditional rendering in vue is done by using certain directives like:
 
 ---
 
-## v-if = 'condition':
+#### v-if = 'condition':
 
 the `v-if` directive is used to specify a condition on which the element is rendered.
 
@@ -166,7 +166,7 @@ in this example we have an `h2` element that will only render when the value of 
 
 ---
 
-## v-else-if = 'condition':
+#### v-else-if = 'condition':
 
 the `v-else-if` directive allows the element to be rendered on a certain condition when the element with `v-if` isn't rendered to it's condition not being true.
 
@@ -191,13 +191,13 @@ in this example the `h2` with `v-else-if` will only render when `number` is grea
 
 ---
 
-## v-else:
+#### v-else:
 
 unlike to previous directives the `v-else` doesn't take a condition since it will be rendered when all element with `v-if` and `v-else-if` above it won't load due to their condition being false
 
 ---
 
-## v-show = 'condition':
+#### v-show = 'condition':
 
 similar to `v-if` the `v-show` takes a condition but unlike it `v-show` is used to toggle the visibility of an element instead of showing multiple elements based on a condition.
 
@@ -221,11 +221,11 @@ in this example the `p` will only appear when `number` is greater than 10 else i
 
 ---
 
-# List Rendering:
+### List Rendering:
 
 to loop over the elements of an iterable you can use `v-for` to render this element for each element in the array you are looping over.
 
-## v-for = "(value, index?) in array"
+#### v-for = "(value, index?) in array"
 
 the `v-for` allows you to loop over an array each time taking the value and optionally the index of one of it's values.
 
@@ -277,7 +277,7 @@ this will loop and return nums between [1 to 5]
 
 ---
 
-# Two-way data binding:
+### Two-way data binding:
 
 the `v-model` directive allows you to connect your element to a model to synchronize the change in the model to directly change the element.
 

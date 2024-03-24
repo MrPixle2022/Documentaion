@@ -1,4 +1,4 @@
-# Evenets:
+# Events:
 
 ---
 

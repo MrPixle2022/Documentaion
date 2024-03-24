@@ -1,4 +1,3 @@
-
 # the response object:
 
 the `response` you make in the callback in any request method has a set of methods and function like.
@@ -12,7 +11,7 @@ navigation:
 
 ---
 
-## statusMessage:
+### statusMessage:
 
 the `status message` property allows you to set the status text for the response.
 
@@ -23,7 +22,7 @@ res.statusMessage = "Good request";
 
 ---
 
-# statusCode:
+### statusCode:
 
 the `status code` allows you to set the status code for the response:
 
@@ -34,7 +33,7 @@ res.statusCode = 200;
 
 ---
 
-## send('data'):
+### send('data'):
 
 the `send` method allows to send text or assign html to the page.
 
@@ -46,7 +45,7 @@ this will create an `h1` element at the home page.
 
 ---
 
-## sendFile('path', {root: 'rootPath'}, errFunc):
+### sendFile('path', {root: 'rootPath'}, errFunc):
 
 the `sendFile` method allows you to send a file as a response to a request it takes three parameters.
 1. `path` : the path to the file you want to send.

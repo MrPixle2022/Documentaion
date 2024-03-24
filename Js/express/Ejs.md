@@ -9,7 +9,7 @@ navigation:
 ---
 ---
 
-# setup:
+### setup:
 
 to setup ejs for express first install it by using:
 
@@ -43,7 +43,7 @@ app.listen(3000, () => {
 ---
 
 
-# render('path', {params}, errFunc):
+### render('path', {params}, errFunc):
 
 to pass data to ejs pass them in the `render` function.
 
@@ -60,7 +60,7 @@ this code will send param named `name` to the ejs file stored in the `views` fol
 ---
 ---
 
-# ejs syntax:
+### ejs syntax:
 
 ejs allows you to write html and use special tags in it to put data and other stuff similar to django for example.
 

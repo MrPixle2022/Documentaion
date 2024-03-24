@@ -40,7 +40,7 @@ output:
 
 ---
 
-# Props destructuring:
+### Props destructuring:
 
 ```javascript
 export function User({name, age})
@@ -57,7 +57,7 @@ here i am destructuring the props into name and age so i can use them directly i
 
 ---
 
-# Children props:
+### Children props:
 
 
 ```javascript

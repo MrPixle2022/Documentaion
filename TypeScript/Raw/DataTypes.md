@@ -9,7 +9,7 @@ navigation:
 
 ---
 
-# Primitive types:
+### Primitive types:
 
 to create a var in typescript you follow syntax of `let varName:type = value`, the type is all lower case for primitive types.
 
@@ -22,7 +22,7 @@ let var4:object = {}; //an object
 
 
 ---
-# Multiple types:
+### Multiple types:
 
 to allow a variable to hold multiple values use the union syntax `let varName:(type1|type2) = value`.
 
@@ -35,7 +35,7 @@ you are not limited to two types, foreach type you want add `|` and then the typ
 
 ---
 
-# Arrays of single or multiple types:
+### Arrays of single or multiple types:
 
 to create an array of numbers for example add `[]` after the type.
 
@@ -59,7 +59,7 @@ this tuple length can't be anything but 2 since we specified 2 values first must
 
 ---
 
-# Any type:
+### Any type:
 
 if you wan't a variable to be dynamic at any time use the `any` type, it can be used to create arrays that can hold any type in it.
 
@@ -73,7 +73,7 @@ let var2:any[] = ["amr", true, false, 2,3];
 
 ---
 
-# Functions, async , Promises, parameters and return types:
+### Functions, async , Promises, parameters and return types:
 
 functions stored in variables and created with the arrow syntax must have a type, the syntax is like
 
