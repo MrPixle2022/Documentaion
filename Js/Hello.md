@@ -28,6 +28,11 @@
     - [Forms](React/Forms.md)
     - [Styling](React/CssStyle.md)
     - [Hooks](React/Hooks.md)
+    - Redux:
+        - ReduxToolkit:
+            - [Setup](React/redux%20toolkit/setup.md)
+            - [Slices](React/redux%20toolkit/Slices.md)
+            - [Using Slices](React/redux%20toolkit/Using%20slices.md)
 
 - VueJs:
     - [Creating a Project](Vue/SetUp.md)
