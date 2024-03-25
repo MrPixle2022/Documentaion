@@ -7,7 +7,7 @@ slices allow you to to turn the store data into smaller pieces and allows you to
 
 to create a slice import `createSlice` from `redux` after creating a new slice by using syntax similar to creating a store, you will have to assign it a `name` for it's , `reducer` an object which holds all instructions as keys and values
 
-for example i created a slice `src/app/feature/counter/CounterSlice.js`:
+for example i created a slice `src/feature/storeSlice.js`:
 ```javascript
 import { createSlice} from "@reduxjs/toolkit";
 
