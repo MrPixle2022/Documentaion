@@ -9,19 +9,19 @@ to create a slice import `createSlice` from `redux` after creating a new slice b
 
 for example i created a slice `src/app/feature/counter/CounterSlice.js`:
 ```javascript
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice} from "@reduxjs/toolkit";
 
-const counterSlice = createSlice({
+const slice = createSlice({
     name: "counter",
-    initialState: {value: 0},
-    reducers: {
-        increment: (state) => state + 1,
-        decrement: (state) => (state > 0)? state--: 0
+    initialState: {value: Number(0)},
+    reducers:{
+        increment: state => {state.value += 1},
+        decrement: state => {state.value -= 1},
     }
 })
 
-export const {increment, decrement} = counterSlice.actions;
-export default counterSlice.reducer;
+export const {increment, decrement} = slice.actions;
+export default slice.reducer;
 ```
 
 here both `increment` and `decrement` are `Actions`, the change in the `state` will trigger a rerender by default so no need for hooks
@@ -30,12 +30,11 @@ after doing that you need to import it and add it to the `store` reducer obj.
 
 ```javascript
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from './features/counter/CounterSlice.js'
+import  counterReducer from "./features/storeSlice"
 
-export const store = configureStore({
+export const counterStore = configureStore({
     reducer: {
-        counter: counterReducer
+        counter: counterReducer,
     }
-})
-
+});
 ```

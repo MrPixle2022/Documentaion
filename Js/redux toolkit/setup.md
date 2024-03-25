@@ -19,11 +19,11 @@ export const store = configureStore({
 then in the `main.js` or `main.jsx` import that store alongside the `Provider` from `react-redux`:
 
 ```javascript
-import { Store } from '@reduxjs/toolkit'
+import { store } from 'src/app/store.js'
 import { Provider } from 'react-redux'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <Provider store={Store}>
+    <Provider store={store}>
       <App />
     </Provider>
 )
