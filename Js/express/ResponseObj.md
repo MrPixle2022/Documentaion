@@ -56,3 +56,28 @@ the `sendFile` method allows you to send a file as a response to a request it ta
 app.get('/', (req,res) => res.sendFile(__dirname+"views/main.html"));
 ```
 ---
+
+### render(filePath, {data}):
+
+the `render` method allows you to display static file on the server but it requires some work like setting the default view engine the path, etc.., by default it will look for file in the `views` dir, after finding the file it will pass it the data object under the name of `locals`.
+
+```javascript
+import express from 'express';
+
+const app = express();
+app.set('view engine', 'ejs')
+
+const port = 3000
+
+app.get('/', (req, res) => {
+    res.render('index.ejs', {name:"amr"})
+});
+
+app.listen(port, () => console.log(`server is up @: http://localhost:${port}/`));
+```
+
+---
+
+### download(path):
+
+the `download` allows you to send a file to be downloaded on the client's device.
