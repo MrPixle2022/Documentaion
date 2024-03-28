@@ -51,6 +51,7 @@
     - [Response object](express/ResponseObj.md)
     - [Ejs](express/Ejs.md)
     - [Routers](express/Routers.md)
+    - [Middleware](express/Middlewares.md)
 
 - Mongoose:
     - [Setup](mongoose/Setup.md) 

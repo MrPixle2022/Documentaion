@@ -81,3 +81,13 @@ app.listen(port, () => console.log(`server is up @: http://localhost:${port}/`))
 ### download(path):
 
 the `download` allows you to send a file to be downloaded on the client's device.
+
+---
+
+### redirect('path'):
+
+the `redirect` allows you to send the client to another url
+
+```javascript
+app.get('/', (req,res) => res.redirect('/users'))
+```
