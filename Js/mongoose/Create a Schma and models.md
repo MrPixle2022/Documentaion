@@ -21,6 +21,17 @@ the:
 to use this schema and create models based on it use the schema to create an object from it like:
 
 ```javascript
+const model = mongoose.model('collectionName', schema)
+```
+
+```javascript
+const UserModel = mongoose.model('Users', UserSchema)
+```
+
+
+## creating a new doc:
+
+```javascript
 export const createDoc = async (name, age) => {
     try {
         const u1 =  new UserModel({
@@ -47,3 +58,11 @@ app.get("/:name/:age", (req,res) => {
 then if we for example used `http://localhost:8000/amr/10` i will see that in the db:
 
 ![Database](Imgs/CreateDocExample0.png)
+
+or use the `create` method like:
+
+```javascript
+Model.create({data})
+```
+
+which takes care of every thing
