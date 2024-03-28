@@ -59,3 +59,4 @@
     - [Getting docs](mongoose/gettingDocs.md)
     - [Update docs](mongoose/Updating%20docs.md)
     - [Delete docs](mongoose/Delet%20docs.md)
+    - [Middlewares](mongoose/Midllewares.md)
