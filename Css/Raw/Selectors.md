@@ -29,7 +29,7 @@ the `general selector` or the `*` is used to apply a style for all elements, it 
 
 ## tag selector:
 
-the `tag selector` is used to target all html elements of a specified type, defined by `tag-name` directly it has a low specificity.
+the `tag selector` is used to target all html elements of a specified type, defined by `tag-name`, it has a low specificity.
 
 **specificity** :(0, 0, 1) -> 1
 
