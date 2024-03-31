@@ -14,7 +14,7 @@ selector allow you to target html elements and apply style to them they vary dep
 
 ## general selector:
 
-the `general selector` ro the `*` is used to reset the style on all elements, it has a lower specificity then other selectors.
+the `general selector` or the `*` is used to apply a style for all elements, it has a lower specificity then other selectors.
 
 **specificity**: (0, 0, 0) -> 0
 
