@@ -33,6 +33,11 @@
             - [Setup](React/redux%20toolkit/setup.md)
             - [Slices](React/redux%20toolkit/Slices.md)
             - [Using Slices](React/redux%20toolkit/Using%20slices.md)
+    
+    - ReactRouter:
+      - [Setup](React/React-router/setup.md)
+      - [Basic of routing](React/React-router/UsingARouter.md)
+      - [Getting path params](React/React-router/GettingPathParams.md)
 
 - VueJs:
     - [Creating a Project](Vue/SetUp.md)
