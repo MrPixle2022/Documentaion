@@ -37,7 +37,9 @@
     - ReactRouter:
       - [Setup](React/React-router/setup.md)
       - [Basic of routing](React/React-router/UsingARouter.md)
-      - [Getting path params](React/React-router/GettingPathParams.md)
+      - [Link and NavLink components](React/React-router/LinkAndNavLink.md)
+      - [Using Params and getting them](React/React-router/accessing%20Params.md)
+      - [Accessing a state](React/React-router/accessingStates.md)
 
 - VueJs:
     - [Creating a Project](Vue/SetUp.md)
