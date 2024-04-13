@@ -69,7 +69,7 @@ the `Navigate` components works exactly like the `Link` component but instead of
 <Navigate />
 ```
 
-although sometimes you would want to send data when redirecting so instead you could use the `useNavigate` hook like:
+although sometimes you would want to send data when redirecting so instead you could use the or you just wnat to redirect the user from code instead of using a component for such cases use `useNavigate` hook like:
 
 ```javascript
 import { useNavigate } from 'react-router-dom'
@@ -81,5 +81,12 @@ function NotFound() {
 
 export default NotFound
 ```
+The navigate function's url starts from the url root,
 
 this code will redirect the user to the home page and send the state and replace the previous url in the browser history
+
+also it's possible to pass a negative number which means that navigate backward a set number of times for example:
+
+```javascript
+navigate(-2); //go back one page
+```
