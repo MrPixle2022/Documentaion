@@ -85,7 +85,7 @@ The navigate function's url starts from the url root,
 
 this code will redirect the user to the home page and send the state and replace the previous url in the browser history
 
-also it's possible to pass a negative number which means that navigate backward a set number of times for example:
+also it's possible to pass a negative number which means go backward a set number of times for example:
 
 ```javascript
 navigate(-1); //go back one page
