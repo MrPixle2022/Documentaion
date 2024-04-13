@@ -69,7 +69,7 @@ the `Navigate` components works exactly like the `Link` component but instead of
 <Navigate />
 ```
 
-although sometimes you would want to send data when redirecting so instead you could use the or you just wnat to redirect the user from code instead of using a component for such cases use `useNavigate` hook like:
+although sometimes you would want to send data when redirecting or you just wnat to redirect the user from code instead of using a component for such cases use `useNavigate` hook like:
 
 ```javascript
 import { useNavigate } from 'react-router-dom'
