@@ -11,7 +11,7 @@ navigation:
 - [replaceAll](#replacealltarget-replacer) 
 
 >[!NOTE]
->String is considered an array so the array methods also applies to it
+>a String is considered an array so the array methods also applies to it
 
 ### toUpperCase:
 ```javascript
