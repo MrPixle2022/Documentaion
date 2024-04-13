@@ -62,6 +62,10 @@ the height similar functions similar to the `width` property but works on the ot
 }
 ```
 
+> [!IMPORTANT]
+> 
+> both `width` & `height` can only affect block level elements or elements that are set to have block level treatment like inline-block
+
 ---
 
 ## border:
@@ -80,7 +84,7 @@ the border takes three `required` values but their order doesn't matter:
 
 ```css
 .target{
-    border: thickness style color
+    border: <thickness> <style> <color>
 }
 ```
 
@@ -93,22 +97,22 @@ also you have control
 **over each side's border**:
 ```css
 .target{
-    border-side: thickness style color
+    border-<side>: <thickness> <style> <color>
 }
 ```
 
 **over the arc of the border**:
 ```css
 .target{
-    border-radius: over-all-radius over-all-2nd-radius;
-    border-verticalside-horizontalside-radius: arc1 arc2;
+    border-radius: <over-all-radius> <over-all-2nd-radius>;
+    border-<verticalSide>-<horizontalSide>-radius: arc1 arc2;
 }
 ```
 
 **spacing between borders**
 ```css
 .target{
-    border-space: val;
+    border-space: <amount>;
 }
 ```
 
@@ -121,16 +125,16 @@ padding allows you to control the space between **the content** and **the border
 **padding**:
 ```css
 .target{
-    padding: padding-around-the-element;
-    padding: vertical horizontal;
-    padding: top right bottom left;
+    padding: <padding-around-the-element>;
+    padding: <vertical> <horizontal>;
+    padding: <top> <right> <bottom> <left>;
 }
 ```
 
 **padding-side**:
 ```css
 .target{
-    padding-side: size;
+    padding-<side>: <amount>;
 }
 ```
 
@@ -142,18 +146,18 @@ the margin allows you to set the invisible space around the element out side the
 
 ```css
 .target{
-    margin: margin-around-the-element;
+    margin: <margin-around-the-element>;
 }
 ```
 
 ```css
 .target{
-    margin: vertical horizontal;
+    margin: <vertical> <horizontal>;
 }
 ```
 
 ```css
 .target{
-    margin: top right bottom left;
+    margin: <top> <right> <bottom> <left>;
 }
 ```
