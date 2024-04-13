@@ -88,5 +88,5 @@ this code will redirect the user to the home page and send the state and replace
 also it's possible to pass a negative number which means that navigate backward a set number of times for example:
 
 ```javascript
-navigate(-2); //go back one page
+navigate(-1); //go back one page
 ```
