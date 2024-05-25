@@ -18,21 +18,6 @@ app:
 */
 ```
 
-but if you have a dynamic route like displaying a blog by `id` or any dynamic route the folder must have it's name between `[ ]`.
-
-for example to create a dynamic `id` route for the `users` route the structure will be like:
-
-```javascript
-
-/*  
-app      -> ----/   
-|---| users  -> ----/users  
-        |-- page.jsx
-        |--[id] -> ---/users/:id  
-            |-- page.jsx
-*/
-```
-
 ---
 
 ## the page. file
@@ -50,8 +35,6 @@ app
 |       |--page.jsx
 */
 ```
-
-
 
 ---
 
@@ -122,11 +105,87 @@ all pages in the `app` directory will render between `top` and `bottom`
 > a parent route has one it will also be shared so you will have 2 or more layouts.
 
 
-there are some special layouts you can use, but the file name must be:
+## dynamic routes:
+
+if you have a dynamic route like displaying a blog depending on it's `id` or any dynamic route the folder must have it's name between `[ ]`.
+
+for example to create a dynamic `id` route for the `users` route the structure will be like:
+
+```javascript
+
+/*  
+app      -> ----/   
+|---| users  -> ----/users  
+        |-- page.jsx
+        |--[id] -> ---/users/:id  
+            |-- page.jsx
+*/
+```
+
+in the example above if i want to get the `id` i just have to edit the `page.jsx` component to accept `params` like:
+
+```javascript
+function GrabId({params}){
+  return <h1>{params.id}</h1>
+}
+```
+
+this will display the `/:id`, 
+
+> [!IMPORTANT]
+> Note that the property name is the same as the folder's name
+
+---
+
+## catch all route:
+
+the `catch all route` is a type of dynamic route that allows you to take a multiple routes at once, for example:
+
+```javascript
+/*  
+app      -> ----/   
+|---| users  -> ----/users  
+        |-- page.jsx
+        |--[name] -> ---/users/:id  
+            |-- page.jsx
+*/
+```
+
+you can access a url like:
+`/users/amr/`
+
+but you can't if it's: 
+`/users/amr/yasser/`
+
+using a normal dynamic route you'll have to either create a route or a new nested dynamic route.
+
+but with `catch all route` it's simple.
+
+to turn the previous example into a `catch all route` i'll just rename it to `[...id]`
+
+```javascript
+/*  
+app      -> ----/   
+|---| users  -> ----/users  
+        |-- page.jsx
+        |--[name] -> ---/users/:id  
+            |-- page.jsx
+*/
+```
+
+now i can access `/users/amr/yasser/` with no problem, and i can access the url's data like a normal dynamic url, the only difference being that the `catch all route` is an **`array`**
+
+---
+
+## special files
+
+there are some files you can create to customize the behavior of you wep app, but their name must be exact:
 
 - **error** : used to set the ui displayed when an error occurs
 - **not-found** : the ui displayed when an error `404` happens (page not found)
 - **loading** : the ui displayed when loading 
+
+you just create the file, make a component with all the code you need and the export it as a **`default export`**
 
 ---
 
