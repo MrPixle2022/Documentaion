@@ -41,14 +41,13 @@
       - [Using Params and getting them](React/React-router/accessing%20Params.md)
       - [Accessing a state](React/React-router/accessingStates.md)
 
-- VueJs:
-    - [Creating a Project](Vue/SetUp.md)
-    - [Components](Vue/Components.md)
-    - [Js Expressions](Vue/JsExpressions.md)
-    - [Directives](Vue/Directives.md)
-    - [Styling](Vue/Styling.md)
-    - [Reactivity](Vue/ReactivityState.md)
-    - [Props](Vue/Props.md)
+- NextJs:
+  - [Installation & setup](Next/Setup.md)
+  - [File Structure & App Router](Next/File%20Structure%20&%20App%20Router.md)
+  - [Basic Routing](Next/BasicRouting.md)
+  - [Client and Server components](Next/Client-Server-Components.md)
+  - [Next hooks](Next/NextHooks.md)
+  - [Images & fonts](Next/Images.md)
 
 - ExpressJs:
     - [Setup](express/setup.md) 
