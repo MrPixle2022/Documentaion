@@ -54,4 +54,4 @@ function AllUsers({params}){
 }
 ```
 
-in this example i had a dynamic `catch all route`, then i look if the first user is `'amr'` i will redirect the user to the `about` page.
+in this example i have a dynamic `catch all route`, then i look if the first user is `amr` i will redirect the user to the `about` page.
