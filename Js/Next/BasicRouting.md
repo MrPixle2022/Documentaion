@@ -1,5 +1,10 @@
 # Routing:
 
+navigation:
+
+- [Link](#Link)
+- [redirect](#redirect)
+- [useRouter](#userouter)
 
 ---
 
@@ -18,7 +23,8 @@ import Link from "next/link"
 
 export default HomePage(){
   return <div>
-    <Link href='/about'>About</Link>
+    { /* the prefetch is optional but sets wether the href page will be preloaded or not. */ }
+    <Link href='/about' prefetch = {false} >About</Link>
   </div>
 }
 ```
@@ -55,3 +61,9 @@ function AllUsers({params}){
 ```
 
 in this example i have a dynamic `catch all route`, then i look if the first user is `amr` i will redirect the user to the `about` page.
+
+---
+
+## useRouter:
+
+read [useRouter](NextHooks.md#userouter)
