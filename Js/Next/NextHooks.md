@@ -77,9 +77,33 @@ export default Layout;
 
 ---
 
+## useParams:
+
+the `useParams` hook allows you to access dynamic params in the `url`, it returns an object with the params.
+
+```javascript
+'use client';
+
+import { useParams } from "next/navigation";
+
+
+export default function BlogWithId() {
+  const params = useParams();
+
+  return (
+    <div>
+      <h1>ID: { params?.id }</h1>
+    </div>
+  );
+}
+```
+
+
+---
+
 ## useSearchParams:
 
-the `useSearchParams` is a client hook that returns the queries in the `url`.
+the `useSearchParams` is a client **`READONLY`** hook that returns the queries in the `url`.
 
 later you can check for the query you want or get it.
 
@@ -88,13 +112,13 @@ later you can check for the query you want or get it.
 
 import { useSearchParams } from "next/navigation";
 
-function UseParamsExample() {
+function UseSearchParamsExample() {
   const query = useSearchParams();
   console.log(query);
   return <>{query.has("name") && query.get("name")}</>;
 }
 
-export default UseParamsExample;
+export default UseSearchParamsExample;
 ```
 
 the `useSearchParams` has a set of useful methods like:
@@ -102,38 +126,30 @@ the `useSearchParams` has a set of useful methods like:
 - `get(query)`: return the value of the given query
 - `has(query)`: cheeks if the query has a value
 
-to update a query use:
+since the `useSearchParams` is **`READONLY`** you can no longer use the `set` method but there are solutions like using a `Link` to change the params like:
 
 ```javascript
-"use client";
+'use client';
 
-import { useSearchParams, useRouter } from "next/navigation";
-import { useCallback } from "react";
+import Link from "next/link";
+import {useSearchParams, usePathname } from "next/navigation";
 
-function Shit() {
-  /*1- create a custom cached function to create params
-  2- return the stringified version of the search params
-  3- push it via the router
-*/
-  const router = useRouter();
-  const query = useSearchParams();
-  const createParams = useCallback(
-    (name, value) => {
-      const qParams = new URLSearchParams(query);
-      qParams.set(name, value);
-      return qParams.toString();
-    },
-    [query]
-  );
+
+export default function BlogWithId() {
+  const searchParams = useSearchParams();
+  const pathName = usePathname();
+
   return (
-    <>
-      <button
-        onClick={() => router.push(`/thisPage/${createParams("job", "dev")}`)}>
-        update
-      </button>
-    </>
+    <div>
+      <h1>{ searchParams?.get("age") || "check again" }</h1>
+      <Link href={ `${pathName}?size=xl` }>{ searchParams.get("size") }</Link>
+    </div>
   );
 }
-
-export default Shit;
 ```
+
+or use update it via the `URLSearchParams`. 
+
+this one can be used directly in code and is instantiated via the `new` keyword, pass it the `searchParams` and use the `set` method to set the `key`, `value`.
+
+but note it won't update the url directly.

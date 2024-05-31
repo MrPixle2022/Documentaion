@@ -40,7 +40,7 @@ export default SinglePostPage
 
 client component are the place where you right react code inside of next, they support hooks, event listeners, custom hooks, etc...
 
-though you first have to tell next that a component is a client component by using:
+though you first have to tell next that a component is a client component by using the `use client` directive at the top of the file:
 
 ```javascript
 "use client";
@@ -49,3 +49,7 @@ though you first have to tell next that a component is a client component by usi
 at the very top of your file.
 
 client component can interact with with browser's Apis like the `local storage`.
+
+to learn how to handle `params & search params` read:
+
+[Next hooks](NextHooks.md)
