@@ -49,6 +49,9 @@
   - [Next hooks](Next/NextHooks.md)
   - [Images & fonts](Next/Images.md)
   - [Backend with Next](Next/Backend.md)
+  - [Data fetching](Next/DataFetching.md)
+  - [Meta data](Next/metaData.md)
+  - [Server actions](Next/serverActions.md)
 
 - ExpressJs:
     - [Setup](express/setup.md) 
