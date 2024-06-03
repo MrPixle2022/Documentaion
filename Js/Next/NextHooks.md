@@ -4,7 +4,7 @@
 
 ## useRouter:
 
-the `useRouter` is a client hook used that allows you to work with the browser history for navigation.
+the `useRouter` is a client hook that allows you to work with the browser history for navigation.
 
 imported from `next/navigation` like:
 
