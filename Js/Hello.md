@@ -52,6 +52,7 @@
   - [Data fetching](Next/DataFetching.md)
   - [Meta data](Next/metaData.md)
   - [Server actions](Next/serverActions.md)
+  - [Next auth](Next/next-auth.md)
 
 - ExpressJs:
     - [Setup](express/setup.md) 
