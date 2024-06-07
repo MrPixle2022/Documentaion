@@ -52,7 +52,11 @@
   - [Data fetching](Next/DataFetching.md)
   - [Meta data](Next/metaData.md)
   - [Server actions](Next/serverActions.md)
-  - [Next auth](Next/next-auth.md)
+  - Next auth:
+    - [Installing Next auth](Next/Next-Auth/setup.md)
+    - [Login using user credentials](Next/Next-Auth/Using%20Credentials.md)
+    - [Sign in & Sign out](Next/Next-Auth/SignIn%20and%20SignOut.md)
+    - [Getting the user's session](Next/Next-Auth/Handling%20the%20session.md)
 
 - ExpressJs:
     - [Setup](express/setup.md) 
