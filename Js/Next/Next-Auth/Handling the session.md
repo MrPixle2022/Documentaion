@@ -1,6 +1,6 @@
 # Getting the user's session:
 
-to get the session the data import the `auth` function from `auth.js`.
+to get the session data import the `auth` function from `auth.js`.
 
 the data is stored in the `session.user`.
 
