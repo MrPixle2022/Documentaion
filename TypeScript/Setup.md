@@ -1,20 +1,28 @@
-setting up typescript requires installing `tsc` compiler and `typescript` to install both globally use:
+# Setup:
 
-```powershell-interactive
-npm i -g tsc
+## installation:
 
-npm i -g typescript
+use :
+```powershell
+pnpm i typescript -g # the language
+pnpm i tsc -g #the compiler
 ```
 
-after that in the folder your working in it's recommended to create `src` folder for your `.ts` files and a `dist` folder for the final `.js` files.
-
-
-after that use:
+create a `<name>.ts` file
+then use:
 
 ```powershell
 tsc --init
 ```
 
-which will create a new `tsconfig.json` to set up your configs.
+to create the `tsconfig.json` file.
 
-then you can use `tsc` only when you want to compile your files or use `tsc --watch` to automatically compile any changes you made on save.
+in that file set:
+
+`rootDir` to the dir where you put the `.ts` files
+
+`outDir` to the dir where you put the compiled `.js` files
+
+`noEmitOnError` to true so that tsc doesn't compile files with type errors.
+
+then use `tsc -w` to start watching the `.ts` files

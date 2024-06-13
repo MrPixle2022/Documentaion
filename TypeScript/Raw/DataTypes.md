@@ -1,96 +1,105 @@
-# Data types:
+# DataTypes:
 
 navigation:
 
-- [Primitive types](#primitive-types)
-- [Multiple types](#multiple-types)
-- [Arrays of single or multiple types](#arrays-of-single-or-multiple-types)
-- [Functions, parameters and return types](#functions-parameters-and-return-types)
+- [Basic types](#basic-types)
+- [Union types](#union-types)
+- [Tuples](#tuples)
+- [Functions](#functions)
 
 ---
 
-### Primitive types:
+## Basic types:
 
-to create a var in typescript you follow syntax of `let varName:type = value`, the type is all lower case for primitive types.
-
-```typescript
-let var1:number = 2; //can only store numbers
-let var2:string = "amr"; //can only store string
-let var3:boolean = true; //can only store boolean
-let var4:object = {}; //an object
-```
-
-
----
-### Multiple types:
-
-to allow a variable to hold multiple values use the union syntax `let varName:(type1|type2) = value`.
+the syntax for defining types it typescript is
 
 ```typescript
-let var1:(string|number) = "amr"; //works
-var1 = 2; //works
+//let varName:type = value
 ```
 
-you are not limited to two types, foreach type you want add `|` and then the type.
+```javascript
+let inferred = 2; //typescript consideres a number
+let x: number = 5; // a number
+let y: string = ""; // a string
+let z: boolean = false; //a boolean
+let w: string[] = ["", ""]; //a string array
+let h: object = {}; //an object
+let o: any; //can have any value
+let re: RegExp = /\w+/g; //regular expression
+```
 
 ---
 
-### Arrays of single or multiple types:
+## Union types:
 
-to create an array of numbers for example add `[]` after the type.
+type script allows you to set a variable to accept multiple data types using the `Union types`. 
+
+they follow the same syntax as `Basic types` but the difference is that it looks like:
 
 ```typescript
-let var1:number[] = [1,2,3,4];
+//let <name>: type1 | type2 = <value>; //not only limited to 2 types but can be any, add '|' and the type to add more types
+//let <name>: value1 | value2 = <value>; //only one of the values can be used
+
 ```
 
-to create an array that allows for multiple types use `(type1|type2)[]`.
+an example:
 
 ```typescript
-let var1:(number|boolean) = [1,true,false,4]
-```
 
-another way of creating arrays is with tuples they specify the length,data types and order of elements.
+let a: number | string = ""; // a var that can be either number or string
+a = 2;
 
-```typescript
-let tuple:[string, number] = ["hello", 10]
-```
+let b: (number | string)[] = ["amr", 2]; //an array of either numbers or strings
 
-this tuple length can't be anything but 2 since we specified 2 values first must be of type `string` while second must be a `number`
-
----
-
-### Any type:
-
-if you wan't a variable to be dynamic at any time use the `any` type, it can be used to create arrays that can hold any type in it.
-
-```typescript
-let var1:any = "amr";
-var1 = true;
-
-let var2:any[] = ["amr", true, false, 2,3];
+let c: number[] | string = [1, 2, 3]; //a number array or a normal string
 
 ```
 
 ---
 
-### Functions, async , Promises, parameters and return types:
+## Tuples:
 
-functions stored in variables and created with the arrow syntax must have a type, the syntax is like
+a `tuple` in typescript is a more strict version of an array ,instead of only specifying a data type, you specify the length & the type of data at each position.
 
-`const func: (para1:type1, para2:type2) => returnType = (para1, para2) => return returnType`.
+the syntax looks like:
 
 ```typescript
-const firstFunc:(number1:number) => number = (number1) => {return 1}
-const secondFunc:() => void = () => {}
+//            the number of elements(types) in the tuple(:[type1, type2]) is the length of the tuple
+//let <name>: [type1, type2] = [<value1 of type1>, <value2 of type2>];
+
 ```
 
-the `void` keyword means no returned data.
+```typescript
 
-for async functions you must specify the return type of `Promise` and pass the Promise the type it must resolve into as `<number>` for example:
+let d: [number, string] = [1, "amr"]; //a tuple of number and string in order
+
+//a tuple can only be of a certain length, in the above example it is 2 since we set it to 2(number, string)
+
+let e: [number, string, number] = [1, "2", 3]; //a tuple of 3 elements, number -> string -> number
+
+```
+
+---
+
+### functions:
+
+functions in typescript can take `params` and `return a certain type of value`.
+
+the syntax to declare a function looks like:
 
 ```typescript
-const asyncFunc: () => Promise<any> = async () => {
-    return new Promise((res, rej) => res("Hi"));
+//function <name>(params:type):<return-type>{----}
+//const funcName: (param1: type, param2:type) => returnType = (param1, param2) => {----}
+```
+
+for example:
+
+```typescript
+function add(x: number, y: number): number {
+  return x + y;
 }
+
+const sum: (x: number, y: number) => number = (x, y) => {
+  return x + y;
+};
 ```
----

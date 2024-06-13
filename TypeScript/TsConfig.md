@@ -38,3 +38,9 @@ the `target` allows you to set a es version to compile into default is es3 but y
 ### "lib": ["library1", "library2"]:
 
 the `lib` is used to specify usable api, default is es6, but you can use something like `"dom"` to have access to dom model.
+
+---
+
+### noEmitOnError: boolean:
+
+if true tsc will not compile any files that has type errors in them
