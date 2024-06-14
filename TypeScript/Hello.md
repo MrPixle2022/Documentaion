@@ -6,3 +6,4 @@
 - [Functions](./Raw/Function.md)
 - [Type alias & Interfaces](./Raw/Types%20&%20interfaces.md)
 - [Enums](./Raw/Enums.md)
+- [Classes](./Raw/Classes.md)
