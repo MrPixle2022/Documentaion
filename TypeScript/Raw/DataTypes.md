@@ -20,12 +20,14 @@ the syntax for defining types it typescript is
 ```javascript
 let inferred = 2; //typescript consideres a number
 let x: number = 5; // a number
+x = NaN //valid since `Nan` is of type `number`
 let y: string = ""; // a string
 let z: boolean = false; //a boolean
 let w: string[] = ["", ""]; //a string array
 let h: object = {}; //an object
 let o: any; //can have any value
 let re: RegExp = /\w+/g; //regular expression
+let count: 'one'|'two' //literal type, can either store the value of `one` or `two`. not limited to strings.
 ```
 
 ---
@@ -77,29 +79,4 @@ let d: [number, string] = [1, "amr"]; //a tuple of number and string in order
 
 let e: [number, string, number] = [1, "2", 3]; //a tuple of 3 elements, number -> string -> number
 
-```
-
----
-
-### functions:
-
-functions in typescript can take `params` and `return a certain type of value`.
-
-the syntax to declare a function looks like:
-
-```typescript
-//function <name>(params:type):<return-type>{----}
-//const funcName: (param1: type, param2:type) => returnType = (param1, param2) => {----}
-```
-
-for example:
-
-```typescript
-function add(x: number, y: number): number {
-  return x + y;
-}
-
-const sum: (x: number, y: number) => number = (x, y) => {
-  return x + y;
-};
 ```
