@@ -15,3 +15,7 @@
   - [Middlewares](./Express/middlewares.md)
   - [Request handlers](./Express/RequestHandlers.md)
   - [Request object](./Express/RequestObj.md)
+- **Mongoose**:
+  - [Setup](./mongoose/Setup.md)  
+  - [Models & Schemas](./mongoose/Models.md)
+  - [CRUD](./mongoose/CRUD.md)

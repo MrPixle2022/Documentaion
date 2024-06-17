@@ -27,7 +27,18 @@ export const getNote: RequestHandler = async (
 };
 ```
 
-also they can take generic types to specify the `reqBody` shape.
+also they can take generic types to specify the type of the parameters by using generics in order.
+
+first type for request,
+
+second for body,
+
+third for response
+
+fourth for next
+
+> [!TIP]
+> use unknown to not change the type of the params & to avoid errors
 
 ```typescript
 interface CreateNoteBody {
@@ -35,7 +46,7 @@ interface CreateNoteBody {
   text?: string;
 }
 
-export const createNote: RequestHandler<CreateNoteBody> = async (
+export const createNote: RequestHandler<unknown,CreateNoteBody, unknown, unknown> = async (
   request,
   response,
   next
