@@ -4,20 +4,20 @@ the `tsconfig.json` file allows you to set the behavior of the typescript compil
 
 ---
 
-### "outDir": "./path":
+### "outDir": "/path":
 
 the `outDir` key allows you to specify the path in which the typescript compiler will put the final javascript file.
 
 
 ---
 
-### "rootDir": "./path":
+### "rootDir": "/path":
 
 the `rootDir` allows you to specify the path to the typescript files you created.
 
 ---
 
-### "target": "ecma_script_version":
+### "target": "es_version":
 
 the `target` allows you to set a es version to compile into default is es3 but you can use:
 
@@ -35,7 +35,7 @@ the `target` allows you to set a es version to compile into default is es3 but y
 
 ---
 
-### "lib": ["library1", "library2"]:
+### "lib": [---]:
 
 the `lib` is used to specify usable api, default is es6, but you can use something like `"dom"` to have access to dom model.
 
