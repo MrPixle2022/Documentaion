@@ -1,69 +1,22 @@
-# Request handlers:
+# Request Handlers
 
-the `RequestHandlers` are functions that are used by `endpoints middlewares` to handle the data.
+request handlers are function that handle the incoming request similar to any middleware they take a `request`, `response` & optionally a `next` function.
 
-they take `request` ,`response & `next`.
+create one using:
 
 ```typescript
-export const getNote: RequestHandler = async (
-  request: Request,
-  response: Response,
-  next: NextFunction
-) => {
-  const { id } = request.params;
-  console.log("🚀 ~ id:", id);
-  try {
-    if (!mongoose.isValidObjectId(id)) {
-      throw createHttpError(400, "Invalid NoteID");
-    }
-    const note = await NoteModel.findById(id).exec();
-    if (!note) {
-      throw createHttpError(404, "Note not found");
-    }
-    response.status(200).json(note);
-  } catch (error) {
-    next(MediaError);
-  }
-};
+import { Request, Response } from "express";
+
+export function getUsers(req: Request, res: Response) {
+	res.status(200).send([]);
+}
 ```
 
-also they can take generic types to specify the type of the parameters by using generics in order.
-
-first type for request,
-
-second for body,
-
-third for response
-
-fourth for next
-
-> [!TIP]
-> use unknown to not change the type of the params & to avoid errors
+then this route handler can be used to handle a request.
 
 ```typescript
-interface CreateNoteBody {
-  title?: string;
-  text?: string;
-}
+import { getUsers } from "../Handlers/users";
 
-export const createNote: RequestHandler<unknown,CreateNoteBody, unknown, unknown> = async (
-  request,
-  response,
-  next
-) => {
-  const title = request.body.title;
-  const text = request.body.text;
+usersRouter.get("/", getUsers);
 
-  try {
-    if (!title) {
-      throw createHttpError(400, "Title and text are required");
-    }
-    // `NoteModel.create()` returns a Promise that resolves to the newly created document.
-    // can also use new NoteModel({title, text})
-    const newNote = await NoteModel.create({ title, text });
-    response.status(201).json(newNote);
-  } catch (error) {
-    next(error);
-  }
-};
 ```

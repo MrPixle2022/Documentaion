@@ -1,48 +1,43 @@
 # Setup:
 
-to setup `express` with typescript first initialize a new project using:
+to setup express with typescript we do the same as initializing a new express app with js.
+
+first initialize a new project using
 
 ```powershell
 pnpm init
-
-#or use
-
+#or 
 npm init -y
 ```
 
-then install:
+then we are ready to install the first dependency `express`:
 
 ```powershell
-pnpm add typescript @types/express -D #adds typescript and express types as a dev dependency
-
-pnpm add express
+pnpm i express
+#or
+npm i express
 ```
 
-now you can initialize tsc here using:
+then we install the dev dependencies:
+
+```powershell
+pnpm i typescript @types/express ts-node nodemon
+#or
+npm i typescript @types/express ts-node nodemon
+```
+
+then initialize a new typescript project using:
 
 ```powershell
 tsc --init
 ```
 
-then configure the typescript compiler as you like.
-
-now we need to monitor the changes and updated the server on save so we will need two more packages.
-
-```powershell
-pnpm add nodemon ts-node -D
-```
-
-and for sure we have to install `dotenv` to access the `.env` file
-
-```powershell
-pnpm add dotenv
-```
-
-now in the `package.json` setup a script to run the server:
+set up your project then create your script commands:
 
 ```json
 "scripts": {
-    "dev": "pnpm nodemon <path to the .ts file>"
-  },
+  "build": "tsc --build",
+  "start": "node ./dist/index.js",
+  "dev": "nodemon ./src/index.ts"
+},
 ```
-

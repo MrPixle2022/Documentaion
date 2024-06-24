@@ -2,9 +2,9 @@
 
 ---
 
-start in your main `.ts` file.
+start in your main typescript file via the script we have created.
 
-import `express` from `express` and initialize a new server as if you were using javascript.
+import `express` from `"express"` and initialize a new server as if you were using javascript.
 
 ```typescript
 import "dotenv/config";
@@ -28,3 +28,4 @@ app.listen(port!, () => console.log(`http://localhost:${port}`))
 ```
 
 
+but this not a good practice instead we create a folder for `routes` & `routeHandlers`
