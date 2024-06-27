@@ -48,7 +48,13 @@ app.get("/api/products", (request, response) => {
 });
 ```
 
-but it's better and more secure to hide the actual value in the cookies, for that we use the `singed` option on the `response.cookie` & the `secret` passed to the `cookieParser` middleware,but the `request.cookies` will now contain the encrypted value which we don't know, but there is a solution to read the actual value, using the `request.signedCookies` we have access to the request signed cookies with their actual values.
+but it's better and more secure to hide the actual value so it's not exposed to all users.
+
+this can easily be done by setting the `signed` option on the cookie we are sending to `true`,
+
+this will successfully get the gob done but it will render us unable to read the actual value of the cookie using `request.cookies` , so for `signed cookies` we use `request.signedCookies` instead.
+
+it's identical to `request.cookies` but it holds the actual parsed value of the `signed cookie`
 
 ```javascript
 app.use(cookieParser("secret"));
