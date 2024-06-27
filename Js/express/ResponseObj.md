@@ -6,8 +6,13 @@ navigation:
 
 - [status message](#statusmessage)
 - [status code](#statuscode)
+- [status](#statusstatuscode)
 - [send](#senddata)
+- [sendStatus](#sendstatusstatuscode)
 - [send file](#sendfilepath-root-rootpath-errfunc)
+- [render](#renderfilepath-data)
+- [download](#downloadpath)
+- [redirect](#redirectpath)
 
 ---
 
@@ -30,10 +35,21 @@ the `status code` allows you to set the status code for the response:
 res.statusCode = 200;
 ```
 
+--
+
+### status(statusCode):
+
+the `status` method allows you to set the status code of the response and chain a response message or json to it:
+
+```javascript
+app.get("/", (req, res) => res.status(200).json({msg: "operation success"}))
+app.get("/", (req, res) => res.status(200).send("operation success"))
+```
+
 
 ---
 
-### send('data'):
+### send('content'):
 
 the `send` method allows to send text or assign html to the page.
 
@@ -42,6 +58,16 @@ app.get('/', (req,res) => res.send("<h1>Hello</h1>"));
 ```
 
 this will create an `h1` element at the home page.
+
+---
+
+### sendStatus(statusCode):
+
+the `sendStatus` send a status code and sets the status message correspondent to the status code as the body.
+
+```javascript
+app.get("/", (req, res) => res.sendStatus(404)) //status: 404, body: not-found
+```
 
 ---
 
@@ -56,6 +82,7 @@ the `sendFile` method allows you to send a file as a response to a request it ta
 app.get('/', (req,res) => res.sendFile(__dirname+"views/main.html"));
 ```
 ---
+
 
 ### render(filePath, {data}):
 
@@ -91,3 +118,5 @@ the `redirect` allows you to send the client to another url
 ```javascript
 app.get('/', (req,res) => res.redirect('/users'))
 ```
+
+---

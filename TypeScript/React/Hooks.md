@@ -7,6 +7,7 @@ navigation:
 - [useRef](#userefinitialvalue)
 - [useCallback](#usecallbackcallback-dependencies)
 - [useMemo](#usememofactory-dependencies)  
+- [useContext](#usecontextcontext)
 
 ---
 

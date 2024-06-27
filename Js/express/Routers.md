@@ -1,34 +1,37 @@
+<!-- @format -->
+
 # Routers:
 
-routers allow you to easily manage routing across your project they can be nested or given a specific path to work on.
+a router is essentially just a middleware that allows for more organized code base it allows you to more easily organize request handlers sharing a url partially or completely.
 
-### creating a router:
-
-to create a router initialize a new var.
-
-```javascript
-const router = express.Router()
-```
-
-the router works similar to the normal express app, it has `get`, `post`, etc...
-
-### setting a router for a path:
-
-if you have multiple urls to a shared path like having multiple urls like `/users/data`, `/users/id/name` , etc..
-you will notice that the `/users` is repeated, you can instead use routers to handle these requests by setting them like:
-
-```javascript
-app.use("/users", router)
-```
-
-this will make it so that we use the `router` to handle all requests sent to any url under the `/users`
+it works almost as same as `express instance` where it has request methods and can use middlewares it self to be applied to any request that depends on it, so it's simply just a simpler version of the express instance providing a way for writing cleaner organized code.
 
 ---
 
-### routing for a url with multiple requests types:
+## creating a router:
 
-if you have a url that you will go to and run code depending on the request method than use `app.route` instead, it take the url `prefix` which the section that gets repeated than chain the method yuo want by using `.`
+creating a router requires the `Router` method to be imported form `express`:
 
 ```javascript
-app.route("/users").get(---).delete(----)
+import { Router } from "express";
+```
+
+then used to create a new router the same way as creating an `express instance`:
+
+```javascript
+const router = Router()
+
+//this register the router as the responsible for handling any request to /api/users and any thing that falls under it
+app.use("/api/users", router)
+```
+
+on that router you can use the same `request handlers`:
+
+```javascript
+//GET : /api/users/
+router.get("/", (req,res) => {})
+
+//GET: /api/users/:id
+router.get("/:id", (req,res) => {})
+//etc...
 ```

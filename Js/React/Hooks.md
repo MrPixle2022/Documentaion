@@ -10,6 +10,7 @@ navigation:
 - [useReducer](#usereducerreducerfunction-initialstate)
 - [useRef](#userefinitialvalue)
 - [useCallback](#usecallbackcallback-dependenciesarray)
+- [useMemo](#usememofactory-dependenciesarray)
 
 ---
 
@@ -238,4 +239,23 @@ function Shit() {
 }
 
 export default Shit;
+```
+
+---
+
+### useMemo(factory, dependenciesArray):
+
+the `useMemo` is another performance hook that is similar to `useCallback` but the difference is that it memoizes values of an expensive operation and returns the memoized value
+
+```typescript
+function fib(n) {
+  if (n < 2)
+    return n;
+  return fib(n - 1) + fib(n - 2);
+}
+
+const myNum = 73;
+//useMemo memoizes a value similar to useCallback
+// useMemo(factory, [dependencies])
+const result = useMemo(() => fib(72), [myNum])
 ```

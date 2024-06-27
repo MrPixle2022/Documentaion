@@ -62,11 +62,14 @@
     - [Setup](express/setup.md) 
     - [Use nodemon](express/useNodemon.md)
     - [Requests methods](express/requestMethods.md)
-    - [Request object](express/RequesObj.md)
-    - [Response object](express/ResponseObj.md)
+    - [Path params](express/PathParams.md)
+    - [Query params](express/QueryParams.md)
+    - [Body params](express/BodyParams.md)
     - [Ejs](express/Ejs.md)
     - [Routers](express/Routers.md)
     - [Middleware](express/Middlewares.md)
+    - [Express validator](express/express-validator.md)
+    - [Cookies & Cookies parser](express/Cookies.md)
 
 - Mongoose:
     - [Setup](mongoose/Setup.md) 

@@ -96,6 +96,36 @@ the [**sort**] method takes a comparison function which it uses to mutate the ar
 
 ---
 
+### find(callback):
+
+the `find` method allows you to find an element in an array based on the condition in the callback.
+
+```javascript
+const mockUsers = [
+  {
+    id: 0,
+    username: "amr yasser",
+    displayname: "mr_pixel",
+  },
+  {
+    id: 1,
+    username: "ammar tareq",
+    displayname: "alpha_1",
+  }
+  ,
+  {
+    id: 2,
+    username: "mohammed abdelmaqsood",
+    displayname: "alpha_2",
+  }
+]
+
+console.log(mockUsers.find((user) => user.id === 0)) //{id: 0, username: "amr yasser", diplayname: "mr_pixel"}
+```
+
+
+---
+
 ### forEach(callbackFunction):
 > [!IMPORTANT]
 > the forEach overwrites the array

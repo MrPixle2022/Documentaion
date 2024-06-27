@@ -1,66 +1,27 @@
 # Request methods:
 
-navigation:
-
-- [get](#geturl-request-response)
-- [post](#posturl-request-response)
-- [delete](#deleteurl-request-response)
-- [patch](#patchurl-request-response)
-
 ---
 
-### get('url', (request, response) => {}):
+in express you handle different request verbs aka `GET, POST, DELETE, PATCH, PUT , etc...` by using a request method, a request method can be accessed on the `express` instance or `router` instance.
 
-the `get` method allows you to handle a get request at `url` 
+request method take a `route` and a `route handler` function.
 
 ```javascript
-app.get('/hello', (request, response) => {
-    response.sendFile('./public/main.html', {root: './'}, err => console.log(err));
+app.get(); // get or read data
+app.post(); // create a new data
+app.delete(); // delete an existing data
+app.patch(); //partially change a record
+app.put(); //overwrites an entire record
+```
+
+the `request handler` is a function that takes a `request` and a `response` objects a parameters, they can access the request data & send a response be it json, html, text, etc...
+
+```javascript
+app.get("/api/user", (request, response) => {
+  //res.status(statusNumber).send(content);
+  //res.status(statusNumber).json(payload);
+  //the status() is optional but it's a good practice
+  //res.sendStatus(status) sends the status code & it's status message as the body of the response
+  res.status(200).send("<h1>Hello there</h1>")
 })
-
 ```
-
-this will create a get request at `http://localhost:8000/hello` and will add `<h1>hi there</h1>`.
-
-```javascript
-app.get('/', (req, res) => {
-res.sendFile('./views/mainPage.html',{root: './'}, err => console.log(err));
-});
-```
-
----
-
-### post('url', (request, response) => {}):
-
-the `post` function allows you handle a post request at `url`.
-
-```javascript
-app.post('/post', (req,res) => {
-    res.send("2")
-});
-```
-
-this will send `2` when a post request is sent to `/post`.
-
----
-
-### delete('url', (request, response) => {}):
-
-the `delete` method allows you to handle a delete request at `url`.
-
-```javascript
-app.delete('/delete', (req,res) => res.send("done"))
-
-```
-
----
-
-### patch('url', (request, response) => {}):
-
-the `patch` method allows you to handle a patch request at `url`.
-
-```javascript
-app.patch('/patch', (req,res) => res.send("done"))
-```
-
----
