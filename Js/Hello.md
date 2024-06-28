@@ -71,6 +71,7 @@
     - [Express validator](express/express-validator.md)
     - [Cookies & Cookies parser](express/Cookies.md)
     - [Session & express-session](express/sessions.md)
+    - [Passport js Auth](express/Passportjs.md)
 
 - Mongoose:
     - [Setup](mongoose/Setup.md) 
