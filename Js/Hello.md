@@ -72,6 +72,7 @@
     - [Cookies & Cookies parser](express/Cookies.md)
     - [Session & express-session](express/sessions.md)
     - [Passport js Auth](express/Passportjs.md)
+    - [Session Storage](express/Session%20storage%20with%20connect-mongo.md)
 
 - Mongoose:
     - [Setup](mongoose/Setup.md) 
