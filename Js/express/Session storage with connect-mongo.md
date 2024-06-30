@@ -20,7 +20,7 @@ then import the `MongoStore` like:
 import MongoStore from "connect-mongo";
 ```
 
-in the `express-session` middleware options set the `client` property to `MongoStore.create` and pass it the mongoose driver:
+in the `express-session` middleware options set the `store` property to `MongoStore.create` and pass it the mongoose driver:
 
 ```javascript
 store: MongoStore.create({
