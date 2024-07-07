@@ -49,7 +49,7 @@ import { Strategy } from "passport-local";
 then setup the methods:
 
 ```javascript
-export default passport.use(new Strategy((user, password, done) => {
+export default passport.use("local",new Strategy((user, password, done) => {
   console.log(email, password);
   try {
     const user = mockUsers.find(user => user.username === email);
@@ -78,7 +78,7 @@ but if you want to use another field instead of the `username` for example you u
 by setting the `usernameField` to the value you want the username will be renamed to that value, so for example we can change it to `email`:
 
 ```javascript
-export default passport.use({usernameField: "email"},new Strategy((email, password, done) => {}))
+export default passport.use("local",new Strategy({usernameField: "email"}, (email, password, done) => {}))
 ```
 
 > [!IMPORTANT]  
