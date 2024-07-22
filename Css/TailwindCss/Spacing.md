@@ -4,6 +4,9 @@
 
 navigation:
 
+- [margin & padding](#margin--padding)
+- [space-x & space-y](#space-x--space-y)
+
 ---
 
 ## Margin & Padding:
