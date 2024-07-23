@@ -4,6 +4,11 @@
 
 navigation:
 
+- [width](#width)
+- [max width](#max-width)
+- [min width](#min-width)
+- [height, max & min height](#height)
+
 ---
 
 ## width:
