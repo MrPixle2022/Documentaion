@@ -9,6 +9,7 @@ navigation:
 - [text decorations](#text-decoration-color)
 - [accent color](#accent-color)
 - [arbitrary colors](#arbitrary-colors)
+- [gradients](#gradient)
 
 ---
 
@@ -79,3 +80,33 @@ for example using an arbitrary color for the text:
 ```
 
 ![text arbitrary](Images/TextArbitraryColor.png)
+
+---
+
+## Gradient:
+
+you can create gradients in tailwind using `bg-gradient-to-{t, b, l,r , {b, t}{l,r}}` to set gradient direction, then use `from-{color}` to set the starting color, `to-{color}` to set the final color & optionally add `via-{color}` to add a color in the middle of the gradient.
+
+```html
+<div class="bg-gradient-to-t  w-32 from-red-400 to-green-500">To top</div>
+<div class="bg-gradient-to-tr w-32 from-blue-400 to-purple-500">
+	To top right
+</div>
+<div class="bg-gradient-to-tl w-32 from-yellow-400 to-pink-500">
+	To top left
+</div>
+<br />
+<div class="bg-gradient-to-b  w-32 from-red-400 to-green-500">To bottom</div>
+<div class="bg-gradient-to-br w-32 from-blue-400 to-transparent">
+	To bottom right
+</div>
+<div class="bg-gradient-to-bl w-32 from-yellow-400 to-pink-500">
+	To bottom left
+</div>
+<br />
+<div class="bg-gradient-to-r from-transparent w-32 via-yellow-500 to-red-700">
+	From , via & to
+</div>
+```
+
+![Gradient](Images/Gradients.png)
