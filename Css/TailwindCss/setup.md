@@ -54,4 +54,4 @@ now the last step is in the main css file add:
 @tailwind utilities;
 ```
 
-now you are ready to use tailwind
+now you are ready to use tailwind.
