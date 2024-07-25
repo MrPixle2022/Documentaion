@@ -1,11 +1,12 @@
 # CSS nav:
 
-- Raw:
+- Vanilla:
   - [Selectors](Raw/Selectors.md)
   - [Background](Raw/Background.md)
   - [Padding](Raw/Padding.md)
   - [Margin](Raw/Margin.md)
   - [Border](Raw/Border.md)
+  - [Outline](Raw/Outline.md)
 
 - Tailwind:
   - [Setup:](TailwindCss/setup.md)
