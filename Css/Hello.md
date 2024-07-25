@@ -5,6 +5,7 @@
   - [Background](Raw/Background.md)
   - [Padding](Raw/Padding.md)
   - [Margin](Raw/Margin.md)
+  - [Border](Raw/Border.md)
 
 - Tailwind:
   - [Setup:](TailwindCss/setup.md)
