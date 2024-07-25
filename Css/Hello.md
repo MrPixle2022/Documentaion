@@ -3,6 +3,8 @@
 - Raw:
   - [Selectors](Raw/Selectors.md)
   - [Background](Raw/Background.md)
+  - [Padding](Raw/Padding.md)
+  - [Margin](Raw/Margin.md)
 
 - Tailwind:
   - [Setup:](TailwindCss/setup.md)
