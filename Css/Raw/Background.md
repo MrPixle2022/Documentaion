@@ -2,6 +2,13 @@
 
 # Background:
 
+- [background color](#background-color)
+- [background image](#background-image)
+- [background repeat](#background-repeat)
+- [background attachment](#background-attachment)
+- [background position](#background-position)
+- [background size](#background-size)
+
 ---
 
 for this sections below, will be using this html code:
@@ -59,10 +66,8 @@ div {
 as shown in the previous section, css will repeat the background image if provided to fill the element, this behavior can be controlled with `background-repeat`.
 
 ```css
-background-repeat: repeat /*default*/ 
-  | repeat-x /*only repeat horizontally*/
-  | repeat-y /*only repeat vertically*/
-  | no-repeat; /*never repeat the image even if it is smaller than the element*/
+background-repeat: repeat /*default*/ | repeat-x /*only repeat horizontally*/ |
+	repeat-y /*only repeat vertically*/ | no-repeat; /*never repeat the image even if it is smaller than the element*/
 ```
 
 ```css
@@ -74,3 +79,67 @@ div {
 ```
 
 ![Background Repeat](Images/Background%20Repeat.png)
+
+---
+
+## background-attachment:
+
+the `background-attachment` allows you to control the behavior of the background on scroll.
+
+by default it's `scroll` meaning that the background image will move when scrolling.
+
+another option is `fixed` which means that the image will not move when scrolling.
+
+```css
+background-attachment: scroll | fixed;
+```
+
+---
+
+## background-position:
+
+the `background-position` allows you to move the background to a certain position or offset it.
+
+```css
+background-position: top | bottom | right | left | center;
+
+background-position: {top | bottom | center} {right | left | center };
+
+background-position: offset;
+
+background-position: offset-x offset-y;
+```
+
+```css
+div {
+	color: white;
+	background: red;
+	background-image: url("/MyProfilePic.png");
+	background-position: top right;
+}
+```
+
+![Background position](Images/BackgroundPosition.png)
+
+---
+
+## background-size:
+
+the `background-size` allows you yo control the size of the background.
+
+```css
+background-size: size;
+background-size: size-x size-y;
+```
+
+```css
+div {
+  color: white;
+  background: red;
+  background-image: url("/MyProfilePic.png");
+  background-repeat: no-repeat;
+  background-size: 20%;
+}
+```
+
+![Background size](Images/Background-size.png)
