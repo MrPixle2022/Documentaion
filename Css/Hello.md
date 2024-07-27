@@ -9,6 +9,7 @@
   - [Outline](Raw/Outline.md)
   - [Display](Raw/Display.md)
   - [Element visibility](Raw/ElementVisiblity.md)
+  - [Dimensions](Raw/Dimensions.md)
 
 - Tailwind:
   - [Setup:](TailwindCss/setup.md)
