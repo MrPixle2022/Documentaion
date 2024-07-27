@@ -7,6 +7,8 @@
   - [Margin](Raw/Margin.md)
   - [Border](Raw/Border.md)
   - [Outline](Raw/Outline.md)
+  - [Display](Raw/Display.md)
+  - [Element visibility](Raw/ElementVisiblity.md)
 
 - Tailwind:
   - [Setup:](TailwindCss/setup.md)
