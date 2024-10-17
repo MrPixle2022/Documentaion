@@ -45,3 +45,8 @@ then the generic will be inferred passed on the props type
 ```typescript
 <List items={ ["coffee", "taco", "code"] } render={ (item: string) => <h1>{ item }</h1>}/>
 ```
+
+---
+
+> [!TIP]:
+> props can be passed at once using `{...props}` in the jsx.

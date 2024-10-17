@@ -9,10 +9,10 @@ for example to create an about route the structure will be like:
 ```javascript
 /*
 app:
-|---| help:    -> /help 
+|---| help:    -> /help
         |-- page.jsx
 |---| users:   -> /users
-|      |-- page.jsx 
+|      |-- page.jsx
        |-- sign-in    -> /users/sign-in
             |-- page.jsx
 */
@@ -20,17 +20,17 @@ app:
 
 ---
 
-## the page. file
+## the `page.` file
 
 in each route (`directory`) you create a `page` file with the extension of `js`,`jsx`, `ts` or `tsx` this file represents the structure of this route & it must export a default component, next only allows `default exports`
 
 for example:
 
 ```javascript
-/*   
-app       
+/*
+app
 |---| about    -> /about
-|       |--page.jsx 
+|       |--page.jsx
 |---| contact  -> /contact
 |       |--page.jsx
 */
@@ -97,13 +97,13 @@ export default function RootLayout({ children }) {
 all pages in the `app` directory will render between `top` and `bottom`
 
 > [!CAUTION]
-> The `{children}` must be present to render the actual page or the layout will replace the content
+> The `{children}` must be present to render the actual page or the layout will replace the content.
 
-> ---
+---
+
 > [!IMPORTANT]
 > you can create a layout file foreach route but if
 > a parent route has one it will also be shared so you will have 2 or more layouts.
-
 
 ## dynamic routes:
 
@@ -113,11 +113,11 @@ for example to create a dynamic `id` route for the `users` route the structure w
 
 ```javascript
 
-/*  
-app      -> ----/   
-|---| users  -> ----/users  
+/*
+app      -> ----/
+|---| users  -> ----/users
         |-- page.jsx
-        |--[id] -> ---/users/:id  
+        |--[id] -> ---/users/:id
             |-- page.jsx
 */
 ```
@@ -130,7 +130,7 @@ function GrabId({params}){
 }
 ```
 
-this will display the `/:id`, 
+this will display the `/:id`,
 
 > [!IMPORTANT]
 > Note that the property name is the same as the folder's name
@@ -142,11 +142,11 @@ this will display the `/:id`,
 the `catch all route` is a type of dynamic route that allows you to take a multiple routes at once, for example:
 
 ```javascript
-/*  
-app      -> ----/   
-|---| users  -> ----/users  
+/*
+app      -> ----/
+|---| users  -> ----/users
         |-- page.jsx
-        |--[name] -> ---/users/:id  
+        |--[name] -> ---/users/:id
             |-- page.jsx
 */
 ```
@@ -154,7 +154,7 @@ app      -> ----/
 you can access a url like:
 `/users/amr/`
 
-but you can't if it's: 
+but you can't if it's:
 `/users/amr/yasser/`
 
 using a normal dynamic route you'll have to either create a route or a new nested dynamic route.
@@ -164,11 +164,11 @@ but with `catch all route` it's simple.
 to turn the previous example into a `catch all route` i'll just rename it to `[...id]`
 
 ```javascript
-/*  
-app      -> ----/   
-|---| users  -> ----/users  
+/*
+app      -> ----/
+|---| users  -> ----/users
         |-- page.jsx
-        |--[name] -> ---/users/:id  
+        |--[name] -> ---/users/:id
             |-- page.jsx
 */
 ```
@@ -183,7 +183,7 @@ there are some files you can create to customize the behavior of you wep app, bu
 
 - **error** : used to set the ui displayed when an error occurs
 - **not-found** : the ui displayed when an error `404` happens (page not found)
-- **loading** : the ui displayed when loading 
+- **loading** : the ui displayed when loading
 
 you just create the file, make a component with all the code you need and the export it as a **`default export`**
 
