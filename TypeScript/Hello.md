@@ -16,7 +16,7 @@
   - [Request handlers](./Express/RequestHandlers.md)
   - [Request object](./Express/RequestObj.md)
 - **Mongoose**:
-  - [Setup](./mongoose/Setup.md)  
+  - [Setup](./mongoose/Setup.md)
   - [Models & Schemas](./mongoose/Models.md)
   - [CRUD](./mongoose/CRUD.md)
 - **React**:
@@ -24,3 +24,10 @@
   - [Components](./React/Components.md)
   - [Props](./React/Props.md)
   - [Hooks](./React/Hooks.md)
+- **NextJs**:
+  - [Setup](./Next/Setup.md)
+  - [App Router](./Next/App%20Router.md)
+  - [Special Files](./Next/SpecialFiles.md)
+  - [Navigation](./Next/Navigation.md)
+  - [Images](./Next/Navigation.md)
+  - [Api Routes](./Next/ApiRoutes.md)

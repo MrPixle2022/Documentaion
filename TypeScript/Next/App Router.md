@@ -1,10 +1,5 @@
 # Next js app router
 
-navigation:
-
-- creating pages
-- navigating
-
 ---
 
 next js provides it's unique way of handling routing, through using the `app` folder you can create routes even use queries or dynamic path params.
