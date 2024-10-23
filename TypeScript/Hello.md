@@ -31,3 +31,6 @@
   - [Navigation](./Next/Navigation.md)
   - [Images](./Next/Navigation.md)
   - [Api Routes](./Next/ApiRoutes.md)
+  - [Font](Next/Font.md)
+  - [Middleware](Next/Middleware.md)
+  - [Metadata](Next/Metadata.md)
