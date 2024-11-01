@@ -35,3 +35,4 @@
   - [Middleware](Next/Middleware.md)
   - [Metadata](Next/Metadata.md)
   - [Accessing Params](Next/AccessingParmasOnFrontEnd.md)
+  - [Caching](Next/CachingData.md)
