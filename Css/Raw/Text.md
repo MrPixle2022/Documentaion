@@ -18,7 +18,7 @@ navigation:
 - [text indent](#text-indent)
 - [Line height](#line-height)
 - [word spacing](#word-spacing)
-- [whitespace](#whitespace)
+- [whitespace](#white-space)
 
 ---
 
