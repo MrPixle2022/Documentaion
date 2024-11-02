@@ -36,3 +36,4 @@
   - [Metadata](Next/Metadata.md)
   - [Accessing Params](Next/AccessingParmasOnFrontEnd.md)
   - [Caching](Next/CachingData.md)
+  - [Server Components](Next/ServerActions.md)
