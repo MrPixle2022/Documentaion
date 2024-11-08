@@ -1,6 +1,9 @@
+<!-- @format -->
+
 # CSS nav:
 
 - Vanilla:
+
   - [Selectors](Raw/Selectors.md)
   - [Background](Raw/Background.md)
   - [Padding](Raw/Padding.md)
@@ -11,6 +14,9 @@
   - [Element visibility](Raw/ElementVisiblity.md)
   - [Dimensions](Raw/Dimensions.md)
   - [Overflow](Raw/Overflow.md)
+  - [Text](Raw/Text.md)
+  - [Typography](Raw/Typography.md)
+  - [Special Values](Raw/SpecialValues.md)
 
 - Tailwind:
   - [Setup:](TailwindCss/setup.md)
