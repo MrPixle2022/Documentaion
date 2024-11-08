@@ -19,6 +19,8 @@ navigation:
 - [Line height](#line-height)
 - [word spacing](#word-spacing)
 - [whitespace](#white-space)
+- [word break](#word-break)
+- [text overflow](#text-overflow)
 
 ---
 
@@ -194,15 +196,14 @@ to make it visible will add a `span`
 ```
 
 ```css
-
 div {
 	background: #f9f9f9;
-  text-align: left;
-  text-indent: 20px;
+	text-align: left;
+	text-indent: 20px;
 }
 
-span{
-  color:red;
+span {
+	color: red;
 }
 ```
 
@@ -221,8 +222,8 @@ in this example
 ```css
 div {
 	background: #f9f9f9;
-  text-align: left;
-  line-height: 2;
+	text-align: left;
+	line-height: 2;
 }
 ```
 
@@ -237,8 +238,8 @@ the `word-spacing` allows you to set the space between the words of the text.
 ```css
 div {
 	background: #f9f9f9;
-  text-align: left;
-  word-spacing: 20px;
+	text-align: left;
+	word-spacing: 20px;
 }
 ```
 
@@ -248,22 +249,142 @@ div {
 
 ## white-space
 
-the `white` allows you to set the white space of the text.
+the `white` allows you to set how the `whitespace` or `linebreak` in the text should be handled
 
-which is `normal`, `wrap`, or `nowrap`.
+it accepts:
+
+- `normal`: the default, it collapses both the white space and the line break.
+- `nowrap`: this collapses the whitespace & linebreaks but won't wrap the text if it overflows
+- `pre`: won't collapse neither the whitespace nor the linebreaks, the text is displayed exactly as it's written in the html file
+- `pre-wrap`: will preserve the whitespace but will wrap the text to the next line if it overflows
+- `pre-line`: will preserve the linebreaks but will collapse whitespaces
+- `pre-space`: will preserves whitespaces at the start & end of the text.
 
 ```css
 div {
+	width: 300px;
 	background: #f9f9f9;
-  text-align: left;
-  white-space: nowrap;
+	text-align: left;
+	white-space: normal;
 }
 ```
 
-![WhiteSpace](Images/WhiteSpace.png)
+![WhitespaceNormal](Images/WhitespaceNormal.png)
 
-`wrap`: the white space will be wrap and if the text exceeds the container it will wrap to the next line.
+```css
+div {
+	width: 300px;
+	background: gold;
+	text-align: left;
+	white-space: nowrap;
+}
+```
 
-`nowrap`: the white space will not wrap instead the text will exceed the container.
+![WhitespaceNowrap](Images/WhitespaceNowrap.png)
+
+```css
+div {
+	width: 300px;
+	background: gold;
+	text-align: left;
+	white-space: pre;
+}
+```
+
+![WhitespacePre](Images/WhitespacePre.png)
+
+```css
+div {
+	width: 300px;
+	background: gold;
+	text-align: left;
+	white-space: pre-wrap;
+}
+```
+
+![WhitespacePre-wrap](Images/WhitespacePre-wrap.png)
 
 ---
+
+## word-break:
+
+the `word-break` rule sets how the words in a text are broken in order to prevent and overflow.
+
+it accepts:
+
+- `normal`: the default, will break the word but not always accurate
+- `break-all`: will break the word at any point if it overflows
+- `break-word`: will break the word if necessary.
+- `keep-all`: will keep the word together if it overflows.
+
+```html
+<div>hello iam amr yasser awad, a backend-web-fullstack-dev</div>
+```
+
+```css
+div {
+	width: 40px;
+	background: #f9f9f9;
+	text-align: left;
+	word-break: normal;
+}
+```
+
+![WordBreakNormal](Images/WordBreakNormal.png)
+
+```css
+div {
+	width: 40px;
+	background: #f9f9f9;
+	text-align: left;
+	word-break: break-all;
+}
+```
+
+![WordBreakBreakAll](Images/WordBreakBreakAll.png)
+
+```css
+div {
+	width: 40px;
+	background: #f9f9f9;
+	text-align: left;
+	word-break: break-word;
+}
+```
+
+![WordBreakBreakWord](image.png)
+
+```css
+div {
+	width: 40px;
+	background: #f9f9f9;
+	text-align: left;
+	word-break: keep-all;
+}
+```
+
+![WordBreakKeepAll](Images/WordBreakKeepAll.png)
+
+---
+
+## text-overflow:
+
+the `text-overflow` allows you to handle how to render the text if it overflows.
+
+it accepts:
+
+- `ellipsis`: will display an ellipsis(...) if it overflows
+- `string`: will display the string if it overflows
+
+```css
+div {
+	width: 100px;
+	background: gold;
+	text-align: left;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+```
+
+![TextOverflowEllipsis](Images/TextOverflowEllipsis.png)
