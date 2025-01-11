@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Ts navigation:
 
 - [Setup a typescript project](Setup.md)
@@ -37,3 +39,11 @@
   - [Accessing Params](Next/AccessingParmasOnFrontEnd.md)
   - [Caching](Next/CachingData.md)
   - [Server Components](Next/ServerActions.md)
+  - **Next-Auth**:
+    - [Setup](Next/Authjs/setup.md)
+    - [Credentials Provider](Next/AuthJs/CredentialsProvider.md)
+    - [Github Provider](Next/AuthJs/GithubProvider.md)
+    - [Extending The Types](Next/AuthJs/Extending%20Types.md)
+    - [SignIn and SignOut](Next/AuthJs/Signing%20in%20and%20Out.md)
+    - [Preparing The Session](Next/AuthJs/Session%20Preparation.md)
+    - [Accessing Sessions](Next/AuthJs/Accessing%20Sessions.md)

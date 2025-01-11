@@ -16,6 +16,7 @@
   - [Overflow](Raw/Overflow.md)
   - [Text](Raw/Text.md)
   - [Typography](Raw/Typography.md)
+  - [Float](Raw/Float.md)
   - [Special Values](Raw/SpecialValues.md)
 
 - Tailwind:
