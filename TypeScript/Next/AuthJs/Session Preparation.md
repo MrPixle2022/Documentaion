@@ -40,6 +40,8 @@ async jwt({ token, user }) {
 },
 ```
 
+> [!TIP] the `jwt` method can also take an `account` object, which is used to check for the provider via `account?.provider` and allows you to modify the token based on the provider since the provider may not pass all the info needed
+
 then start with `session`
 
 ```typescript
