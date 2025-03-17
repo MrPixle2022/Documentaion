@@ -1,65 +1,50 @@
-# Creating a Project:
+<!-- @format -->
+
+# Project setup:
+
+using the command:
+
+```powershell
+pnpm crate vite@latest
+
+#or
+
+npm create vite@latest
+```
+
+then selecting `react` and either `typescript` or `javascript` you can set up a basic react project.
+
+then `cd` into your project and install all required dependencies:
+
+```powershell
+pnpm i
+
+#or
+
+npm i
+```
+
+then you can run the vite server via the command:
+
+```powershell
+pnpm dev
+
+#or
+
+npm run dev
+
+```
+
+it's possible to also define the port instead of the default `5713` by adding `--port=(port)` after `dev`
 
 ---
 
-to create a react project use:
+## file structure:
 
-```powershell
-npx create-react-app appname
-```
+by default you will have a `public` folder that contains your assets -you will put them there- and a `src` folder that contains your source code.
 
-or install create-react-app-offline:
+at the root there is the `index.html` file which is file to which all your code is compiled and added -hence it's called a single page web app-.
 
-```powershell
-npm i -g create-react-app-offline
-```
+in the `src` you find the `main.jsx` file which is the entry point of your code and essentially the app it self since this where the jsx is compiled and put in the `index.html` file.
 
-then use:
-
-```powershell
-npx crao -n appname
-```
-
->[!NOTE]
-> the react app will auto initialize a git repo
-
-after waiting for the files to be downloaded use:
-
-```powershell
-cd appname
-```
-
-
-
----
-
-# Files and server
-
-use:
-```powershell
-npm start
-```
-
-to start the test server, few seconds later and you will see this:
-![react](Imgs/ReactBase.png)
-
----
-
-
-![Files](Imgs/FilesBase.png) 
-
-in vscode you will have these files:
-
-mostly you won't need most of theses so you can delete all files in src except
-``App.js``
-``index.js``
-and make sure to remove any import from the old files that have been removed 
-
----
-
-after doing that you will have:
-
-![After delete](Imgs/AfterDeletFiles.png)
-
----
-
+also there is the `App.jsx` which is just a basic file that is used to hold a component but can be removed.

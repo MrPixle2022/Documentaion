@@ -1,43 +1,35 @@
-# Lists of data
+<!-- @format -->
 
----
+# Rendering a list of data:
 
-to render the data in an array as an html you can use ``.map(callbackfunction)``
+for an array to be rendered it requires a js expression to destructure it's values via a loop but not a for loop, rather by the use of the `map` function to handle the values of the array and have more control over the final ui.
 
-example: 
-
-
-```javascript
-export default function App()
-{
-    const nums = [1,2,3,4,5];
-    
-    return <ul>{nums.map(n => <li>{n}</li>)}</ul>
-}
-```
-
-
-output:
-
-![Output](Imgs/LISTOFDATAOUTPUT01.png)
-
----
-
-another example:
-
+> [!IMPORTANT] every single element used in the returned ui must assign a **unique** value to a prop named `key` to make it easier for react to handle state changes for that array.
 
 ```javascript
-export default function App()
-{
-    const users = [
-        {name: 'ali', age: 10},
-        {name: 'amr', age: 14},
-        {name: 'mohammed', age: 15},
-    ];
-    
-    return <ul>{users.map(n => <li>{n.name} : {n.age}</li>)}</ul>
+function Lists() {
+	const users = [
+		{ id: 1, name: "Alice", age: 25 },
+		{ id: 2, name: "Bob", age: 30 },
+		{ id: 3, name: "Charlie", age: 22 },
+	];
+
+	return (
+		<div>
+			<h1> Users </h1>
+			<ul>
+				{users.map((user, i) => (
+					<li key={i}>
+						{user.name}, {user.age} yrs
+					</li>
+				))}
+			</ul>
+	);
 }
+
+export default Lists;
 ```
 
+so this code will output an unordered list with 3 list items, each with a unique key -the index in this case- and this will dynamically generate more or less depending on the size of the array.
 
-here i created an array of object that has name and age of some users and i used the ``.map(callbackfunction)`` to loop over them and get each object, access it's name and age values and render them out as an unordered list
+> [!TIP] it's recommended to check for values in the array before mapping, consider using `Array.isArray(arr) && arr.map()` to avoid run-time errors.

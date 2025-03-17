@@ -1,109 +1,43 @@
+<!-- @format -->
+
 # Components:
 
----
+components are reusable ui that represents the method of building ui in react, they used to be classes and functional components but now functions are the go to.
 
-> [!IMPORTANT]
-> any jsx has to have at least one parent
+components return `jsx` which is a mixture of both js & html with some slight modifications that respects the js keywords, for example certain attributes have been changed in jsx. like:
 
-Components are the basis of react, they return what is called ``jsx`` which is basically html in javascript
-``jsx`` elements can take the same attributes as the html files but some are changed:
+`class -> className` to avoid collision with the `class` keyword & `for -> htmlFor` to avoid collision with the `for loop`.
 
-
-- class => className
-- for => htmlFor
-
-**jsx**:
-
+the jsx return by a function must have a **singular parent** meaning all content of a component is a child of a singular element that holds all as children
 
 ```javascript
-return <section> 
-    <h1>Good morning</h1>
-    <p>lorem</p>
-</section>
+function App() {
+	return (
+		<div>
+			<h1>hello</h1>
+		</div>
+	);
+}
+
+export default App;
 ```
 
----
+and then be used as html tags.
 
-### to create a functional component:
-
-while in the ``App.js`` file for example create a new function with the first letter in uppercase like:
+though the **single parent rule** there is a way to avoid it if needed by using what is called a `react fragments`, since by just containing the content of a component by `<> </>` you create an imaginary parent that will be in the `jsx` code but won't be in the final html.
 
 ```javascript
-export default function someComponent()
-{
-    return <h1>Good morning</h1>
+import App from "./App.jsx";
+
+function SecondComponent() {
+	return (
+		<>
+			<div>
+				<App />
+			</div>
+		</>
+	);
 }
 ```
 
-
-### to create a class component:
-
-while in the ``App.js`` file for example create a new function with the first letter in uppercase like:
-> [!NOTE]
-> You must import the Component class for this to work
-
-
-```javascript
-import {Component} from 'react';
-
-export class SomeClassComponent extends Component
-{
-    render()
-    {
-        return <h1>hi there</h1>
-    }
-}
-```
-
-
----
-
-to call components in other components you have to import it, and then in the final jsx use the component like:
-
-```html
-<componentName />
-```
-
-for example:
-
-i created a component in the file named ``Main.jsx``
-
-
-```javascript
-export function Main()
-{
-    return(
-        <div>
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-            </ul>
-        </div>
-    )
-}
-```
-
-
-and then i imported this component in ``index.js`` and added it in the returns of the ``root.render()`` method return,
-not that i had to put a parent so i can combine both components in on render
-
-```html
-<div>
-    <Main />
-</div>
-```
-
-
-if you don't want to create the container each time there is a solution name **fragments**
-
-fragments examples:
-
-```html
-<>
-    <p>good morning</p>
-</>
-```
-
-
-the `<>` & `</>` are fragments that you can think of as an imaginary container that won't be rendered in the html result
+here we set the `<App/>` to be a self-closing tag, though we can use the traditional way of `<App></App>` but that's optional unless the component requires having children.

@@ -1,90 +1,84 @@
+<!-- @format -->
+
 # Props:
 
----
-
-props are properties that are set as a parameter in the component that can be passed to it later by another component think of them like html attributes
-
-> [!NOTE]
-> using the props is considered a js expression that has to be used with in ``{ }`` in the jsx
-
-
-example:
-
+Props are the data passed to a component by a higher one -like it's parent-, it's jsx's equivalent to attributes in html, they can be made via the parameters of the component, then you either destructure them or use an object that holds them which is usually called `prop`, though the earlier method is preferred
 
 ```javascript
-export function User(prop)
-{
-    return(
-    <>
-        <h1>{props.name}</h1>
-        <h3>{props.age}</h3>
-    </>)
+function User(props) {
+	const { name, age, isMarried, hobbies } = props;
 }
 ```
 
-
-
-here i am creating a new component named ``User`` that takes a prop so i can get the name and age of the user
-
-```html
-<User name='amr' age={10}>
-```
-
-
-
-here i am passing the value of name and age to that ``User`` component so it could be rendered properly
-
-output:
-
-![OutPut](Imgs/PROPSOUTPUT01.png)
-
----
-
-### Props destructuring:
+or
 
 ```javascript
-export function User({name, age})
-{
-    return(
-    <>
-        <h1>{name}</h1>
-        <h3>{age}</h3>
-    </>)
+function User({ name, age, isMarried, hobbies }) {}
+```
+
+here is an example
+
+```javascript
+function User({ name, age, hobbies }) {
+	return (
+		<div>
+			<h1>{name || "User"}'s data</h1>
+			<section>
+				<h2>age</h2>
+				<p>{age || NaN}</p>
+			</section>
+			<section>
+				<h2>hobbies</h2>
+				<ul>
+					{Array.isArray(hobbies) &&
+						hobbies.map((h, i) => <li key={i}>{h}</li>)}
+				</ul>
+			</section>
+		</div>
+	);
 }
 ```
 
-here i am destructuring the props into name and age so i can use them directly instead of ``props.name`` or ``props.age``
+now to using these props:
+
+```javascript
+<User
+	name="amr yasser"
+	age={17}
+	hobbies={["programming", "minecraft"]}
+/>
+```
 
 ---
 
-### Children props:
+## Children props:
 
+a prop can be any sort of data - a number, string, array, object or even another component, sometimes a component is passed as a prop to be displayed conditionally or as child of another component, usually named **_children_** but this is no rule.
 
 ```javascript
-export function User({name, age, content})
-{
-    return(
-    <>
-        <h1>{name}</h1>
-        <h3>{age}</h3>
-        {content}
-    </>)
+export function User({ name, age, content }) {
+	return (
+		<>
+			<h1>{name}</h1>
+			<h3>{age}</h3>
+			{content}
+		</>
+	);
 }
 ```
 
-children props are dealt with as other props and at the end you render them in their place in between ``{ } ``
-
 ```javascript
-export function App()
-{
-    return(
-        <div>
-            <User name='amr' age= {10}><p>children prop</p></User>
-        </div>
-    )
+export function App() {
+	return (
+		<div>
+			<User
+				name="amr"
+				age={10}>
+				<p>children prop</p>
+			</User>
+		</div>
+	);
 }
 ```
 
-here and i changed the ``User`` component tag form
-``<User />`` to ``<User> </User>`` to be able to work with children props, in this case it's ``<p> just a children prop``
-
+as shown that `content` prop was assigned the value in-between the components tags, notice that here it required a closing tag for the `User` component though it's possible to still pass the children while it's a self-closing tag by calling the param it self like `content={<p>child</p>}`

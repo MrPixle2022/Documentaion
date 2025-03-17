@@ -1,40 +1,30 @@
+<!-- @format -->
+
 # Expressions:
 
----
+while writing jsx react will handle **most** of what you right as literal string, so for example.
 
-to use js expressions in jsx you can use { }:
-
-```javascript
-export default function App()
-{
-    const multiply = (a,b) => a*b;
-    const add = (a,b) => a+b;
-    
-    return(<>
-        <p>2 * 3 = {multiply(2,3)}</p>
-        <p>2 + 3 = {add(2,3)}</p>
-    </>)
-}
+```html
+<h1>2+2</h1>
 ```
 
-
-here i am creating two function ``multiply`` and ``add``
-
-then iam appending the result of both functions to the text in the ``<p> </p>`` elements
-
-or in this case:
-
-![Expression2](Imgs/JSEXPRESSIONEXAMPLE-02.png)
+will show `2 + 2` instead of `4` though you can easily overcome this via expressions, since by just wrapping the expression with `{}` react will handle it as an expression -js code- allowing you to assign values of vars, functions, etc instead of the literal string.
 
 ```javascript
-export default function App()
-{
-    const pClass = 'content';
-    
-    return(<>
-        <p className={pClass}>{pClass}</p>
-    </>)
-}
-```
+function App() {
+	const my_user_name = "amr yasser";
+	const add_num = (a, b) => a + b;
 
-here i am appending the value of ``pClass`` to the `className` property of the p element
+	return (
+		<div>
+			<h1>my_user_name</h1>
+			<h1>{my_user_name}</h1>
+			<hr></hr>
+			<p>2 + 2</p>
+			<p>{add_num(1, 2)}</p>
+		</div>
+	);
+}
+
+export default App;
+```
