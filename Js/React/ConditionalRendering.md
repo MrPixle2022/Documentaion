@@ -1,7 +1,10 @@
-# Conditional Rendering
----
+<!-- @format -->
 
-conditional rendering is proccess in which you show specific output to the page based on some condition like:
+# Conditional Rendering
+
+you can conditionally render the ui in react in multiple ways.
+
+you can use props to determine the condition
 
 ```javascript
 let Invalid = () => <h1>Invalid</h1>;
@@ -19,11 +22,6 @@ export function App(){
 }
 ```
 
+so in this snippet an isValid prop is used to conditionally determine the ui output of the component.
 
-here i am creating two components ``Valid`` and ``Invalid`` to be rendered based on a certain condition
-
-then i created a new component ``Password`` that can take the ``isValid`` prop, and if it's true display the ``Valid`` component else display``Invalid``
-
-and then in the ``App`` we are rendering this ``Password`` with the ``isValid`` set to ``true``
-
----
+note you aren't limited to one condition nor this method alone you can use ternary operator, && or || operators to conditionally render the ui as well.

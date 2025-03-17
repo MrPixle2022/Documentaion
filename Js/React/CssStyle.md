@@ -1,77 +1,33 @@
-# Styling:
+<!-- @format -->
+
+# Styling your components:
+
+## inline styles:
+
+since most elements in react have the same attributes they would hav in html most elements have a `style` prop.
+
+a `style` is an object -requires the use of {{}} since it's a js expression- where you put your style in a key-value pair, note that the rule with `-` in css have been changed to `camelCase` in react so `font-size` -> `fontSize`.
+
+```javascript
+function App() {
+	return (
+		<div style={{ color: "blue", fontSize: "32px", textAlign: "center" }}>
+			txt
+		</div>
+	);
+}
+```
+
+also you can create a variable to stores the style obj to use it instead on an inline-object.
 
 ---
 
-styling in react can be done via a css file link or inline or as an object var
+## external css file:
 
-### inline:
+you can create a css file and **import** it to your component using the `import` statement. this is what you will find in the `app.jsx` and `main.jsx` files since -by default- they have two css files that handle their css.
 
-
-```javascript
-function Button()
-{
-    return <button style={{color:'red'}}>Click me</button>
-}
-
-export default function App()
-{
-  return <Button/>
-}
-```
-
-output:
-
-![Output](Imgs/STYLINGOUTPUT01.png)
-
-
-### var styling:
+so just use something like:
 
 ```javascript
-export function Button()
-{
-    const bstyle = {color:'red', padding:'10px'};
-    return <button style ={bstyle}>click me</button >
-}
+import "./index.css";
 ```
-
-output:
-
-![Output](Imgs/STYLINGOUTPUT02.png)
-
-
-### imported:
-
-here i created a new file ``ButtonStyle.css``
-
-
-![CssFile](Imgs/CssFile01.png)
-
-and in this file i added this:
-
-```css
-.btn
-{
-    color: blue;
-    font-size: 40px;
-}
-```
-
-
-in the ``App.js`` file i imported this file:
-
-```javascript
-import './ButtonStyle.css';
-
-export function Button()
-{
-   return <button className="btn">clickme</button>
-}
-```
-
-
-output:
-
-![Output](Imgs/STYLINGOUTPUT03.png)
-
-
----
