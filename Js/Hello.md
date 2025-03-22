@@ -1,47 +1,55 @@
+<!-- @format -->
+
 # Js navigation:
 
 - Node:
-    - [Filesystem Module](node/FilesystemModule.md)
-    - [HTTP module](node/HTTPModule.md)
-    - [OS Module](node/OsModule.md)
-    - [Path Module](node/PathModule.md)
-    - [URL module](node/URLModule.md)
+
+  - [Filesystem Module](node/FilesystemModule.md)
+  - [HTTP module](node/HTTPModule.md)
+  - [OS Module](node/OsModule.md)
+  - [Path Module](node/PathModule.md)
+  - [URL module](node/URLModule.md)
 
 - VanillaJs:
-    - [console](Raw/Console.md)
-    - [Array Methods](Raw/ArrayMethods.md)
-    - [String Methods](Raw/StringMethods.md)
-    - [Objects](Raw/Objects.md)
-    - [OOP](Raw/Oop.md)
-    - [Promises](Raw/Promises.md)
-    - [Fetch API](Raw/FetchApi.md)
-    - [Dom](Raw/Dom.md)
+
+  - [console](Raw/Console.md)
+  - [Array Methods](Raw/ArrayMethods.md)
+  - [String Methods](Raw/StringMethods.md)
+  - [Objects](Raw/Objects.md)
+  - [OOP](Raw/Oop.md)
+  - [Promises](Raw/Promises.md)
+  - [Fetch API](Raw/FetchApi.md)
+  - [Dom](Raw/Dom.md)
 
 - RectJs:
-    - [Creating a Project](React/Basics.md)
-    - [Components](React/Components.md)
-    - [Js Expression](Vue/JsExpressions.md)
-    - [Lists of data](React/ListsOfData.md)
-    - [Conditional Rendering](React/ConditionalRendering.md)
-    - [Props](React/Props.md)
-    - [Events](React/Events.md)
-    - [Forms](React/Forms.md)
-    - [Styling](React/CssStyle.md)
-    - [Hooks](React/Hooks.md)
-    - Redux:
-        - ReduxToolkit:
-            - [Setup](React/redux%20toolkit/setup.md)
-            - [Slices](React/redux%20toolkit/Slices.md)
-            - [Using Slices](React/redux%20toolkit/Using%20slices.md)
-    
-    - ReactRouter:
-      - [Setup](React/React-router/setup.md)
-      - [Basic of routing](React/React-router/UsingARouter.md)
-      - [Link and NavLink components](React/React-router/LinkAndNavLink.md)
-      - [Using Params and getting them](React/React-router/accessing%20Params.md)
-      - [Accessing a state](React/React-router/accessingStates.md)
+
+  - [Creating a Project](React/Basics.md)
+  - [Components](React/Components.md)
+  - [Js Expression](Vue/JsExpressions.md)
+  - [Lists of data](React/ListsOfData.md)
+  - [Conditional Rendering](React/ConditionalRendering.md)
+  - [Props](React/Props.md)
+  - [Events](React/Events.md)
+  - [Forms](React/Forms.md)
+  - [Styling](React/CssStyle.md)
+  - [Hooks](React/Hooks.md)
+  - [Portals](React/Portals.md)
+  - Redux:
+
+    - ReduxToolkit:
+      - [Setup](React/redux%20toolkit/setup.md)
+      - [Slices](React/redux%20toolkit/Slices.md)
+      - [Using Slices](React/redux%20toolkit/Using%20slices.md)
+
+  - ReactRouter:
+    - [Setup](React/React-router/setup.md)
+    - [Basic of routing](React/React-router/UsingARouter.md)
+    - [Link and NavLink components](React/React-router/LinkAndNavLink.md)
+    - [Using Params and getting them](React/React-router/accessing%20Params.md)
+    - [Accessing a state](React/React-router/accessingStates.md)
 
 - NextJs:
+
   - [Installation & setup](Next/Setup.md)
   - [File Structure & App Router](Next/File%20Structure%20&%20App%20Router.md)
   - [Basic Routing](Next/BasicRouting.md)
@@ -59,25 +67,26 @@
     - [Getting the user's session](Next/Next-Auth/Handling%20the%20session.md)
 
 - ExpressJs:
-    - [Setup](express/setup.md) 
-    - [Use nodemon](express/useNodemon.md)
-    - [Requests methods](express/requestMethods.md)
-    - [Path params](express/PathParams.md)
-    - [Query params](express/QueryParams.md)
-    - [Body params](express/BodyParams.md)
-    - [Ejs](express/Ejs.md)
-    - [Routers](express/Routers.md)
-    - [Middleware](express/Middlewares.md)
-    - [Express validator](express/express-validator.md)
-    - [Cookies & Cookies parser](express/Cookies.md)
-    - [Session & express-session](express/sessions.md)
-    - [Passport js Auth](express/Passportjs.md)
-    - [Session Storage](express/Session%20storage%20with%20connect-mongo.md)
+
+  - [Setup](express/setup.md)
+  - [Use nodemon](express/useNodemon.md)
+  - [Requests methods](express/requestMethods.md)
+  - [Path params](express/PathParams.md)
+  - [Query params](express/QueryParams.md)
+  - [Body params](express/BodyParams.md)
+  - [Ejs](express/Ejs.md)
+  - [Routers](express/Routers.md)
+  - [Middleware](express/Middlewares.md)
+  - [Express validator](express/express-validator.md)
+  - [Cookies & Cookies parser](express/Cookies.md)
+  - [Session & express-session](express/sessions.md)
+  - [Passport js Auth](express/Passportjs.md)
+  - [Session Storage](express/Session%20storage%20with%20connect-mongo.md)
 
 - Mongoose:
-    - [Setup](mongoose/Setup.md) 
-    - [Schemas and models](mongoose/Create%20a%20Schma%20and%20models.md)
-    - [Getting docs](mongoose/gettingDocs.md)
-    - [Update docs](mongoose/Updating%20docs.md)
-    - [Delete docs](mongoose/Delet%20docs.md)
-    - [Middlewares](mongoose/Midllewares.md)
+  - [Setup](mongoose/Setup.md)
+  - [Schemas and models](mongoose/Create%20a%20Schma%20and%20models.md)
+  - [Getting docs](mongoose/gettingDocs.md)
+  - [Update docs](mongoose/Updating%20docs.md)
+  - [Delete docs](mongoose/Delet%20docs.md)
+  - [Middlewares](mongoose/Midllewares.md)

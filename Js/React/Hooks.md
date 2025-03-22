@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Hooks:
 
 ---
@@ -24,9 +26,13 @@ import { hookName } from "react";
 
 ---
 
-### useState(initialValue):
+### useState(initialValue?):
 
-the use state hook returns an `array` of two elements the data and a function to update it
+the `useState` is a hook that allows you to create a state in your component and have control over the components on that state's change, on state change the component will rerender meaning that any variable defined with `var, let, const` will be reassigned to it's default value, but the state variables itself won't.
+
+the `useState` takes an optional parameter being the **initial state value** and returns an array of two elements, the state variable and the method to update the state.
+
+usually the naming of these two follows a rule of `stateName, setStateName`.
 
 example:
 
@@ -34,51 +40,146 @@ example:
 import { useState } from "react";
 
 function Counter() {
-  [count, setCount] = useState(0);
+	[count, setCount] = useState(0);
 
-  return (
-    <>
-      <h1>{count}</h1>
-      <button onclick={() => setCount(count + 1)}>+</button>
-      <button onclick={() => setCount(count - 1)}>-</button>
-    </>
-  );
+	return (
+		<>
+			<h1>{count}</h1>
+			<button onclick={() => setCount(count + 1)}>+</button>
+			<button onclick={() => setCount(count - 1)}>-</button>
+		</>
+	);
 }
 ```
 
-in this example we imported the `useState` hook and used to to create
+this example shows a simple counter which uses a state to keep track of the `count` variable, on each click on either buttons it will invoke the state change and rerender this component.
 
-`count` : the var that will change and with it the component  
-`setCount` : the function that will update the var's value
+note that the setter function can also take a function as an argument, that function takes the previous state value as a parameter as shown in this snippet.
+
+```javascript
+<button onClick={() => setCounter((prev) => prev + 2)}>add 2</button>
+```
+
+> [!TIP] Note it's better to use the spread operator when updating either an array or an object unless you are using a method that automatically returns that updated object or array like this example.
+
+```javascript
+<button onClick={() => setArr(arr.slice(0, arr.length - 1))}>
+	pop an element
+</button>
+```
+
+> [!IMPORTANT] make sure to include the `() => ` otherwise any function -including the setCount- will be invoked always preventing the render of the component due to rendering exceeding the max render limit
+
+a last thing about the `useState` hook is that a **function** can be passed as a parameter, the on component mount and the return value will be the initial value
+
+```javascript
+// count will be 100 by default
+const [count, setCount] = useState(() => {
+	return 100;
+});
+```
 
 ---
 
-### useEffect(effect, dependenciesArray):
+### useEffect(sideEffect, dependenciesArray):
 
-the `useEffect` hook allows you to run code when the component is [rerendered, mounted, unmounted] from the dom, the `effect` is a function that will be called each time the hook is invoked.
+the `useEffect` is a hook that allows you to perform side effects in your component, a side effect is essentially a process that is performed when the component mounts, updates or unmounts. like data-fetching, subscribing to events, manually changing the DOM, and timers or accessing browser APIs.
 
-the `dependenciesArray` [**optional**] are the states [values that might change] that will invoke the hook when they change an empty array means that the hook will run once
+for the `useEffect` you provide the sideEffect -A function` and an optional array of all the states that you want to watch for changes.
 
-for example:
+based on the dependencies array the sideEffect will behave differently.
+
+not providing the array will make the hook run the side effect on every rerender, whilst providing an empty array will trigger that effect on mount only, if an array is given along with the values to monitor then the effect will be executed on their change -even if a single one changes-
 
 ```javascript
+/** @format */
 import { useState, useEffect } from "react";
 
-export default function App() {
-  const [value, setValue] = useState(0);
+function App() {
+	const [value, setValue] = useState(0);
+	//dependency array:
+	// none -> runs every rerender
+	// [] -> on mount only
+	// [value] or [value1, value2, ...] -> runs when that specific value -or list of values- changes
+	useEffect(() => {
+		console.log("effect called");
+		document.title = `${value} clicks`; //changes the title every time the state `value` changes.
+	}, [value]);
 
-  useEffect(() => console.log(value), [value]);
-
-  return (
-    <>
-      <h1>{value}</h1>
-      <button onClick={() => setValue(value + 1)}> click me </button>
-    </>
-  );
+	return (
+		<div>
+			<button onClick={() => setValue(value + 1)}>click</button>
+		</div>
+	);
 }
+
+export default App;
 ```
 
-the `useEffect` here will log the value of `value` each time the value [**state**] changes
+the `effect` is not special in it's self as it's just basically a function though it can also return a function which is called the **cleanup function** which is called when the component **unmounts** meaning it's no longer being rendered.
+
+```javascript
+/** @format */
+import { useState, useEffect } from "react";
+import DataFetch from "./Components/Hooks/DataFetch";
+
+function ToggledComponent() {
+	//this effect log that msg to the console every time it unmounts.
+	useEffect(() => {
+		return () => console.log("well, ... goodbye");
+	});
+	return <h1>Here is a toggled component</h1>;
+}
+
+function App() {
+	const [toggle, setToggle] = useState(true);
+
+	return (
+		<div>
+			<button onClick={() => setToggle(!toggle)}>Toggle todos</button>
+			{toggle && <ToggledComponent />}
+		</div>
+	);
+}
+
+export default App;
+```
+
+a major use case for the `useEffect` hook is to perform data-fetching from an api, though the side effect **can't be async** that doesn't mean it's impossible to use async functions though.
+
+```javascript
+/** @format */
+
+import { useEffect, useState } from "react";
+
+function FetchDataEffect() {
+	const [posts, setPosts] = useState([]);
+
+	useEffect(() => {
+		async function getPosts() {
+			const apiResponse = await fetch(
+				"https://jsonplaceholder.typicode.com/posts",
+			);
+			const apiData = await apiResponse.json();
+			if (apiData && apiData.length) setPosts(apiData);
+		}
+
+		getPosts();
+	}, []);
+
+	return (
+		<div>
+			<h1>FetchDataEffect</h1>
+			<ul>
+				<li>{posts.length} posts found</li>
+				{posts &&
+					posts.length &&
+					posts.map((post, i) => <li key={i}>{post.title}</li>)}
+			</ul>
+		</div>
+	);
+}
+```
 
 ---
 
@@ -104,7 +205,7 @@ like:
 
 ```javascript
 <Data.Provider value={"amr yasser"}>
-  <App />
+	<App />
 </Data.Provider>
 ```
 
@@ -119,9 +220,9 @@ in the component pass the `CreateContext` obj as a parameter to the `useContext`
 
 ```javascript
 export default function App() {
-  const info = useContext(Data);
+	const info = useContext(Data);
 
-  return <h1>{info}</h1>;
+	return <h1>{info}</h1>;
 }
 ```
 
@@ -139,21 +240,21 @@ an example of `useReducer` will be like:
 import { useReducer } from "react";
 
 function Reducer(state, action) {
-  switch (action.type) {
-    case "increment":
-      return { ...state, count: state.count + 1 };
+	switch (action.type) {
+		case "increment":
+			return { ...state, count: state.count + 1 };
 
-    case "decrement":
-      return state.count >= 0
-        ? { ...state, count: 0 }
-        : { ...state, count: state.count - 1 };
+		case "decrement":
+			return state.count >= 0
+				? { ...state, count: 0 }
+				: { ...state, count: state.count - 1 };
 
-    case "reset":
-      return { ...state, count: 0 };
+		case "reset":
+			return { ...state, count: 0 };
 
-    default:
-      return Error("action unknown?");
-  }
+		default:
+			return Error("action unknown?");
+	}
 }
 ```
 
@@ -163,16 +264,16 @@ note that each time i return the state again by spreading it's value in an objec
 
 ```javascript
 export function App() {
-  const [state, dispatch] = useReducer(Reducer, { count: 0 });
+	const [state, dispatch] = useReducer(Reducer, { count: 0 });
 
-  return (
-    <section>
-      <h1>{state.count}</h1>
-      <button onClick={() => dispatch({ type: "increment" })}>+</button>
-      <button onClick={() => dispatch({ type: "reset" })}>reset</button>
-      <button onClick={() => dispatch({ type: "decrement" })}>-</button>
-    </section>
-  );
+	return (
+		<section>
+			<h1>{state.count}</h1>
+			<button onClick={() => dispatch({ type: "increment" })}>+</button>
+			<button onClick={() => dispatch({ type: "reset" })}>reset</button>
+			<button onClick={() => dispatch({ type: "decrement" })}>-</button>
+		</section>
+	);
 }
 ```
 
@@ -197,8 +298,8 @@ for example:
 import { useRef } from "react";
 
 export function App() {
-  const target = useRef();
-  return <p ref={target}>some text being referenced</p>;
+	const target = useRef();
+	return <p ref={target}>some text being referenced</p>;
 }
 ```
 
@@ -228,14 +329,14 @@ the `useCallback` allows you to cache the result of an expensive function, it ta
 import { useCallback } from "react";
 
 function Shit() {
-  const expensiveFunc = useCallback((val1, val2) => {
-    return val1 * val2;
-  }, []);
-  return (
-    <>
-      <button>{expensiveFunc}</button>
-    </>
-  );
+	const expensiveFunc = useCallback((val1, val2) => {
+		return val1 * val2;
+	}, []);
+	return (
+		<>
+			<button>{expensiveFunc}</button>
+		</>
+	);
 }
 
 export default Shit;
@@ -249,13 +350,12 @@ the `useMemo` is another performance hook that is similar to `useCallback` but t
 
 ```typescript
 function fib(n) {
-  if (n < 2)
-    return n;
-  return fib(n - 1) + fib(n - 2);
+	if (n < 2) return n;
+	return fib(n - 1) + fib(n - 2);
 }
 
 const myNum = 73;
 //useMemo memoizes a value similar to useCallback
 // useMemo(factory, [dependencies])
-const result = useMemo(() => fib(72), [myNum])
+const result = useMemo(() => fib(72), [myNum]);
 ```
