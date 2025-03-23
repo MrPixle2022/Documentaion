@@ -338,6 +338,8 @@ function App() {
 }
 ```
 
+> [!TIP] you can also provide more data to the reducer via the dispatch's action, for example: `{type: "increment", payload: 10}`
+
 ---
 
 ### useRef(initialValue):
