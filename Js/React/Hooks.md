@@ -272,60 +272,70 @@ as shown when using the `.Consumer` a function that takes the context data as a 
 
 ### useReducer(reducerFunction, initialState):
 
-the `useReducer` hook is similar to `useState` but it's used to handle complex state like showing some output based on current state.
+the `useReducer` is a state hook -like the useState- that is used to handle complex state logic that depends on a context for example.
 
-it returns an array of two `state`, `dispatch` the later is used to set action types to modify the state
-
-an example of `useReducer` will be like:
+the `useReducer` hook takes two params -unlike the useState- and returns two element -like the useState-, first it takes a **reducer** ,the function that handles the logic and an optional `initialState` which is the initial value of the state.
 
 ```javascript
-import { useReducer } from "react";
-
-function Reducer(state, action) {
+function reducer(state, action) {
 	switch (action.type) {
-		case "increment":
-			return { ...state, count: state.count + 1 };
-
-		case "decrement":
-			return state.count >= 0
-				? { ...state, count: 0 }
-				: { ...state, count: state.count - 1 };
-
-		case "reset":
-			return { ...state, count: 0 };
-
+		case "logout": //the type comes from the dispatch call.
+			return {}; //removes all data
+		//if an unknown action is used.
 		default:
-			return Error("action unknown?");
+			return state;
 	}
 }
 ```
 
-here i setting up the reducer function for the hook which will take two objects as arguments: `state`: the object with the data you want to change. `action`: an object that holds string data about how to change the state.
+the **reducer** takes two params, the `state` -current value- and the action -what is triggering the change-.
 
-note that each time i return the state again by spreading it's value in an object and then i modify the value of `count`
+for the return values it returns an array of two a `state` & a `dispatch` function, the dispatch function is a function that triggers the update and provide the `action.type` which the reducer depends on for the logic.
 
 ```javascript
-export function App() {
-	const [state, dispatch] = useReducer(Reducer, { count: 0 });
-
-	return (
-		<section>
-			<h1>{state.count}</h1>
-			<button onClick={() => dispatch({ type: "increment" })}>+</button>
-			<button onClick={() => dispatch({ type: "reset" })}>reset</button>
-			<button onClick={() => dispatch({ type: "decrement" })}>-</button>
-		</section>
-	);
+{
+	/*on click, the dispatch function is triggered and sets the action to -> {type: "increment"} for the reducer*/
 }
+<button onClick={() => dispatch({ type: "increment" })}>Increment</button>;
 ```
 
-and here iam using the hook to create a state object and a dispatch function by destructuring the array.
-
-each time i use the `dispatch` i pass it an object with key `type` and a string value. if the value isn't defined in the switch case in the reducer function it will throw an error because of:
+lets see an example:
 
 ```javascript
-default:
-    return Error('action unknown?');
+/** @format */
+
+import { useReducer } from "react";
+
+function countReducer(state, action) {
+	switch (action.type) {
+		case "increment":
+			return { ...state, count: state.count + 1 };
+		case "decrement":
+			if (state.count <= 0) return { ...state, count: 0 };
+			return { ...state, count: state.count - 1 };
+		case "reset":
+			return { ...state, count: 0 };
+		default:
+			return state;
+	}
+}
+
+function App() {
+	// the state.count represents the value, the dispatch is the function that triggers the update and the action.type
+	const [state, counterDispatch] = useReducer(countReducer, { count: -10 });
+	return (
+		<div>
+			<h1>{state.count}</h1>
+			<button onClick={() => counterDispatch({ type: "increment" })}>
+				Increment
+			</button>
+			<button onClick={() => counterDispatch({ type: "decrement" })}>
+				Decrement
+			</button>
+			<button onClick={() => counterDispatch({ type: "reset" })}>Reset</button>
+		</div>
+	);
+}
 ```
 
 ---
