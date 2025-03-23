@@ -185,46 +185,88 @@ function FetchDataEffect() {
 
 ### useContext(context)
 
-the `useContext` hook allows you to share states globally between nested components.
+the `Context api` is a react api used to allow the share of states, function or objects between components without the need for prop drilling.
 
-to use this hook you have to had imported the `createContext` by using
+the context has 2 parts, the `Provider` and the `Consumer` which is used to access the context.
+
+the `Provider` is used to wrap the components that need to access the context, and the `Consumer` is used to access the context though the `consumer` can be replaced by the `useContext` hook.
+
+first create a context by using the `createContext` function:
 
 ```javascript
-import { createContext } from "react";
+//the useState is imported because we will alow the context to be updated
+import { useState, createContext } from "react";
+
+export const UserContext = createContext();
 ```
 
-then create a new object of the `createContext`
+then -optionally- create a context provider component to wrap the children but a wrapper must be present.
 
 ```javascript
-export const Data = createContext();
-```
-
-lastly use `Data.Provider` component and pass `value={ valueYouWantToPass }`in-between the `Data.Provider` component tags add any component you want to share the state between.
-
-like:
-
-```javascript
-<Data.Provider value={"amr yasser"}>
-	<App />
-</Data.Provider>
-```
-
-then in the component file in this example `App.js` import the `useContext` hook and the `createContext` obj via:
-
-```javascript
-import { useContext } from "react";
-import { Data } from "./index.js";
-```
-
-in the component pass the `CreateContext` obj as a parameter to the `useContext` hook
-
-```javascript
-export default function App() {
-	const info = useContext(Data);
-
-	return <h1>{info}</h1>;
+function UserProvider({ children }) {
+	const [username, setUsername] = useState("User");
+	return (
+		<UserContext.Provider value={{ username, setUsername }}>
+			{children}
+		</UserContext.Provider>
+	);
 }
 ```
+
+note that the context must be exported.
+
+as shown the provider -context.Provider- takes the value as a prop, though you can give an initial value in the `createContext` function as a parm.
+
+now the context can be consumed by either `context.Consumer` or the better `useContext`.
+
+```javascript
+<UserProvider>
+  <App />{/*the App can access the context*/}
+</UserProvider>,
+```
+
+then in the app component:
+
+```javascript
+/** @format */
+
+import { useContext } from "react";
+import { UserContext } from "./----/UserContext";
+
+function App() {
+	//access that context and destructure it.
+	const { username, setUsername } = useContext(UserContext);
+	return (
+		<div>
+			<h1>{username}</h1>
+			<input onChange={(e) => setUsername(e.target.value)} />
+		</div>
+	);
+}
+```
+
+or the other way:
+
+```javascript
+/** @format */
+
+import { UserContext } from "./exercs/exer_4/UserContext";
+
+function App() {
+	return (
+		<UserContext.Consumer>
+			{({ username, setUsername }) => (
+				<>
+					<h1>{username}</h1>
+					<input onChange={(e) => setUsername(e.target.value)} />
+				</>
+			)}
+		</UserContext.Consumer>
+	);
+}
+```
+
+as shown when using the `.Consumer` a function that takes the context data as a param is used to load the ui.
 
 ---
 
