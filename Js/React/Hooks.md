@@ -344,20 +344,26 @@ function App() {
 
 ### useRef(initialValue):
 
-the `useRef` is a hook used to reference jsx data that won't trigger a rerender
+the `useRef` is a hook that allows holding a reference to a jsx element or a value to store through rerenders which won't cause a rerender if changed.
 
-for example:
+the `useRef` hook takes an optional `initialValue` which is the stored in `reference.current`.
 
 ```javascript
-import { useRef } from "react";
-
-export function App() {
-	const target = useRef();
-	return <p ref={target}>some text being referenced</p>;
-}
+const element = useRef(null);
 ```
 
-the hook allows you to access the target via a current object in the var you created to do something based on an event like:
+then by using the `ref` prop of the jsx element you can access the `reference` object.
+
+```javascript
+<div ref={element}>
+	Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde explicabo
+	aperiam quae nulla necessitatibus, suscipit aliquam ipsa amet ducimus alias
+	blanditiis temporibus harum non distinctio tempore omnis consectetur. Amet,
+	dolor.
+</div>
+```
+
+then by using the `current` property you can access the value of the `reference` object and do a lot of thing with it, like scrolling to that element using the `scrollIntoView` method.
 
 ```javascript
 <button onClick= {() => target.current.scrollIntoView({
@@ -367,11 +373,22 @@ the hook allows you to access the target via a current object in the var you cre
 });}>Scroll to the para</button>
 ```
 
-here when we click that button the page will scroll to the element with the `ref = {target}`
+you can directly change the value of the `reference` object by using the `current` property like any normal variable and the change wont cause a rerender
 
-there are a lot of things you do with the `.current` object like:
+---
 
-another usage of this hook is to **store changeable data between rerenders** by passing an initial value which will be the value of `current`
+### useId():
+
+the `useId` is a hook that returns a random string to be used as a unique id.
+
+```javascript
+import { useId } from "react";
+
+function App() {
+	const uId = useId(); //id1
+	return <div id={`${useId() /*id2*/}-div`}>{uId}</div>;
+}
+```
 
 ---
 
