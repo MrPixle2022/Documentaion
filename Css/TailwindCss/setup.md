@@ -22,36 +22,6 @@ export default defineConfig({
 });
 ```
 
-```javascript
-/** @type {import('tailwindcss').Config} */
-export default {
-	content: [],
-	theme: {
-		extend: {},
-	},
-	plugins: [],
-};
-```
-
-the `content` is what matters now since it sets what files should tailwind target.
-
-for example:
-
-```javascript
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: content: [
-    "./index.html", //the index.html file in the project root
-    "./src/**/*.{js,ts,jsx,tsx}", //all files in the src directory whose extension is .js, .jsx, .ts or .tsx
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-
-```
-
 now the last step is in the main css file add:
 
 ```css
