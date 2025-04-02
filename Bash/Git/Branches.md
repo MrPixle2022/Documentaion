@@ -1,56 +1,65 @@
+<!-- @format -->
+
 # Branches:
 
-in git branches are used to create parallel timelines to edit files without corrupting the main or final result,
+branches allow you to edit and work on a repo without messing or changing the original one, they take the same files, folders & etc.. from the point where they branch allowing you to start from there and to freely do any work you want
 
-you can see how many branches you have in your repo by using:
+---
+
+## get branches
+
+using the command
 
 ```bash
 git branch
 ```
 
----
+this will display all the branches in the repo and mark the -- with a `*` before the main branch defined in the `.git/HEAD` which is the current active branch
 
-# Creating a new branch:
+--
 
-to create a new branch use:
+## create a new branch
 
-```bash
-git branch branchName
-```
-then you will have to switch to that branch you made
+creating another branch can be done in more than one way.
 
----
-
-# Switching between branches:
-
-to switch between a branch and another use:
+using:
 
 ```bash
-git checkout brachName
+git branch -name-
+#or
+git switch -name- -c
+#or
+git checkout -name- -b
 ```
 
-or just use:
+this will create a branch but **won't** move you to it.
+
+on creation in the `.git` folder the `refs/heads` folder a new file with the same name as the _new_ branch containing a unique set of numbers & letters to identify that branch
+
+also you can remove the branch using:
 
 ```bash
-git checkout -b branchName
+git branch -d -name-
 ```
 
-this will create and enter the new branch
+## Switching branches:
 
----
-
-# Merging branches:
-
-after commiting the files on a branch you will have to merge it with your main branch to save all it's data in the main branch to do that you will have to:
-
-1. switch to the branch you want to apply the final result to
-1. merge with the other branch
-
-to merge branches use:
+using:
 
 ```bash
-git merge brachName
+git checkout -branch-name-
+#or
+git switch -branch-name-
 ```
 
-this command will merger the (branchName) with the current branch so the data in (branchName) will be in the branch your on
+this will move you to the specified branch and will update what the `HEAD` points to in the `.git/HEAD`
 
+## Merging branches:
+
+when working in branches each branch's changes are dealt with separately by git, as long as they aren't merged they don't recognize nor track the changes in the other.
+
+to merge branches make sure you are on the branch to which the changes are coming then call branch with the changes you want to commit to the current.
+
+```bash
+git merge -branch_name-
+```
