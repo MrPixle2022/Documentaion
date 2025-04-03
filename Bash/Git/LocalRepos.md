@@ -9,7 +9,7 @@
 in any folder where you wish to track changes in use the command
 
 ```bash
-git inti
+git init
 ```
 
 which initializes a git repo and creates a hidden `.git` which where all the behind-the-scenes action happens.
