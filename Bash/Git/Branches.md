@@ -32,7 +32,7 @@ git switch -name- -c
 git checkout -name- -b
 ```
 
-this will create a branch but **won't** move you to it.
+this -1st command- will create a branch but **won't** move you to it -not true for the other two-
 
 on creation in the `.git` folder the `refs/heads` folder a new file with the same name as the _new_ branch containing a unique set of numbers & letters to identify that branch
 
