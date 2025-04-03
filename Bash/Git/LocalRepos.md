@@ -9,7 +9,7 @@
 in any folder where you wish to track changes in use the command
 
 ```bash
-git inti
+git init
 ```
 
 which initializes a git repo and creates a hidden `.git` which where all the behind-the-scenes action happens.
@@ -84,7 +84,7 @@ after the display press `q` to exit the log.
 ```bash
 git log
 
-#or
+#or to format it a little bit
 git log --oneline
 ```
 
