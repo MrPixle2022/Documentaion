@@ -95,7 +95,11 @@ git log --oneline
 if you edited a file then you wanted to cancel those changes use:
 
 ```bash
-git restore filename
+#this un-stages the file
+git restore -filename- --staged
+#or
+git restore -filename-
+#this restores the file to it's previous commit
 ```
 
 ---

@@ -54,6 +54,8 @@ git switch -branch-name-
 
 this will move you to the specified branch and will update what the `HEAD` points to in the `.git/HEAD`
 
+---
+
 ## Merging branches:
 
 when working in branches each branch's changes are dealt with separately by git, as long as they aren't merged they don't recognize nor track the changes in the other.
@@ -62,4 +64,25 @@ to merge branches make sure you are on the branch to which the changes are comin
 
 ```bash
 git merge -branch_name-
+```
+
+---
+
+## branching to a hash
+
+git allows you to return to previous commit by creating a new branch with the commit's hash as it's name.
+
+using the command:
+
+```bash
+git checkout -hash-
+```
+
+you will be move to branch `-hash-` and the `HEAD` will point to it.
+
+another way to do so is using the `HEAD~`
+
+```bash
+#go back one commit
+git checkout HEAD~1
 ```
