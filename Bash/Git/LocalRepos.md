@@ -84,7 +84,7 @@ after the display press `q` to exit the log.
 ```bash
 git log
 
-#or
+#or to format it a little bit
 git log --oneline
 ```
 
