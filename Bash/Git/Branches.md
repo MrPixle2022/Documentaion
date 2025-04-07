@@ -42,6 +42,19 @@ also you can remove the branch using:
 git branch -d -name-
 ```
 
+## Renaming branches:
+
+when using github -for example- it's recommended to rename the `master` branch to `main` to be compatible with github.
+
+using:
+
+```bash
+git branch -M -new_name-
+# -m also works
+```
+
+---
+
 ## Switching branches:
 
 using:
@@ -68,7 +81,7 @@ git merge -branch_name-
 
 ---
 
-## branching to a hash
+## moving to a hash
 
 git allows you to return to previous commit by creating a new branch with the commit's hash as it's name.
 
