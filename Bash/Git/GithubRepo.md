@@ -1,63 +1,58 @@
+<!-- @format -->
+
 # Remote repo:
 
 ---
 
-### Remote:
+## linking to a remote-repo:
 
-the `remote -v` command is used to display the connection that this repo has with gitHub.
+first use the `remote -v` command to list the remote connections of your repo -won't show any thing at first-.
+
+then using the `remote add` command you can pass a `name` -optional but keep as `origin` for convince- and the `url` of the remote repo
 
 ```bash
-git remote -v
+git remote add -name- -url-
+#for example
+git remote add origin https://github.com/username/repo.git
 ```
+
+note that a connection can be removed:
+
+```bash
+git remote remove -name-
+```
+
+or later be renamed
+
+```bash
+git remote rename -old_name- -new_name-
+```
+
+> [!NOTE] It's recommended to rename the master branch to main using `branch -M main`
 
 ---
 
-### Clone a remote repo:
+## Pushing changes:
 
-to clone a github repo use:
-
-```bash
-git remote add origin yourGitHubRepoLink
-```
-
-this will clone the gitHub repo at that link you 've passed so you can modify it locally, the origin will later represent the gitHubRepo, you can change the origin name if you wish but not recommended
-
----
-
-### Rename the main branch:
-
-your main branch might be named to `master` which isn't supported as a main brach by gitHub so you can use
+having done changes to the local repo you can push -upload- them to the remote repo using the `push` command
 
 ```bash
-git branch -m main
-```
+git push -remote_name- -branch_name-
+#the remote name is `origin` by default if `remote add` didn't receive another one
 
-to rename the `master` to `main`
-
----
-
-### Push changes:
-
-to push changes (publish them) use:
-
-```bash
-git push -u origin master
-```
-this will publish the master branch to the gitHub repo
-
-or use:
-
-```bash
+#or add the -u to set an upstream so that you don't need to specify the remote name and the main branch each time.
+git push -u origin main
+#then at any latter stage we can use just
 git push
 ```
 
-which will push the current branch to the remote repo
+> [!IMPORTANT] The `-u` links the specified branch only to the upstream
 
 ---
 
-### Sync local with remote repo:
+## Synchronizing local with remote repo:
 
-to git the latest changes that were commited to the remote repo use:
+to git the latest changes that were committed to the remote repo use:
 
 ```bash
 git pull origin master
