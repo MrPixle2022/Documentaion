@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Models & Schemas:
 
 ---
@@ -8,11 +10,11 @@ import `Schema, InferSchemaType, model` from mongoose, then create the Schema.
 import { InferSchemaType, Schema, model } from "mongoose";
 
 const noteSchema = new Schema(
-  {
-    title: { type: String, required: true },
-    text: String,
-  },
-  { timestamps: true }
+	{
+		title: { type: String, required: true },
+		text: String,
+	},
+	{ timestamps: true },
 );
 ```
 
@@ -29,3 +31,30 @@ type Note = InferSchemaType<typeof noteSchema>;
 export default model<Note>("Note", noteSchema);
 ```
 
+a better alternative is extending the `mongoose.Document` type
+
+```typescript
+/** @format */
+
+import mongoose, { Schema, Document } from "mongoose";
+
+export interface UserDoc extends Document {
+	email: string;
+	username: string;
+	password: string;
+	role: "admin" | "user";
+}
+
+const UserTypeSchema = new Schema<UserDoc>({
+	id: { type: String, required: true },
+	email: { type: String, required: true },
+	username: { type: String, required: true },
+	password: { type: String, required: true },
+	role: { type: String, enum: ["admin", "user"], required: true },
+});
+
+export const UserModel =
+	mongoose.models.User || mongoose.model<UserDoc>("User", UserTypeSchema);
+```
+
+this links your type to your schema and help you modify it easily. X
