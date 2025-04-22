@@ -45,7 +45,7 @@ first we need to define the props in the component:
 	app.component("page-content", {
 		// define the props.
 		props: ["title"],
-		// use the props in the template.
+		// use the props in the template
 		template: "<div>{{ title }}</div>",
 	});
 </script>
@@ -62,3 +62,5 @@ now we can use the props in the component:
 so if a prop is name `pageTitle` it will be `page-title` in the html.
 
 [!TIP] you can use the `v-bind` directive on props.
+
+components can have their own data, methods, computed properties, etc.

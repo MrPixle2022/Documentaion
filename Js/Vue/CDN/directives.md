@@ -92,3 +92,62 @@ also you can prevent the default behavior of the event by using `@event.prevent`
 ```html
 <button @click.prevent="---">Click me</button>
 ```
+
+---
+
+## v-if:
+
+the `v-if` directive is used to conditionally render a block of code, it will remove the element from the DOM if the condition is not met.
+
+there is also the `v-show` directive that functions similarly but instead or removing the element it will just add the `display: none` style to it.
+
+```html
+<div v-if="isVisible">
+	<p>This is visible</p>
+</div>
+<div v-show="isVisible">
+	<p>This is visible</p>
+</div>
+```
+
+note that the `v-if` leaves a comment in the html where the element is supposed to be.
+
+---
+
+## v-else-if:
+
+the `v-else-if` directive is used to conditionally render a block of code, it will render the block of code if the condition is not met but must be used after an element with the `v-if` directive.
+
+```html
+<div v-if="isVisible && dark">
+	<p>This is visible and dark</p>
+</div>
+<div v-else-if="!isVisible && dark">
+	<p>This is not visible but dark</p>
+</div>
+```
+
+---
+
+## v-else:
+
+the `v-else` directive is used to conditionally render a block of code, it will render the block of code if the condition is not met but must be used after an element with the `v-if` directive.
+
+```html
+<div v-if="isVisible">
+	<p>This is visible</p>
+</div>
+<div v-else>
+	<p>This is not visible</p>
+</div>
+```
+
+---
+
+## v-model:
+
+the `v-model` directive is used to bind the value of an input to a variable creating a two-way binding, so any change in the input will be reflected in the variable and vice versa.
+
+```html
+<input v-model="variable" />
+```
