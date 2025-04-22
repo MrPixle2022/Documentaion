@@ -33,7 +33,12 @@ using the `:var` syntax, you can route to a component that will be expect a path
 ```javascript
 const router = createRouter({
 	history: createWebHistory(),
-	routes: [{ path: "/:page", component: PageContent }],
+	/*
+    path -> the url to match
+    component -> the component to render
+    props -> pass the param as props to the component
+  */
+	routes: [{ path: "/:page", component: PageContent, props: true }],
 });
 ```
 
