@@ -49,3 +49,15 @@ note that for the `/` path, no component will be rendered as the router only kno
 ```
 
 later the params can be accessed in the component via the `this.$route.params` since using the `app.use(router)` adds the router the global `this` object.
+
+---
+
+## nested routes:
+
+you can define nested routes by adding a `children` property to the route object:
+
+```javascript
+{ path: "/", component: Home, children: [{ path: "about", component: About }] },
+```
+
+the `children` is an array that accepts other router instances to nest the routes.

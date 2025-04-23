@@ -75,3 +75,17 @@ const decrement = () => {
 ```
 
 [!NOTE] here since we used the `reactive` function we had to extract the value our selves in the template.
+
+---
+
+## Computed:
+
+the `computed` function is used to create a computed property.
+
+```javascript
+import { computed, ref } from "vue";
+
+const count = ref(0);
+
+const doubleCount = computed(() => count.value * 2);
+```
