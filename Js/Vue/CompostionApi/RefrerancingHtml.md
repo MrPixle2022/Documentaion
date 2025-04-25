@@ -22,6 +22,6 @@ import { useTemplateRef } from "vue";
 const myRef = useTemplateRef("my-element");
 ```
 
-[!IMPORTANT] the `reference` value will be `null` and won't be initialized until the component is mounted
+[!IMPORTANT]> the `reference` value will be `null` and won't be initialized until the component is mounted
 
 when the value is initialized you can access the element via the `.value`.
