@@ -151,3 +151,22 @@ the `v-model` directive is used to bind the value of an input to a variable crea
 ```html
 <input v-model="variable" />
 ```
+
+---
+
+## v-slot:
+
+the `v-slot` is used to define the slot a template goes in, it has a short hand of `#slotName`
+
+```html
+<ChildrenWSlot>
+	<!-- replace the slot with name header -->
+	<template v-slot:header>
+		<!-- inner content -->
+	</template>
+	<!-- replace the slot named body -->
+	<template #body>
+		<!-- inner content -->
+	</template>
+</ChildrenWSlot>
+```
