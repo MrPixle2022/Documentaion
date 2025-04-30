@@ -13,10 +13,22 @@ const router = useRouter();
 
 function navigateToHome() {
 	router.push({path: "/path", query: {---}});
+  // also push("/path") works
 }
 ```
 
-also you can use the `useRoute` to access current route
+the router instance has a set of useful methods like:
+
+- push -> add a new entry
+- replace -> replace this url in the entry
+
+and so on..
+
+---
+
+## useRoute
+
+use the `useRoute` to access current route's data
 
 ```javascript
 import { useRoute } from "vue-router";

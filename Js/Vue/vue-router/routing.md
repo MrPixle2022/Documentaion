@@ -61,3 +61,40 @@ you can define nested routes by adding a `children` property to the route object
 ```
 
 the `children` is an array that accepts other router instances to nest the routes.
+
+---
+
+## Named routes:
+
+adding a **unique** value to the `name` property, we can use the `name` instead of the `path` for navigation. for example:
+
+```javascript
+export default createRouter({
+	routes: [
+		{
+			path: "/",
+			component: HomeView,
+			// this -name- must be unique
+			name: "home",
+		},
+	],
+});
+```
+
+this value can be used for navigation using router-link:
+
+```html
+<router-link
+	class="flex items-center flex-shrink-0 mr-4"
+	:to="{ name: 'home', query: { back: true } }">
+</router-link>
+```
+
+this router-link will navigate to the route with the `name` of **home** and use a query param of `?back=true`
+
+and also the same can be used with the `useRouter` for the composition api:
+
+```javascript
+// push a new entry in the history to the route of `name: "home`
+useRouter().push({ name: "home" });
+```
