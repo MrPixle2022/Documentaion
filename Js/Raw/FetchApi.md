@@ -6,12 +6,12 @@
 
 ### fetch(url, { options }):
 
-the fetch api is a promise based api that takes a url by default to send a GET request to the url the fetch returns a response object and since it uses promises it's async.
+the fetch api is a promise based api that takes a url ,by default it sends a GET request to the url the fetch returns a response object and since it uses promises it's async.
 
 example:
 
 ```javascript
-let response = fetch("www.someApi.com");
+let response = await fetch("www.someApi.com");
 ```
 
 ---
@@ -52,7 +52,7 @@ fetch("www.someApi.com", {
 	// This is necessary when making requests to a server that requires authentication.
 	mode: "cors", //
 	body: JSON.stringfy(data),
-	credentials: "include", //send the cookies with the request but requires the server to set the response header "Access-Control-Allow-Credentials" to true
+	credentials: "include", //send the cookies with the request but requires the server to set the response header "Access-Control-Allow-Credentials" to true, it allows cookies to be sent
 })
 	.then((res) => res.json())
 	.then((json) => console.log(json));
@@ -64,22 +64,31 @@ the `headers` can also take:
 headers: {
     // Specifies the type of data being sent in the request body
     'Content-Type': 'application/json',
+
     // Specifies the type of data that the server will return in the response
     'Accept': 'application/json',
+
     // Specifies the authorization token for the request
     'Authorization': 'Bearer your_token_here',
+
     // Specifies the language of the response
     'Accept-Language': 'en-US',
+
     // Specifies the character encoding of the request and response
     'Content-Encoding': 'gzip',
+
     // Specifies the character encoding of the request and response
     'Accept-Encoding': 'gzip',
+
     // Specifies the user agent of the client making the request
     'User-Agent': 'Your User Agent',
+
     // Specifies the cache control directives for the request
     'Cache-Control': 'no-cache',
+
     // Specifies the request credentials (such as cookies) to include in the request
     'Credentials': 'include',
+
     // Specifies the mode for the request (e.g., cors, no-cors, same-origin)
     'Mode': 'cors',
   },
