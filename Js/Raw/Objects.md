@@ -39,6 +39,7 @@ let key4 = function () {
 };
 
 let newObj = {
+	//es6 syntax
 	key1,
 	key2,
 	key3,
@@ -58,6 +59,7 @@ also object methods can use their name as well for definition:
 ```javascript
 // newObj = {objetFunction: () => "hello")}
 let newObj = {
+	//es6 syntax
 	objectFunction() {
 		return "hello";
 	},
@@ -86,8 +88,8 @@ or the `object['field']`, this can be used optionally for normal keys or mandato
 
 ```javascript
 let obj = {
-    firstName: "amr",
-    lastName: "yasser",
+  firstName: "amr",
+  lastName: "yasser",
 }
 
 console.log(obj["firstName"]); //amr

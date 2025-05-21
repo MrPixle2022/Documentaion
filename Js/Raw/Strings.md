@@ -34,6 +34,9 @@ a string is defined using:
 '' -> usually avoided - liked by nestjs;
 `` -> used for multi-line string, dynamic values insertion
 */
+
+const someVal = 12;
+console.log(`value: ${someVal}`); //value: 12
 ```
 
 ---

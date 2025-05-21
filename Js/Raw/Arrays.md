@@ -23,6 +23,8 @@ navigation:
 - [forEach](#foreachcallbackfunction)
 - [map](#map-callbackfunction)
 - [reduce](#reducereducerfunction-initialvalue)
+- [every](#everycallback)
+- [some](#somecallback)
 
 ---
 
@@ -278,3 +280,27 @@ console.log(arr.reduce((prev, curr, cIndex, array) => prev + curr, 0)); //15
 ```
 
 ---
+
+## every(callback):
+
+the `every` returns true if all elements in the array passes the callback check and false if one doesn't
+
+the callback as usual takes value, current index, and the array
+
+```javascript
+const arr = [1, 2, 3, 5, 5];
+
+console.log(arr.every((val, index, arr) => val % 2 !== 0)); // false
+```
+
+---
+
+## some(callback):
+
+the `some` is exactly like every but checks if at least one element does:
+
+```javascript
+const arr = [1, 2, 3, 5, 5];
+
+console.log(arr.some((val, index, arr) => val % 2 !== 0));
+```

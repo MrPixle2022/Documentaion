@@ -8,13 +8,13 @@
 
 first install the nestjs cli globally using:
 
-```powershell
+```bash
 pnpm i -g @nestjs/cli
 ```
 
 then use the cli to create a new app:
 
-```powershell
+```bash
 nest n -project-name-
 #Or
 nest new -project-name-
@@ -34,8 +34,24 @@ nest js stores all source code in the `src` directory, each `module` -the buildi
 
 use the command:
 
-```powershell
+```bash
 pnpm start:dev
 ```
 
 the default port is `3000` which can be changed in the `main.ts`, the `main.ts`'s bootstrap function is where you would add things like middlewares, passport js strategies ,etc...
+
+---
+
+## Build & serve:
+
+after completing the app if the app was already running you will notice a `dist` folder with an almost 1:1 replica of your `src` folder but in javascript instead of the typescript, this is the final build of the app, however if you want to build after making a change when the server wasn't running use:
+
+```bash
+pnpm build
+```
+
+then run it using:
+
+```bash
+pnpm start:prod
+```

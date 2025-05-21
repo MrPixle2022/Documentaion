@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Dom:
 
 the `DOM` or document object module is an object that gives you access to elements in the page and it's a child of the `window` object.
@@ -5,7 +7,7 @@ the `DOM` or document object module is an object that gives you access to elemen
 in the dom you can change some data about the page like changing the title by using:
 
 ```javascript
-document.title = 'my page'
+document.title = "my page";
 ```
 
 ---
@@ -26,20 +28,33 @@ to access an element use one of these document methods:
 - querySelectorAll
 
 for example:
+
 ```html
-<h1 id='head1' class='has-class'>content1</h1>
-<h1 id='head2' class='head-class has-class'>content2</h1>
-<h1 id='head3' class='head-class has-class'>content3</h1>
+<h1
+	id="head1"
+	class="has-class">
+	content1
+</h1>
+<h1
+	id="head2"
+	class="head-class has-class">
+	content2
+</h1>
+<h1
+	id="head3"
+	class="head-class has-class">
+	content3
+</h1>
 ```
 
 then in js:
 
 ```javascript
-const head1 = document.getElementById('head1');//<h1 id='head1' class='head-class has-class'>content1</h1>
+const head1 = document.getElementById("head1"); //<h1 id='head1' class='head-class has-class'>content1</h1>
 
-const head2 = document.querySelector('.head-class')//<h1 id='head2' class='head-class has-class'>content2</h1>
+const head2 = document.querySelector(".head-class"); //<h1 id='head2' class='head-class has-class'>content2</h1>
 
-const heads = document.querySelectorAll('.head-class')/*
+const heads = document.querySelectorAll(".head-class"); /*
 [<h1 id='head2' class='head-class has-class'>content2</h1>
 <h1 id='head3' class='head-class has-class'>content3</h1>]
 */
@@ -58,7 +73,7 @@ to access content within an element you have to get it as shown above and then u
 following the example above:
 
 ```javascript
-head2.innerText = 'hi there'
+head2.innerText = "hi there";
 ```
 
 which will replace the `content2` in the element with `hi there`.
@@ -66,9 +81,9 @@ which will replace the `content2` in the element with `hi there`.
 also you can add elements to an element via the `innerHTML`
 
 ```javascript
-head3.innerHTML= `
+head3.innerHTML = `
 <button> click me </button>
-`
+`;
 ```
 
 which will create a new button in the `head3`
@@ -82,12 +97,10 @@ setting or accessing the values of html elements attributes is easy in js, after
 - getAttribute
 - setAttribute
 
-
-
-|function  |params  |
-|---------|---------|
-|getAttribute|attribute: str|
-|setAttribute|attribute: str, value|
+| function     | params                |
+| ------------ | --------------------- |
+| getAttribute | attribute: str        |
+| setAttribute | attribute: str, value |
 
 ---
 

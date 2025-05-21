@@ -34,11 +34,42 @@ the `let index = 0;` is the initialization, while `index <= 100` is the conditio
 
 ---
 
-## for(--in)
+## for(--in):
+
+the `for in` is used to iterate over an the enumerable(countable or nameable) properties of an object and can be used to loop over the keys
+
+```javascript
+for (let key in object){
+  ---
+}
+```
+
+for example:
+
+```javascript
+const object1 = {
+	id: 1,
+	name: "object1",
+};
+
+for (const key in object1) {
+	console.log(key, object1[key]); // (id 1) then (name object1)
+}
+```
 
 ---
 
-## for(--of)
+## for(--of):
+
+the `for of` loop is used to loop over iterables like arrays, strings, maps, sets, generators, etc..., the for of is great as it's doesn't require indexes:
+
+```javascript
+const string1 = "hello";
+
+for (const element of string1) {
+	console.log(element); //h then e then l then l then o
+}
+```
 
 ---
 
