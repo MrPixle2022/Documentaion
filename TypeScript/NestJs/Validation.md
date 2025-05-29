@@ -57,6 +57,22 @@ export class UsersController {
 }
 ```
 
+if you have a pipe you want to use globally we can use the `useGlobalPipes` in the `main.ts` file:
+
+```typescript
+async function bootstrap() {
+	const app = await NestFactory.create(AppModule);
+	// whitelist: only defined properties are allowed, others are omitted
+	app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
+	await app.listen(process.env.PORT ?? 3333);
+	console.log(`http://localhost:${process.env.PORT ?? 3333}`);
+}
+```
+
+---
+
+## Built in pipes
+
 there are some built in pipes in nest that can be used on decorators like `@Query`, `@Param` & `@Body`, etc... to force a data type and return an error on failure like `@ParseIntPipe`, `@ParseBoolPipe`, etc...
 
 ```typescript

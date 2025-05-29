@@ -62,3 +62,33 @@ returnField(@Body("field") field: string) {
 just note if the property doesn't exist field will be `undefined` though we specified the type to be only string
 
 there is also `@Param` & `@Query` which extract the path params & query objects and optionally you can specify a specific value to extract like the `@Body`
+
+---
+
+## Http Code:
+
+usually any request -if no exception is thrown- returns a `200` code, if you want to change that use the `@HttpCode`.
+
+```typescript
+@HttpCode(200)
+@Post('signin')
+@Header('Content-Type', 'Application/Json')
+signIn(@Body() body: AuthDto) {
+  return this.authService.signIn(body);
+}
+```
+
+it's recommended you use the `HttpStatus` enum for the code.
+
+---
+
+## Setting Response headers:
+
+nest has a `@Header`, which can be used to define a response header, like for example `Content-type` or `Cache-Control`:
+
+```typescript
+@Header('Content-Type', 'Application/Json')
+async sendResponse(){
+  return '';
+}
+```

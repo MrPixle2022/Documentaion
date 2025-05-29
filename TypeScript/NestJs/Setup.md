@@ -4,29 +4,64 @@
 
 ---
 
-## Installation:
-
-first install the nestjs cli globally using:
+start by installing the nest cli using:
 
 ```bash
 pnpm i -g @nestjs/cli
 ```
 
-then use the cli to create a new app:
+then create a new project using:
 
 ```bash
-nest n -project-name-
-#Or
-nest new -project-name-
+nest new _projectName_
+# alias
+nest n _projectName_
 ```
 
-also you can pass flags like `-s` to not install the packages & `-g` to not initialize a git repo
+we can add some flags like `-s` to skip installation and `-g` to not initialize a local git repo
 
 ---
 
-## File structure:
+## Architecture
 
-nest js stores all source code in the `src` directory, each `module` -the building basis of nest- is made of 3 sections, a `.module.ts` for the module configuration, `.controller.ts` to set the api end points and control the flow, `.service.ts` which the source of the logic and the functionality. all of these pieces can be created using the nest cli
+nest's architecture is based on `modules`, which is a septate part of the app that when combined together create the entire app, in a module we define other modules this module requires, controllers and providers.
+
+a `controller` is the part responsible for the request-response handling and the `service` -an injectable provider- which is responsible for the actual logic.
+
+this isolation allows for easier maintenance and reusability.
+
+it's worth noting that nest uses dependency injection and decorators, providers -like services- that are decorated by the `@injectable` decorator are instantiated once and have their reference injected into any class who requires them in their constructor
+
+an example of dependency injection would be:
+
+```typescript
+@Controller("auth")
+export class AuthController {
+	constructor(private authService: AuthService) {}
+}
+```
+
+this `authService` will be injected and added to the class's properties automatically by nest.
+
+```typescript
+@Controller("auth")
+export class AuthController {
+	constructor(private authService: AuthService) {
+		this.authService = authService;
+	}
+}
+```
+
+this is saves the extra line where you usually will have to use:
+
+> [!NOTE] using the `nest generate` or `nest g` command you can create any of the above:
+
+```bash
+nest g module _moduleName_
+nest g service _serviceName_
+nest g controller controllerName_
+# optionally add --no-spec to not create a test file
+```
 
 ---
 
@@ -38,7 +73,7 @@ use the command:
 pnpm start:dev
 ```
 
-the default port is `3000` which can be changed in the `main.ts`, the `main.ts`'s bootstrap function is where you would add things like middlewares, passport js strategies ,etc...
+the default port is `3000` which can be changed in the `main.ts`, the `main.ts`'s bootstrap function is where you would add things like middlewares, passport js strategies ,global pipes and guards, etc...
 
 ---
 
@@ -54,4 +89,5 @@ then run it using:
 
 ```bash
 pnpm start:prod
+#runs the dist folder, useful when you want to run the server and don't actually plant on editing
 ```

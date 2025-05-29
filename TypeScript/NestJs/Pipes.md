@@ -67,3 +67,19 @@ then use the pip for the body using:
 ```typescript
 @Body(ValidateUserPipe) body: CreateUser,
 ```
+
+---
+
+## Using global pipes:
+
+for pipes that are to be used globally we can add them in the `main.ts` file using the `useGlobalPipes`:
+
+```typescript
+async function bootstrap() {
+	const app = await NestFactory.create(AppModule);
+	// whitelist: only defined properties are allowed, others are omitted
+	app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
+	await app.listen(process.env.PORT ?? 3333);
+	console.log(`http://localhost:${process.env.PORT ?? 3333}`);
+}
+```

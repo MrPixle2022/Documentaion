@@ -177,15 +177,150 @@ setting or accessing the values of html elements attributes is easy in js, after
 
 ## Parents, children and sibling:
 
-accessing parents and siblings in js can be done by accessing the values of:
+on an element we can access it's direct parent, children, prev and next sibling element using the properties of:
 
-- parentElement => direct parent
-- children => all children
-- nextElementSibling => the sibling after
-- previousElementSibling => the sibling before
+- parentElement => the direct parent element
+- children -> an array of all children
+- nextElementSibling => the sibling element after this element
+- previousElementSibling => the sibling before before this element
 
 for example:
 
 ```javascript
 head1.nextElementSibling; //will return the values of head2, head3
+```
+
+> [!TIP] on each of this elements we can access it's parent children, next and pre sibling etc...
+
+---
+
+## Element creation and insertion:
+
+we can create elements in javascript using the `createElement` method on the document:
+
+```javascript
+// document.createElement('element')'
+const newDiv = document.createElement("div");
+// insert some html into it
+newDiv.innerHTML = `
+  <h1>Welcome to dom insertion</h1>
+  <p>We are a group of developers who love to create and share random projects. ;)</p>
+`;
+```
+
+but when adding the element we have some more options like `append` and `prepend`:
+
+```javascript
+// Append the new div to the body at the end
+this.document.body.append(newDiv);
+
+// Append the new div to the body at the beginning
+this.document.body.prepend(newDiv);
+
+// Insert the new div at the beginning of the body, and before the very first child
+//insertBefore(element, BeforeWhichChild);
+document.body.insertBefore(newDiv, document.body.firstChild);
+
+// Insert the new div at the beginning of the body, and after the very first child
+//insertAdjacentElement(position, element);
+// position = beforebegin, afterbegin, beforeend, afterend
+document.body.insertAdjacentElement("beforeend", newDiv);
+```
+
+now if we want to remove an element:
+
+```javascript
+// Remove the body with it's children
+document.body.remove();
+
+// removes the newDiv
+document.removeChild(newDiv);
+```
+
+---
+
+## Add and Remove Events:
+
+events occur when a users interacts with an element, or when the browser does, there are events for when the page loads -DOMContentLoaded- , element is hovered, mouse is clicked & when a key is pressed.
+
+events can be assigned:
+
+**inline**:
+
+```html
+<element onEvent="function">children</element>
+```
+
+**object notation**:
+
+```javascript
+const element = document.querySelector("selector");
+element.onevent = function () {};
+```
+
+**eventListers**:
+
+```javascript
+const element = document.querySelector("selector");
+element.addEventListener("event", () => {});
+element.removeEventListener("event", () => {});
+```
+
+---
+
+## The event object:
+
+for the event function we can get an event object that holds some data and methods to control the behavior of the element.
+
+```javascript
+const button = document.querySelector("button");
+
+button.addEventListener("click", (event) => {
+	event.target; // the element on which the event occurred, this can be the button or any child element who was clicked
+	event.currentTarget; // the button to which the event handler is attached
+	event.stopPropagation(); // stop the event from bubbling up to parent elements so it won't trigger click event on parents
+	event.preventDefault(); // prevent the default action of the event (e.g., prevent form submission)
+	event.stopImmediatePropagation(); // stop the event from bubbling up and prevent other handlers of the same event from executing
+});
+```
+
+do not forget to remove event listers from each element when you are done with them using `.removeEventListener`
+
+---
+
+## Mouse events:
+
+mouse events include actions related to mouse, like hovering, click , double click, right click, etc...
+
+for example:
+
+- click -> when the user clicks an element
+- contentmenu -> right clicked an element
+- dbclick -> when the element is double clicked
+- mousedown -> when the user presses a mouse button over an element
+- mouseenter -> when the mouse pointer moves onto the element
+- monseleave -> when the mouse pointer moves out of the element
+- mousemove -> when the mouse moves over the element while being on it
+- mouseup -> when a mouse key is released over the element
+
+---
+
+## Keyboard events:
+
+keyboard events include actions related to the keyboard like keypress.
+
+- keypress -> when a key is pressed
+- keydown -> when a key is only pressed
+- keyup -> when a key is only released
+
+```javascript
+const input = document.querySelector("input");
+
+input.addEventListener("keypress", (e) => {
+	console.log(e.key); //what key is pressed, a A, b B --- (capital and small aren't the same)
+	console.log(e.keyCode); //they key code like a -> 97
+	console.log(e.ctrlKey); //is the ctrl pressed
+	console.log(e.shiftKey); //is the shift pressed
+	console.log(e.altKey); //is the alt pressed
+});
 ```
