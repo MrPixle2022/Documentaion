@@ -93,6 +93,8 @@ const amr = await prisma.user.findFirst({
 });
 ```
 
+> [!IMPORTANT] know that the `select` expects at least one truthy values -one field set to true-
+
 this will enforce the deletion of the fields marked with `false` from the query result.
 
 whilst the `include` is the opposite, it's used when you want to show most and hide some.

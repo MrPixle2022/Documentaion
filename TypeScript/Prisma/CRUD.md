@@ -2,9 +2,23 @@
 
 # CRUD:
 
+for crud operations ensure the client is installed and generated using:
+
+```bash
+pnpm i @prisma/client
+# then run
+pnpm prisma generate
+```
+
+for the most part any method with `Many` in the end won't actually returns the data, but how many records it read, edited, or deleted
+
+though most have a version ending with `ManyAndReturn` -except delete- which will returns those data.
+
+---
+
 ## Creation operation:
 
-prisma provides `create` and `createMany` to create a one or more record, we do this by defining an options to the method and assigning the `data` object to the the new record object or an array of records objects for `createMany`:
+on the prisma client we can make use of the `create` method, this methods takes an options object, to the options we set the `data` to our record, make sure to provide every **required** field at least:
 
 ```typescript
 await prisma.user.create({
@@ -13,6 +27,16 @@ await prisma.user.create({
 		username: "pxl",
 		age: 18,
 		role: "admin",
+	},
+});
+```
+
+a quick note that a creation can be nested, when having a relation you can define the record in the data but instead of directly setting the fields you actually add the fields to the `create` option, to clear the image:
+
+```typescript
+await prisma.user.create({
+	data: {
+		// other fields
 		userPreferences: {
 			create: {
 				emailUpdate: true,
@@ -22,67 +46,48 @@ await prisma.user.create({
 });
 ```
 
-you will notice that the `userPreferences` though is supposed to be a separate model we were just able to define it inside the create, and by nesting another create object, that actually simplifies the process of creating records, we can replace the create with a `connect` if we have an existing record we want to link and `disconnect` -a boolean- to disconnect relations.
+you will notice that the `userPreferences` though is supposed to be a separate model we were just able to define it inside the `create` options.
 
-we also can use other options like `include` and `select`.
+it's worth knowing that relation models can are defined as objects which has `properties` that are similar to the method that exist on the model your using -`.user` in this case- but instead of being methods they are defined as nested objects, for example you have `connect`, `create` and `createMany`, each work similar to how they would using the normal methods, also there is `
+
+> [!IMPORTANT] if you have an existing record you want to use in this new model, make use of the `connect` option.
+
+for example:
 
 ```typescript
 const newUser = await prisma.user.create({
-	// select: { username: true, id: false, email: true, userPreferences: t },
-	include: { userPreferences: true },
 	data: {
-		email: "mrpixel0010@gmail.com",
-		username: "pxl",
 		age: 18,
-		role: "admin",
+		email: "myNameIsAdmin@dude.com",
+		username: "amr",
 		userPreferences: {
-			create: {
-				emailUpdate: true,
-			},
+			connect: { id: "86c85e41-e61c-4bca-8716-f6260e46eeba" },
 		},
 	},
 });
 ```
 
-by this we are making sure that we will get the new `userPreferences` object.
-
-`select` is similar but is used to only pick certain fields only:
+or use the `connectOrCreate` which will look for the record and connect it, else it will simply create it:
 
 ```typescript
 const newUser = await prisma.user.create({
-	select: { username: true, id: false, email: true },
-	// include: { userPreferences: true },
 	data: {
-		email: "mrpixel0010@gmail.com",
-		username: "pxl",
 		age: 18,
-		role: "admin",
+		email: "myNameIsAdmin@dude.com",
+		username: "amr",
 		userPreferences: {
-			create: {
-				emailUpdate: true,
+			connectOrCreate: {
+				where: { id: "86c85e41-e61c-4bca-8716-f6260e46eeba" },
+				create: { emailUpdate: true },
 			},
 		},
 	},
 });
 ```
 
-by using `select` we are making sure we only get the username and email, and ignoring the id and any other field
+> [!TIP] you can also use the `disconnect` -boolean- option to unlink the models
 
-> [!IMPORTANT] Note you can only use either `select` or `include`, and know you can nest selects and include, for example:
-
-```typescript
-select: {
-  username: true,
-  userPreferences: { select: { id: true } },
-  email: true,
-},
-```
-
----
-
-## Using createMany:
-
-we can use the `createMany` to insert multiple records at once, but know that when using `createMany` both `select & include` won't work
+we can use the `createMany` to insert multiple records at once, but know that when using `createMany` both `select & include` won't work and we the `data` will be an array of objects:
 
 ```typescript
 const users = await prisma.user.createMany({
@@ -91,7 +96,7 @@ const users = await prisma.user.createMany({
 users; // {count: 1}
 ```
 
-if you want to get those users back use ``:
+the problem is that -unlike `create`- `createMany` doesn't return the data array, but an object with the `count` of how many were inserted, though we can get those users back use `createManyAndReturn`:
 
 ```typescript
 const users = await prisma.user.createManyAndReturn({
@@ -104,7 +109,9 @@ console.log(users); //an array of users -in this case it's only one-
 
 ## Getting records:
 
-when getting data based on a unique filed use the `findUnique`, it will look based on the `where` condition:
+when getting data we can either pick one, pick the first or pick many using `findUnique`, `findFirst` and `findMany` respectively, using the `where` to define the query
+
+for example we can make use of the `findUnique` to find a single record by a **unique** field:
 
 ```typescript
 const amr = await prisma.user.findUnique({
@@ -118,116 +125,35 @@ console.log("🚀 ~ main ~ amr:", amr);
 
 note the `email_username` object, this was actually generated by the `@@unique([email, username])` in the schema file and can be used to find a record, now that any not-unique field is invalid for this condition
 
-though their are option like `findFirst` which will find the very first record that meets a conation:
+ir we may use the `findFirst` which will find the very first record that meets a conation:
 
 ```typescript
 const amr = await prisma.user.findFirst({
 	where: { role: "Basic" },
-	select: {
-		userPreferencesId: false,
-		userPreferences: false,
-		email: true,
-		username: true,
+	include: {
+		password: false,
 	},
 });
 console.log("🚀 ~ main ~ amr:", amr);
 ```
 
-or use `findMany`:
+or use `findMany` to get all records that that meets that condition:
 
 ```typescript
 const users = await prisma.user.findMany({
 	where: { role: "Basic" },
-	select: {
-		userPreferencesId: false,
-		userPreferences: false,
-		email: true,
-		username: true,
+	include: {
+		password: false,
 	},
 });
 console.log("🚀 ~ main ~ users", users);
-```
-
-in addition to the `where` we can use the `distinct` option to ignore duplicate fields:
-
-```typescript
-const distinctUsersName = await prisma.user.findMany({
-	where: { role: "Basic" },
-	distinct: ["username"],
-});
-console.table(distinctUsersName);
-```
-
-so this will select all `basic` role users whose username is **distinct**
-
-we can go even further:
-
-```typescript
-const distinctUsersName = await prisma.user.findMany({
-	where: { role: "Basic" },
-	distinct: ["username"],
-	take: 1, //only take one result
-	skip: 1, //skip the first result
-	orderBy: { age: "asc" }, //order by age ascending, or use desc for descending
-});
-console.table(distinctUsersName);
-```
-
-this will select all users whose role is **basic** and has a distinct **username**, take only **1** result and skip the first one, and then order the result based on the age in ascending order
-
----
-
-## Advanced Where:
-
-`where` can actually be used to handle more complex logic, for example:
-
-```typescript
-where: {
-  age: { gte: 10 },
-},
-```
-
-here we selection all records whose age is `>=` 10, we also have `gt` for grater than, `lt` and `lst` for less than & less than or equal, `equals` for equality & `not` for inequality , or use `in` and `notIn` to check if a field's value is a part or not part of an array:
-
-```typescript
-where: {
-  age: { in: [18, 19] },
-},
-```
-
-this picks all ages that are either 18 or 19
-
-also we have the `contains`, `endsWith`, `startsWith` to check if the text value is included in a field
-
-```typescript
-const distinctUsersName = await prisma.user.findMany({
-	where: {
-		email: { contains: "@", startsWith: "amr" },
-	},
-});
-console.table(distinctUsersName);
-```
-
-this will select all emails that contains `@` @any position, and start with `amr`
-
-also we can combine conditions using thing like `AND`, `OR` & `NOT`:
-
-```typescript
-const distinctUsersName = await prisma.user.findMany({
-	where: {
-		AND: [{ email: { endsWith: "@amr.com" } }, { role: "Basic" }],
-		OR: [{ email: { endsWith: "@gmail.com" } }],
-		NOT: [{ username: { equals: "amr" } }],
-	},
-});
-console.table(distinctUsersName);
 ```
 
 ---
 
 ## Updating records:
 
-to update one or more records use the `update`, or `updateMany` methods on your model, you can use a `where` for the condition and the `data` to use:
+to update one or more records use the `update`, `updateMany` or `updateManyAndReturn` methods on your model, you can use a `where` for the condition and the `data` to use:
 
 ```typescript
 const user = await prisma.user.update({
@@ -241,13 +167,13 @@ const user = await prisma.user.update({
 table(user);
 ```
 
-> [!TIP] You can use a `select` and `include` on `update` not `updateMany`, also know that when using `update` make sure to use **unique** fields
+> [!TIP] You can use a `select` and `include` on `update` & `updateManyAndReturn` not on `updateMany`, also know that when using the other two make sure to use **unique** fields
 
 ---
 
 ## Deletion:
 
-using `delete` and `deleteMany` we can delete one or more records:
+using `delete` and `deleteMany` we can delete one or more records using a where query:
 
 ```typescript
 const deleted = await prisma.user.delete({
