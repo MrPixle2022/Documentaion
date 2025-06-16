@@ -63,7 +63,13 @@ ushort uShort = 12; //~ short 0 -> 65,535
 sbyte smallByte = -128;//signed -128 -> 127
 ```
 
-> [!IMPORTANT] By default a variable can't be null though we can make it null-able by adding `?` after they type.
+---
+
+## Nullable types:
+
+by default data types can't be null, though we can change this using the `?` after the type.
+
+for example we can make a nullable-integer using:
 
 ```csharp
 int? x = null;
