@@ -125,3 +125,56 @@ onMouseEnter() {
   this.applyHighLight();
 }
 ```
+
+---
+
+## Built in directives:
+
+this part will discus `ngClass` & `ngStyle`.
+
+- `ngClass` allows you to assign classes dynamically
+- `ngStyle` allows you to assign inline styles.
+
+we will use the two together as both are almost the same in usage.
+
+first import `NgClass` and `NgStyle` from `@angular/common` and add them to the `imports` this gives you access to both directives.
+
+```typescript
+import { NgClass, NgStyle } from "@angular/common";
+import { Component, signal } from "@angular/core";
+
+@Component({
+	selector: "app-root",
+	imports: [NgClass, NgStyle],
+	template: `<h1
+			[ngClass]="getClassName()"
+			[ngStyle]="createStyle()">
+			Hello component
+		</h1>
+		<button (click)="toggle()">toggle</button>`,
+	styles: `
+  .blue{color: blue};
+  .red{color:red};
+  `,
+})
+export class App {
+	color = signal("blue");
+
+	toggle() {
+		this.color.update((color) => (color === "blue" ? "red" : "blue"));
+	}
+
+	getClassName() {
+		return {
+			blue: this.color() === "blue",
+			red: this.color() === "red",
+		};
+	}
+
+	createStyle() {
+		return {
+			"font-size": "20px",
+		};
+	}
+}
+```
