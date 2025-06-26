@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Services:
 
 services are the injectable part responsible for data fetching. they can be generated from the cli using:
@@ -13,15 +15,17 @@ import { Injectable } from "@angular/core";
 import type { TodoType } from "../../Models/todo.type";
 
 Injectable({
-  providedIn: "root", //means that this doesn't need to be in the `providers` of every component -this is a global injectable-
+	providedIn: "root", //means that this doesn't need to be in the `providers` of every component -this is a global injectable-
 });
 export class TodoService {
-  todoItems: TodoType[] = [
-    /*--*/
-  ];
-  constructor() {}
+	todoItems: TodoType[] = [
+		/*--*/
+	];
+	constructor() {}
 }
 ```
+
+> [!NOTE] you can also make it component based by including the service in the component's `providers` array.
 
 now this `TodoService` is provided in the root, so it's available to the entire project. to use it we pass the class to the `inject` method.
 
@@ -32,19 +36,19 @@ import { TodoService } from "../../services/todo";
 import type { TodoType } from "../../../Models/todo.type";
 
 @Component({
-  selector: "app-todo",
-  imports: [RouterOutlet],
-  templateUrl: "./todo.html",
-  styleUrl: "./todo.css",
+	selector: "app-todo",
+	imports: [RouterOutlet],
+	templateUrl: "./todo.html",
+	styleUrl: "./todo.css",
 })
 export class Todo implements OnInit {
-  todoService = inject(TodoService);
+	todoService = inject(TodoService);
 
-  todos = signal<TodoType[]>([]);
+	todos = signal<TodoType[]>([]);
 
-  ngOnInit(): void {
-    this.todos.set(this.todoService.todoItems);
-  }
+	ngOnInit(): void {
+		this.todos.set(this.todoService.todoItems);
+	}
 }
 ```
 
@@ -60,7 +64,7 @@ in the `app.config.ts` add:
 import { provideHttpClient } from "@angular/common/http";
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideHttpClient() /*---*/],
+	providers: [provideHttpClient() /*---*/],
 };
 ```
 
@@ -72,14 +76,16 @@ so for example if we want to create a get request we can use:
 import { HttpClient } from "@angular/common/http";
 
 @Injectable({
-  providedIn: "root", //means that this doesn't need to be in the `providers` of every component -this is a global injectable-
+	providedIn: "root", //means that this doesn't need to be in the `providers` of every component -this is a global injectable-
 })
 export class TodoService {
-  http = inject(HttpClient);
+	http = inject(HttpClient);
 
-  getTodos() {
-    return this.http.get<TodoType[]>("https://jsonplaceholder.typicode.com/todos");
-  }
+	getTodos() {
+		return this.http.get<TodoType[]>(
+			"https://jsonplaceholder.typicode.com/todos",
+		);
+	}
 }
 ```
 
@@ -93,25 +99,25 @@ import type { TodoType } from "../../../Models/todo.type";
 import { catchError } from "rxjs";
 
 @Component({
-  /*--*/
+	/*--*/
 })
 export class Todo implements OnInit {
-  todoService = inject(TodoService);
+	todoService = inject(TodoService);
 
-  todos = signal<TodoType[]>([]);
+	todos = signal<TodoType[]>([]);
 
-  ngOnInit(): void {
-    this.todoService
-      .getTodos() //call it
-      .pipe(
-        //validate
-        catchError((err) => {
-          console.log(err);
-          throw err;
-        })
-      )
-      .subscribe((todos) => this.todos.set(todos)); //subscribe to the observable
-  }
+	ngOnInit(): void {
+		this.todoService
+			.getTodos() //call it
+			.pipe(
+				//validate
+				catchError((err) => {
+					console.log(err);
+					throw err;
+				}),
+			)
+			.subscribe((todos) => this.todos.set(todos)); //subscribe to the observable
+	}
 }
 ```
 
