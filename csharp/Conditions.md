@@ -67,9 +67,9 @@ this will run the `else` block since the other two conditions are false.
 
 to combine multiple conditions into one we use one of the following:
 
-- `&&` and -> true if both sides are true
-- `||` or -> true if at least one side is true
-- `!` not -> doesn't combine but used to control conditions, it inverts true to false and vice versa
+-   `&&` and -> true if both sides are true
+-   `||` or -> true if at least one side is true
+-   `!` not -> doesn't combine but used to control conditions, it inverts true to false and vice versa
 
 ---
 
@@ -111,7 +111,7 @@ switch (x)
   }
 ```
 
-also you can join cases:
+also you can combine multiple cases:
 
 ```csharp
 int x = 10;

@@ -2,13 +2,13 @@
 
 # String builders:
 
-string builder are string like classes that you can use to dynamically alter, instead of creating a new string when appending or prepending these change their value and allows for predefined max capacity.
+string builder are string like classes that you can use -to dynamically alter a string- instead of creating a new string using string.methods, when appending or prepending these change the actual string's value and allows for predefined max capacity.
 
 ---
 
 ## Initialization:
 
-first use the `System.Text` namespace to be able to use the `StringBuilder` class
+first include the `System.Text` namespace to be able to use the `StringBuilder` class
 
 ```csharp
 using System.Text;
@@ -38,13 +38,16 @@ on a string builder we can access the values of both `Length` and `Capacity`.
 System.Console.WriteLine("{0} -> {1}", sb2.Capacity, sb2.Length);
 ```
 
+-   `length` -> how many characters held by the string
+-   `capacity` -> how many can't hold before re-allocation is required.
+
 on the builder there are methods like `Equals` to check for equality as well.
 
 ---
 
 ## Append(value):
 
-we can append more text to the builder using the `Append` method
+the `Append` allows the insertion more text to the builder at the end
 
 ```csharp
 sb.Append("hello this is a value");
@@ -52,7 +55,13 @@ sb.Append("hello this is a value");
 
 ---
 
-## AppendLine
+## AppendLine(value):
+
+the `AppendLine` appends the given value and inserts the new line character afterwards.
+
+```c#
+sb.AppendLine("A new line will be inserted here ->");
+```
 
 ---
 

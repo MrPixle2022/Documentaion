@@ -30,6 +30,8 @@ bool boolean = bool.Parse("true");
 Console.WriteLine($"{x} {boolean}");
 ```
 
+on failure it throws a `FormatException` exception
+
 ---
 
 ## TryParse(value, out result):
@@ -44,18 +46,20 @@ System.Console.WriteLine($"{check} {result}");
 
 ---
 
-## Cast conversion:
+## Type casting:
 
 `explicit` conversion can be used to convert a type of data into another one where you convert a bigger type into a smaller one losing some value in the process and the `implicit` where the opposite happens. the syntax is:
 
 ```csharp
 (type1) value;
+
+value as type; //could be null
 ```
 
 ```csharp
 double d = 10.23D;
 int x = 10;
 
-System.Console.WriteLine($"{(int)d}"); //this is explicit as we lose values after the `.`
-System.Console.WriteLine($"{(long)x}"); //this is implicit we lose no value
+System.Console.WriteLine($"{(int) d}"); //this is explicit as we lose values after the `.`
+System.Console.WriteLine($"{(long) x}"); //this is implicit we lose no value
 ```

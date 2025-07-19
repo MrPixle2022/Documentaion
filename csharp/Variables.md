@@ -53,7 +53,7 @@ Console.WriteLine("maxDecimal: {0}, minDecimal: {1}", decimal.MaxValue, decimal.
 Console.WriteLine("maxDouble: {0}, minDouble: {1}", decimal.MaxValue, decimal.MinValue);
 ```
 
-we also have some **unsigned** types, unsigned means that the value can't be a negative value. unsigned type have a `u` before the name, while some **signed** one have an `s` before it.
+we also have some **unsigned** types, unsigned means that the value can't be a negative value. unsigned type have a `u` before the name, while some **signed** one have an `s` before it depending on what the default behavior of the type is.
 
 ```csharp
 uint uInteger = 1209211; //unsigned integer 0 -> 4,294,967,767
@@ -63,14 +63,32 @@ ushort uShort = 12; //~ short 0 -> 65,535
 sbyte smallByte = -128;//signed -128 -> 127
 ```
 
+it's worth noting that `object` is the basis for every type in c#, meaning a variable with type of `object` can work with any type of data.
+
 ---
 
-## Nullable types:
+## Nullables
 
-by default data types can't be null, though we can change this using the `?` after the type.
-
-for example we can make a nullable-integer using:
+by default a type can't store null unless you explicitly allow it to be, this is done using the `?` after the type marking the variable as nullable.
 
 ```csharp
 int? x = null;
+```
+
+remember that you must check for nullables before using them to avoid warning and potential errors.
+
+---
+
+## Anonymous types:
+
+anonymous types are used with the `var` keyword, using the following:
+
+```csharp
+var anonymous = new {/*Properties here*/}
+var anonymousArray = new[]
+{
+    new{/*---*/},
+    new{/*---*/},
+    new{/*---*/},
+}
 ```

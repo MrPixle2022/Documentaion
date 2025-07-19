@@ -90,9 +90,9 @@ GetSumM(1, 2, 3, 4, 5);
 
 we can optionally add `in`, `ref,` or `out` before a param to indicate that this will be passed by **reference** not by value.
 
-- in -> the param is readonly
-- ref -> the param may be altered (overwritten)
-- out -> the param will be altered
+-   in -> the param is readonly
+-   ref -> the param may be altered (overwritten)
+-   out -> the param will be altered
 
 another notable difference is that `ref` requires pre-initialized variables to be passed whilst `out` can declare new ones.
 
@@ -212,4 +212,46 @@ then the compiler will determine which is the correct method passed on the param
 int x = 10;
 int y = 10;
 Sum2(x, y);
+```
+
+---
+
+## Lambda methods:
+
+lambda methods are a short syntax for simple methods that are usually used as a callback, usually with methods that are of one-use that we don't care about very often and often used with delegates as they are used as params to specify custom logic.
+
+the lambda expression is quite versatile, as it allows you to create methods that accepts 0, 1 or more arguments and return a value or not.
+
+for the left side -the arguments side- it can look like:
+
+```csharp
+// explicit type
+(type param) => ---;
+// if type is pre-defined by a delegate for example
+param => ---;
+// takes n number of params
+(type param1, type2 params, ---) => ---;
+//takes no param
+() => ---;
+```
+
+and for the right side:
+
+```csharp
+=> returnValue;
+=> {/*this is the body, to return a value use the `return` statement*/}
+```
+
+to give an example we created a delegate named `DoubleIt` which takes a method that takes a `double` and returns the double of the `double`:
+
+```csharp
+public delegate double DoubleIt(double value);
+```
+
+and for the `lambda`:
+
+```csharp
+DoubleIt doubleIt = (double x) => x * 2;
+// typeof x is predefined by the `DoubleIt` delegate
+DoubleIt doubleIt2 = x => x * 2;
 ```
