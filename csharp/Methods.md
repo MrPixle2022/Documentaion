@@ -2,6 +2,8 @@
 
 # Methods:
 
+in c# we have methods which are class members that are used to do repetitive task.
+
 ---
 
 ## Declare a method:
@@ -10,6 +12,7 @@ declare a method using:
 
 ```csharp
 //accessSpecifier returnType Name(params){---}
+//accessSpecifier returnType Name(params) => returnValue
 ```
 
 accessSpecifier:
@@ -27,7 +30,7 @@ return; to exit
 then any where in the app call the method:
 
 ```csharp
-//methodName //the method reference
+//methodName //the method reference -used with delegates-
 //methodName(params);//calling the method (if the method returns a value this becomes a value)
 ```
 
@@ -52,24 +55,21 @@ PrintArray([1, 2, 3, 4], "{0} is the element");
 to define a param with a default value use `=` in the param declaration.
 
 ```csharp
-static int SumInt(int x = 1, int y = 2)
-{
-    return x + y;
-}
+static int SumInt(int x = 1, int y = 2) => x + y;
 ```
 
 now when we call the method we can either override one, both or none.
 
 ```csharp
-SumInt();
-SumInt(2, 4);
+SumInt(); // 3
+SumInt(2, 4); // 6
 ```
 
 ---
 
 ## Unknown number of params:
 
-add the keyword `params` before the last param's type turns it into an array that takes any number of parameters.
+add the keyword `params` before the **last** param's type turns it into an array that takes any number of parameters.
 
 ```csharp
 static double GetSumM(params double[] nums)
@@ -90,9 +90,9 @@ GetSumM(1, 2, 3, 4, 5);
 
 we can optionally add `in`, `ref,` or `out` before a param to indicate that this will be passed by **reference** not by value.
 
--   in -> the param is readonly
--   ref -> the param may be altered (overwritten)
--   out -> the param will be altered
+- in -> the param is readonly
+- ref -> the param may be altered (overwritten)
+- out -> the param will be altered
 
 another notable difference is that `ref` requires pre-initialized variables to be passed whilst `out` can declare new ones.
 

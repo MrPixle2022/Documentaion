@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Classes:
 
 classes represent the basis of the c# as it is an Object-Oriented language, Classes can extend one another and represent a blueprint for their own instances and even other classes.
@@ -25,17 +27,24 @@ now define the `constructor`, a `constructor` is a **public** method whose name 
 
 a `constructor` is the method responsible for creating objects of a class.
 
-```typescript
+```csharp
 class Animal {
-    public Animal() {
-        //assign fields here
-        //this: refers to the object not the class here
-    }
+	public Animal() {
+		//assign fields here
+		//this: refers to the object not the class here
+	}
 }
 ```
 
-> [!NOTE]
-> Constructors support overloading.
+> [!NOTE] Constructors support overloading.
+
+we also have a short hand for writing constructors:
+
+```csharp
+class ClassName(arguments){
+    // the class members
+}
+```
 
 ---
 
@@ -45,7 +54,7 @@ Access modifiers are keywords that define the accessibility or scope of a type (
 
 There are 6 access modifiers in C#:
 
--   `public`: The type or member can be accessed by any other code in the same assembly or another assembly that references it. This is the least restrictive access level.
+- `public`: The type or member can be accessed by any other code in the same assembly or another assembly that references it. This is the least restrictive access level.
 
 ```csharp
 public class Car
@@ -55,7 +64,7 @@ public class Car
 }
 ```
 
--   `private`: The type or member can be accessed only by code in the same `class` or `struct`. This is the most restrictive level and is the **default** for members inside a class or struct.
+- `private`: The type or member can be accessed only by code in the same `class` or `struct`. This is the most restrictive level and is the **default** for members inside a class or struct.
 
 ```csharp
 public class Car
@@ -65,7 +74,7 @@ public class Car
 }
 ```
 
--   `protected`: The type or member can be accessed only by code in the same class, or in a class that is derived from that class.
+- `protected`: The type or member can be accessed only by code in the same class, or in a class that is derived from that class.
 
 ```csharp
 public class Vehicle
@@ -83,11 +92,11 @@ public class Car : Vehicle
 }
 ```
 
--   `internal`: The type or member can be accessed by any code in the same assembly, but not from another assembly. Top-level types (non-nested) are `internal` by default.
+- `internal`: The type or member can be accessed by any code in the same assembly, but not from another assembly -another project-. Top-level types (non-nested) are `internal` by default.
 
--   `protected internal`: The type or member can be accessed by any code in the same assembly, OR by any derived class in another assembly.
+- `protected internal`: The type or member can be accessed by any code in the same assembly, OR by any derived class in another assembly.
 
--   `private protected`: The type or member can be accessed by types derived from the containing class, but only within its containing assembly.
+- `private protected`: The type or member can be accessed by types derived from the containing class, but only within its containing assembly.
 
 ---
 
@@ -123,8 +132,7 @@ Animal animal3 = new Animal(){/*set Properties*/};
 
 now these objects has access to every **public** not-static fields and methods
 
-> [!Note]
-> Classes can be created inside one another.
+> [!Note] Classes can be created inside one another.
 
 and when used we use:
 
@@ -251,8 +259,8 @@ public abstract class Shape
 
 in this example we have an abstract class with two methods:
 
--   none-abstract(LogInfo) -> overriding is optional by sub-classes
--   abstract(Area) -> override is mandatory, the method can't have a body in the abstract class.
+- none-abstract(LogInfo) -> overriding is optional by sub-classes
+- abstract(Area) -> override is mandatory, the method can't have a body in the abstract class.
 
 now let's make use of the abstract class:
 

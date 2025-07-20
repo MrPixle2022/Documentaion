@@ -1,12 +1,14 @@
+<!-- @format -->
+
 # IEnumerable:
 
 the `IEnumerable` interface is the shared base by the native collections like:
 
--   `Array`
--   `List<T>`
--   `ArrayList`
--   `Queue<T>`
--   `Stack<T>`
+- `Array`
+- `List<T>`
+- `ArrayList`
+- `Queue<T>`
+- `Stack<T>`
 
 etc ..., the IEnumerable allows a type to be enumerable, meaning it can be used not only as a collection, but also in a `foreach` loop.
 
@@ -18,8 +20,8 @@ to create a custom enumerable create a class that inherits from the `IEnumerable
 
 doing so requires the class to have a:
 
--   `GetEnumerator` method
--   `IEnumerable.GetEnumerator` method
+- `GetEnumerator` method
+- `IEnumerable.GetEnumerator` method
 
 the `GetEnumerator` creates the enumerators which is used to iterate over the collection.
 
