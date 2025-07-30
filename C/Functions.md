@@ -1,69 +1,57 @@
 # Functions:
 
-functions are reusable blocks of code that can take arguments, we define a function as follows:
+a function is a reusable block of code that may or may not return a value, in c only function exist, there are no methods.
+
+define a function as follows:
 
 ```c
-type name(type param){
-    return valueOfType;
+returnType functionName(type param1, type param2, ...){
+    /*function body*/
+    return value;
 }
 ```
 
-if the type is `void` then the function won't use a `return` statement.
-
-then we can use the function as follows:
-
+as in other languages:
 
 ```c
-name(var);
+functionName(val1, val2); //calling the function, now we are dealing with the return value, if there is any
+functionName; // the pointer to the function
 ```
 
-> [!IMPORTANT]
-> you can't use a function before it's declaration line
-
-let's create an example:
-
-```c
-void logTSum(int x, int y) { printf("logSum = %d\n", x + y); }
-
-int main() {
-    logTSum(12,3); // will log the message and 15
-    return 0;
-}
-```
+> [!WARNING]
+> Functions can't be called pre-declaration, for that use a function prototype.
 
 ---
 
 ## Function prototypes:
 
-function prototypes allows you to predefine a function without it's body, it includes the return type and arguments & can be used to help organize functions and make them more readable specially with huge ones.
+function prototypes allows you to predefine a function without it's body, it's like a signature or you telling the compiler at some point a function with this name, this return type and takes those parameters will be defined.
 
-another thing is when we want to use a function that is defined after the `main`, normally we can't do that but we can do that using prototypes.
+a prototype includes:
 
-a prototype looks like:
+- the return type
+- arguments
+
+function prototypes are usually associated with a header file, files with the `.h` extension.
+
+a function prototype can be defined as follows:
 
 ```c
-//the prototype
-int sumTwo(int x1, int x2);
+returnType functionName(type1 param1, ...);
 ```
 
-then you reuse this signature but with a body.
+notice there is no `{}` nor a body.
 
-let's give a real example
+then at any stage in your file you can define the body, but the signature of the definition and the prototype **must** always match.
 
 ```c
-//function-prototype
-void greetUser(char name[], int age);
+int sum2int(int a, int b);
+```
 
-int main()
-{
-    greetUser("amr", 12);
-    return 0;
+then we will have:
+
+```c
+int sum2int(int a, int b){
+    return a + b;
 }
-
-//the function
-void greetUser(char name[], int age) {
-  printf("Hello %s\n", name);
-  printf("You are %d years old", age);
-}
-
 ```
