@@ -35,6 +35,8 @@ grades = NULL;
 
 we reassigned the pointer `grades` to null to avoid dangling pointers.
 
+if we forget using `free` it may cause a memory leak in the heap.
+
 ---
 
 ## calloc:

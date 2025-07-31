@@ -162,7 +162,7 @@ we get:
 # 100644 blob 241dbf0a04cee100fbcf4d33d9351c7cf341f2e7	content.md
 ```
 
-so just basically consider the tree a directory whilst the bolo is a file
+so just basically consider the tree a directory whilst the blob is a file
 
 ---
 

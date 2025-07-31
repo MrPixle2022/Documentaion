@@ -19,3 +19,6 @@ also typedef can be used to name anonymous strcuts or enums, for example:
 typedef struct{/*fields*/} name;
 typedef enum {/*values*/} name;
 ```
+
+> [!TIP]
+> the convention is that any type renamed using typedef ends with `_t` like `typedef char* string_t`
