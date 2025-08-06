@@ -1,6 +1,6 @@
 # Pointers:
 
-pointers are variables whose value is the address to another variable, they basically store the address of another variable.
+pointers are variables whose value is the address of another variable, they basically store the address of another variable.
 
 but why?, in c data is passed by value, their are no reference passed types for a complex struct the entire thing will be copied, pointers allows us to pass the memory reference and extract those values and free them when they are not needed.
 
@@ -109,4 +109,47 @@ struct Computer {
   char *brand;
   person_t *owner;
 };
+```
+
+---
+
+## Double pointers:
+
+double pointers or pointers pointers are pointers to another pointer, they define a chain of references to a value, you can define the using `**`:
+
+```c
+int x = 0;
+int* ptr = &x;
+int** ptr_ptr = &ptr;
+```
+
+now we can use the `*` or `**` to dereference the double pointer:
+
+```c
+//*ptr_ptr = ptr;
+//**ptr_ptr = x;
+```
+
+a possible use case for them is when working with an array of strings, a string is just a `char *` so an array of them would be `char**`, and by extent they can be used for dynamic 2D arrays of type x, for example:
+
+```c
+int** arr = calloc(5 * sizeof(int*)); // a 2D array of integers
+```
+
+> [!NOTE]
+> we can add as many `*` as we need, and it will take the same number of  `*` to reach the value
+
+---
+
+## Void pointers:
+
+void pointers are a **generic pointers**, they are used to point to a value of god-knows-what type.
+we can use them when we know there is a data at that address and we don't know what possible type is it, or we just don't care what type it's -until you want to get the value-, when using a void pointer it is very important to type-cast on dereference.
+
+```c
+int x = 0;
+void* ptr = &x; //C-compiler: it's a pointer, but to what?!
+
+int* y = (int* )ptr; //cast it into a pointer to an integer
+printf("%d\n", *y); //dereference the casted pointer
 ```

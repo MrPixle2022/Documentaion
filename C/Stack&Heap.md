@@ -15,7 +15,7 @@ the stack is a place in memory where all the local variables are stored.
 
 when you call a function a `stack frame` is created to store the function's parameters and local variables, when the function returns the `stack frame` is de-allocated.
 
-the stack -as the name implies- is a `last-in-first-out` meaning the last element to enter is the first to leave, a stack is like a column of dirty plates where the last put on top -the end of the stack- will be the first one taken to be cleaned.
+the stack -as the name implies- is a `last-in-first-out` -aka **LIFO**- meaning the last element to enter is the first to leave, a stack is like a column of dirty plates where the last plate put on top -the end of the stack- will be the first one taken to be cleaned or **popped**.
 
 when a function is called a new `stack frame` is pushed into the stack, and when we get the returns value the frame is **popped** from the stack.
 
