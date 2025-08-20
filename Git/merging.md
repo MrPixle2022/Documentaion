@@ -8,6 +8,8 @@ we can merge branches using:
 
 ```bash
 git merge _branch_
+# for remote:
+git merge _remote_/_branch_
 ```
 
 know that you are merging -the current branch- with `branch`.

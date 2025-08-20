@@ -7,7 +7,13 @@ for crud operations ensure the client is installed and generated using:
 ```bash
 pnpm i @prisma/client
 # then run
-pnpm prisma generate
+pnpm prisma generate # automatically done on migration
+```
+
+usually the CRUD methods are accessed as:
+
+```typescript
+client.modelName.CrudMethod();
 ```
 
 for the most part any method with `Many` in the end won't actually returns the data, but how many records it read, edited, or deleted
@@ -16,12 +22,12 @@ though most have a version ending with `ManyAndReturn` -except delete- which wil
 
 ---
 
-## Creation operation:
+## Create:
 
-on the prisma client we can make use of the `create` method, this methods takes an options object, to the options we set the `data` to our record, make sure to provide every **required** field at least:
+the `create` method is used to add data to the database, using the `data` option pass it an object with -at least- the `required` field -not nullables-, for example:
 
 ```typescript
-await prisma.user.create({
+const newUser = await prisma.user.create({
 	data: {
 		email: "mrpixel0010@gmail.com",
 		username: "pxl",
@@ -46,9 +52,9 @@ await prisma.user.create({
 });
 ```
 
-you will notice that the `userPreferences` though is supposed to be a separate model we were just able to define it inside the `create` options.
+you will notice that the `userPreferences` though is supposed to be a separate model we were just able to define it inside the `create` options for the `user`'s.
 
-it's worth knowing that relation models can are defined as objects which has `properties` that are similar to the method that exist on the model your using -`.user` in this case- but instead of being methods they are defined as nested objects, for example you have `connect`, `create` and `createMany`, each work similar to how they would using the normal methods, also there is `
+it's worth knowing that relation models can are defined as objects which has `properties` that are similar to the method that exist on the model your using -`.user` in this case- but instead of being methods they are defined as nested objects, for example you have `connect`, `create` and `createMany`, each work similar to how they would using the normal methods.
 
 > [!IMPORTANT] if you have an existing record you want to use in this new model, make use of the `connect` option.
 
@@ -87,7 +93,11 @@ const newUser = await prisma.user.create({
 
 > [!TIP] you can also use the `disconnect` -boolean- option to unlink the models
 
-we can use the `createMany` to insert multiple records at once, but know that when using `createMany` both `select & include` won't work and we the `data` will be an array of objects:
+---
+
+## CreateMany
+
+the `createMany` is used to insert multiple records at once, but know that when using `createMany` both `select & include` won't work and we the `data` will be an array of objects:
 
 ```typescript
 const users = await prisma.user.createMany({
@@ -107,7 +117,7 @@ console.log(users); //an array of users -in this case it's only one-
 
 ---
 
-## Getting records:
+## Find:
 
 when getting data we can either pick one, pick the first or pick many using `findUnique`, `findFirst` and `findMany` respectively, using the `where` to define the query
 
@@ -151,7 +161,7 @@ console.log("🚀 ~ main ~ users", users);
 
 ---
 
-## Updating records:
+## Update:
 
 to update one or more records use the `update`, `updateMany` or `updateManyAndReturn` methods on your model, you can use a `where` for the condition and the `data` to use:
 

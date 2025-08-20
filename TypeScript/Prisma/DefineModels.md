@@ -97,9 +97,9 @@ in prisma their are two types of attribute field `(@attribute)` and block `(@@at
 these go on a filed line to add some more control.
 
 - block level (@@) they inserted in the model definition apart form the fields
-- @@unique([]) : array of fields that are to be unique together
+- @@unique([]) : array of fields that are to be unique **together**
 - @@index([]): defines the fields used for indexing to help with sorting, etc...
-- @@id([]): defines the fields that **together** defined the id, for example, adding username and email means the only one user can have the username `x` and email `y` **together**, while another can have username `z` and email `y` and vice versa
+- @@id([]): defines the fields that **together** define the id, for example, adding username and email means the only one user can have the username `x` and email `y` **together**, while another can have username `z` and email `y` and vice versa
 
 these -block attributes- are inserted at the end of the model
 

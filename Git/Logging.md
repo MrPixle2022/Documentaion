@@ -4,6 +4,15 @@
 
 the `git log` command is used to log the history of your repo, it can take a lot of options which all do something.
 
+> [!TIP]
+> you can log a branch from a remote repo
+
+```bash
+git log <remoteName>/<branchName>
+```
+
+---
+
 ## oneline:
 
 the `--oneline` displays a simplified version of your history.

@@ -41,7 +41,7 @@ router.forward()
 
 an example of using the `useRouter`:
 
-```typescript
+```tsx
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -59,7 +59,6 @@ export default function ProfilesPage() {
     </div>
   );
 }
-
 ```
 
 ---
