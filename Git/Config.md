@@ -43,8 +43,8 @@ the `webflyx` is called a section while `cto` is called a field.
 using the `get` flag we can read the values of the given key.
 
 ```bash
-git config --get webflyx.cto
-# the same sense get is the default
+git config --get webflyx.ceo
+# the same since get is the default
 git config webflyx.cto
 ```
 

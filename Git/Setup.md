@@ -30,9 +30,9 @@ it will display all the files & directories in the `.git`
 
 a file in your repo can have a status of:
 
-- `untracked` -> was never added to the index -the staging area-. the `index` represents the changes in the staging.
+- `untracked` -> was never added to the index -the staging area-. the `index` represents the changes in the staging, in brief git doesn't know about the file/directory.
 
-- `unstaged` -> was tracked but the new changes weren't committed
+- `unstaged` -> was tracked but the new changes weren't committed.
 - `committed` -> all changes has been submitted and committed to the repo.
 
 you can check for the status using:
@@ -46,6 +46,8 @@ to stage a file use:
 ```bash
 # stages the given file/s -separate via ' '-
 git add -file-
+# to unstage
+git restore --staged _file_
 ```
 
 ---
@@ -57,7 +59,7 @@ git commits are a snapshot of the repo at a time, this is how git keeps track of
 ```bash
 git commit -m "msg"
 
-git commit --amend  -m "NewMsg" #update the last commit's message
+git commit --amend  -m "NewMsg" #update the last commit's message, but know it updates the hash
 ```
 
 ---
