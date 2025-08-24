@@ -1,83 +1,87 @@
-<!-- @format -->
-
 # Relations:
-
-in prisma models can have a relation of:
-
-- **one to one**: one model references another one
-- **one to many**: one model references multiple ones of another
-- **many to many**: when each model references multiple models and those models do the same
-
-we can easily define a relation by using the model name as a type and using the `@relation` attribute
 
 ---
 
-## One to many:
+## One : Many:
 
-to the `@relation` attribute pass an optional name -only required if multiple relation to the same model is needed- and a **fields array** which is an array of fields that -in this model- will be used as a reference to the other model, and `references` which is an array of the fields that -exists on the other model and- you will reference
+let's say we have two models, the `post`:
 
 ```prisma
-model User {
-  id            String  @id @default(uuid())
-  username      String
-  email         String
-  isAdmin       Boolean
-  preferences   Json?
-  // declaring two relations, know the @relation name here isn't required if only one relation is used
-  writtenPosts  Post[]  @relation("writtenBy")
-  favoritePosts Post[]  @relation("favoriteBy")
-}
-
 model Post {
-  id           String   @id @default(uuid())
-  rating       Float
-  createdAt    DateTime
-  updateAt     DateTime
-  // this is a relation, the `authorId` references the `User.id` field
-  author       User     @relation("writtenBy", fields: [authorId], references: [id])
-  authorId     String
-  // another relation by a name, fields , references
-  favoriteBy   User     @relation("favoriteBy", fields: [favoriteById], references: [id])
-  favoriteById String
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  content     String
+  published   Boolean? @default(false)
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
 }
 ```
 
----
+and the `user`:
 
-## Many to many
+```prisma
+model User {
+  id    String @id @default(cuid())
+  name  String
+  email String @unique
+  hash  String
+}
+```
 
-to define a many-to-many we simple make use of the `[]` modifier, their will be no need for the `@relation`
+we want to create a relation between the two where each user can have many posts while a post can -obviously- only have one user as it's author.
+
+the user can simply have `Post[]` but what about the post?
+
+for that we use the `@relation` as follows:
+
+```prisma
+field ModelType @relation(fields: [A], references: [B])
+A TypeOfB
+```
+
+so in the end we will have something like:
 
 ```prisma
 model Post {
-  id           String     @id @default(uuid())
-  ---
-  categories   Category[]
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  content     String
+  published   Boolean? @default(false)
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
+  authorId String
+  author User @relation(fields: [authorId], references: [id])
 }
 
-model Category {
-  id    String @id @default(uuid())
+model User {
+  id    String @id @default(cuid())
+  name  String
+  email String @unique
+  hash  String
   posts Post[]
 }
 ```
 
 ---
 
-## One to one:
+## Many : Many:
 
-a one to one requires a `@unique` field to work properly but it's fairly simple
+just use `[]` for both sides.
+
+---
+
+## one : one:
+
+for the user for example:
 
 ```prisma
+//it may or may not have a post
 model User {
-  id              String           @id @default(uuid())
-  ---
-  UserPreferences UserPreferences?
-}
-
-model UserPreferences {
-  id          String  @id @default(uuid())
-  emailUpdate Boolean
-  user        User    @relation(fields: [userId], references: [id])
-  userId      String  @unique
+  post Post?
 }
 ```
+
+> [!NOTE]
+> to get the access to the other table's row make sure to add the relation field to the `include` option of the query function.

@@ -2,71 +2,34 @@
 
 # Setup:
 
-start by creating a new node project using:
+start by creating a nextjs project and adding prisma to it:
 
 ```bash
-pnpm init
+pnpm create next-app@latest
+# then add prisma
+pnpm add prisma --save-dev
 ```
 
-then install the following dependencies:
+having done so now we can initialize prisma, to initialize prisma we must define our database, this is done via the `--datasource-provider` option for this tutorial it is gonna be `sqlite`.
 
 ```bash
-pnpm i -D prisma typescript ts-node @types/node nodemon
-pnpm i @prisma/client
+pnpm prisma init --datasource-provider sqlite
 ```
 
-then simply create a `tsconfig.json` and set the `compilerOptions` to the following:
+this command will generate the `prisma/schema.prisma` file where we define the schema of our database through **models**, each **model** represents a table in the database.
 
-```json
-{
-	"compilerOptions": {
-		"sourceMap": true,
-		"outDir": "dist",
-		"strict": true,
-		"lib": ["ESNext"],
-		"esModuleInterop": true
-	}
-}
-```
+also this will generate a `.env` file with a key that hold the connection string.
 
-then initialize prisma and define the datasource aka the database:
-
-```bash
-# or replace the `postgresql` with your db
-pnpm prisma init --datasource-provider postgresql
-```
-
-this will create a `.env` folder and some files required to define your schema in a directory called `prisma`
-
-> [!TIP] postgresql is the default data source, you don't have to provide it
+for the `prisma/schema.prisma` file we have:
 
 ```prisma
-// a generator is the configuration that prisma uses to compile your models into typescript
+// the generator
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
-
+// the connection
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 ```
-
-you can have multiple generators for multiple cases.
-
-note that sometimes you will have to manually generate the client using:
-
-```bash
-pnpm prisma generate
-```
-
-> ![TIP] you can remove the output option on the generator and it will automatically put the client in the `@prisma/client` file in the `node_modules`
-
-you can visualize your data using:
-
-```bash
-pnpm prisma stdio
-```
-
-which will open a nextjs page @`localhost:5555` with your models and the data of each table

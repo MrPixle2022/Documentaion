@@ -1,24 +1,32 @@
-<!-- @format -->
-
 # Migrations:
 
-when in development you may decide to change the schema of your models, things like renaming columns, tables, adding/removing constraints or even adding and removing tables.
+`prisma migrate` is the command suite used to manage and apply database schema changes.
 
-when these changes occur you have two options:
+## Development Workflow
 
-1. DROP the database or table and start again
-1. migrate your changes and let the orm handle these changes itself
-
-when in devolvement use the `migrate dev` command:
+Use `prisma migrate dev` in your local development environment. It automatically creates and applies migrations as you change your schema.
 
 ```bash
-# migrate a dev mode migration named init
-pnpm prisma migrate dev --name init
-# or add reset before dev to drop the previous data
+# development environment
+pnpm prisma migrate dev --name <descriptive-name>
 ```
 
-just know that not providing a name will trigger a prompt asking for a migration name.
+**Common Flags:**
+*   `--create-only`: Creates the migration SQL file but does not apply it.
 
-the output is a migration folder with an `.sql` file with the sql required to commit those changes.
+## Production & Staging Workflow
 
-> [!TIP] prisma by default will re-generate the client on migration
+Use `prisma migrate deploy` in your CI/CD pipelines and production environments. It is non-interactive and only applies pending migrations. It will never create new migrations or alter your database in unexpected ways.
+
+```bash
+# production environment
+pnpm prisma migrate deploy
+```
+
+## Status:
+
+```bash
+pnpm prisma migrate status
+```
+
+This command gives you a report on the status of your database migrations without making any changes. It's useful for checking if your database is in sync with your schema and migration files

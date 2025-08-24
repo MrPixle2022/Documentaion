@@ -1,41 +1,27 @@
-<!-- @format -->
+# Prisma client:
 
-# Initializing the client in ts:
+the prisma client is the part that allows you to use the ORM in your code, it's automatically generated when migrating or pushing changes to the database.
 
-in a typescript file use:
+---
 
-```typescript
-import { PrismaClient } from "./generated/prisma";
-const prisma = new PrismaClient();
-```
+## Client instance:
 
-now we can use the prisma client to access the data from our code.
-
-just keep in mind it's recommended to disconnect when leaving using the `.$disconnect` method:
+create `src/lib/db.ts` file which will export the single client instance that will be used throughout the application.
 
 ```typescript
-async function main() {}
-main()
-	.catch((err) => {
-		console.error(err.message);
-	})
-	// this one is not needed and is absolutely optional
-	.finally(() => prisma.$disconnect());
+import { PrismaClient } from "@prisma/client";
+
+const prismaSingleton = () => {
+	return new PrismaClient();
+};
+
+declare const globalThis: {
+	prismaGlobal: ReturnType<typeof prismaSingleton>;
+} & typeof global;
+
+export const prisma = globalThis.prismaGlobal ?? prismaSingleton();
+
+export default prisma;
+if (process.env.NODE_ENV !== "production") globalThis.prismaGlobal = prisma;
+
 ```
-
-though prisma automatically does it by default, so the previous snippet is absolutely optional.
-
-for another example:
-
-```typescript
-import { PrismaClient } from "./generated/prisma";
-const prisma = new PrismaClient();
-// you can optionally log certain data
-// const prisma = new PrismaClient({ log: ["query"] });
-// this will log every query that prisma runs
-// another useful option is using the `omit` option to omit certain fields form the queries
-//-> const prisma = new PrismaClient({omit: {user: {email: true}}});
-//this will hide the email in the user model
-```
-
-> [!IMPORTANT] if you removed the `output` on the generator make sure you import the client from the `@prisma/client`
