@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # File Structure & App Router:
 
 the file structure in next unlike react specifies the routes, you have your `src/app` which represents the root of your app's url.
@@ -48,15 +50,13 @@ by default your `app` folder has one named `layout.js`, in it you find this comp
 
 ```javascript
 export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>
-      <div>
-        {children}
-      </div>
-      </body>
-    </html>
-  )
+	return (
+		<html lang="en">
+			<body className={inter.className}>
+				<div>{children}</div>
+			</body>
+		</html>
+	);
 }
 ```
 
@@ -80,30 +80,27 @@ so for example if i put:
 
 ```javascript
 export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>
-      <div>
-        <p>top</p>
-        {children}
-        <p>bottom</p>
-      </div>
-      </body>
-    </html>
-  )
+	return (
+		<html lang="en">
+			<body className={inter.className}>
+				<div>
+					<p>top</p>
+					{children}
+					<p>bottom</p>
+				</div>
+			</body>
+		</html>
+	);
 }
 ```
 
 all pages in the `app` directory will render between `top` and `bottom`
 
-> [!CAUTION]
-> The `{children}` must be present to render the actual page or the layout will replace the content.
+> [!CAUTION] The `{children}` must be present to render the actual page or the layout will replace the content.
 
 ---
 
-> [!IMPORTANT]
-> you can create a layout file foreach route but if
-> a parent route has one it will also be shared so you will have 2 or more layouts.
+> [!IMPORTANT] you can create a layout file foreach route but if a parent route has one it will also be shared so you will have 2 or more layouts.
 
 ## dynamic routes:
 
@@ -112,7 +109,6 @@ if you have a dynamic route like displaying a blog depending on it's `id` or any
 for example to create a dynamic `id` route for the `users` route the structure will be like:
 
 ```javascript
-
 /*
 app      -> ----/
 |---| users  -> ----/users
@@ -125,15 +121,14 @@ app      -> ----/
 in the example above if i want to get the `id` i just have to edit the `page.jsx` component to accept `params` like:
 
 ```javascript
-function GrabId({params}){
-  return <h1>{params.id}</h1>
+function GrabId({ params }) {
+	return <h1>{params.id}</h1>;
 }
 ```
 
 this will display the `/:id`,
 
-> [!IMPORTANT]
-> Note that the property name is the same as the folder's name
+> [!IMPORTANT] Note that the property name is the same as the folder's name
 
 ---
 
@@ -151,11 +146,9 @@ app      -> ----/
 */
 ```
 
-you can access a url like:
-`/users/amr/`
+you can access a url like: `/users/amr/`
 
-but you can't if it's:
-`/users/amr/yasser/`
+but you can't if it's: `/users/amr/yasser/`
 
 using a normal dynamic route you'll have to either create a route or a new nested dynamic route.
 
@@ -209,6 +202,5 @@ app:
             |-- page.jsx
 */
 ```
-
 
 here the concat route is `/contact` & the home & the about routes are `/home`, `/about` in order, **NOTE** that the `(about)` doesn't affect the route.

@@ -31,7 +31,7 @@ for this sections below, will be using this html code:
 with the `background-color` property you can set a color for the element's background.
 
 ```css
-background-color: color-name | rbg | rgba | #hex;
+background-color: color-name | rbg | rgba | #hex | hsl | hsla;
 ```
 
 for instance:
@@ -134,11 +134,11 @@ background-size: size-x size-y;
 
 ```css
 div {
-  color: white;
-  background: red;
-  background-image: url("/MyProfilePic.png");
-  background-repeat: no-repeat;
-  background-size: 20%;
+	color: white;
+	background: red;
+	background-image: url("/MyProfilePic.png");
+	background-repeat: no-repeat;
+	background-size: 20%;
 }
 ```
 

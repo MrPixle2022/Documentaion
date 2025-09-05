@@ -1,18 +1,43 @@
 <!-- @format -->
 
-# Selectors
+# Selectors & rules
 
 navigation:
 
+- [rules](#rules)
 - [element selector](#element-selector)
 - [class selector](#class-selector)
 - [id selector](#id-selector)
 
 ---
 
+## Rules:
+
+the `css rule` is an entire block, composed of the selector, `{ }` -deceleration block-, properties & values.
+
+```css
+/*all of this is a rule*/
+selector {
+	property1: value; /*declaration*/
+	property2: value; /*declaration*/
+}
+```
+
+> [!TIP] multiple selectors can share a rule, separate each with a `,`
+
+```css
+/* pick each p that is a children of a div & also pick ul */
+div p,
+ul {
+	/* your css here */
+}
+```
+
+---
+
 ## Element selector:
 
-the element selector allows you to target all elements of a specific type.
+the `element selector` other ways know as `typed selector` allows you to target all elements of a specific type, this is the least specific form of a selector -the `*` being the only one below it- and is used for setting default styles.
 
 ```css
 tag-name {
@@ -35,11 +60,9 @@ p {
 }
 ```
 
-![Element Selector](Images/Element%20Selector.png)
-
 ---
 
-## class selector:
+## Class selector:
 
 using the class selector you can target multiple elements that have the `class` attribute equals the class being targeted.
 
@@ -59,25 +82,29 @@ for example:
 ```
 
 ```css
-/** Element Selector -> tag */
-p {
-	color: red;
-}
 /** Class selector -> .Class-name  */
 .specialP {
 	color: blue;
 }
 ```
 
-![Class Selector](Images/Element%20Selector.png)
+> [!NOTE] For more specificity you can nest classes to be more specific.
+
+```css
+/* the element with both class1 and class2 together*/
+.class1.class2 {
+	/*your css here*/
+}
+```
 
 ---
 
-## id selector:
+## Id selector:
 
 the id selector allows you to target an element with a specific value to the `id` attribute.
 
 ```css
+/* nestable */
 #id-name {
 	/*your css here*/
 }
@@ -94,28 +121,17 @@ for example:
 ```
 
 ```css
-/** Element Selector -> tag */
-p {
-	color: red;
-}
-/** Class selector -> .Class-name  */
-.specialP {
-	color: blue;
-}
-
 /** Id selector -> #Id-name*/
 #specialP {
 	color: green;
 }
 ```
 
-![Id Selector](Images/Id%20Selector.png)
-
 ---
 
 ## descendent selector:
 
-the `descendent selector` allows you to target specific element based on it's parent.
+the `descendent selector` aka the ` ` allows you to target specific element based on it's parent.
 
 ```css
 selector1 selector2 {
@@ -134,9 +150,86 @@ the `selector2` is the one we are targeting, we are targeting `selector2` that i
 ```
 
 ```css
+/* div.p (In OOP style) */
 div p {
 	color: red;
 }
 ```
 
-![Descendent selector](Images/DescendentSelector.png)
+also this can be nested:
+
+```css
+div {
+	/* div style */
+	p {
+		/* p style */
+	}
+}
+```
+
+for example:
+
+```css
+div {
+	color: #00f;
+	ul {
+		color: #f00;
+	}
+}
+```
+
+---
+
+## Combinator selector:
+
+`combinator` selectors or `relative` selectors are used to target elements based on their position relative to each other.
+
+in this category we have:
+
+#### descendant selector:
+
+this is just a ` ` between two selectors, it picks any element that is a descendent of the first selector -doesn't have to be direct child-.
+
+for example:
+
+```css
+/* every p inside div */
+div p {
+}
+```
+
+#### child selector:
+
+this is a `>` between two selectors, it picks any element that is a **direct** child of the first selector.
+
+for example:
+
+```css
+/* every li that is -directly- a child to a ul */
+ul > li {
+}
+```
+
+#### next sibling selector:
+
+this is a `+` between two selectors and is used to pick an element which is the next -directly- to the first selector.
+
+for example:
+
+```css
+/* each button that is the next direct sibling to a ul */
+ul + button {
+}
+```
+
+#### subsequent sibling selector:
+
+this is a `~` between two selectors and is used to pick an element which comes after the first selector but both **must** share the same parent.
+
+for example
+
+```css
+/* every button that is a sibling to an h1 and comes after it */
+h1 ~ button {
+}
+```

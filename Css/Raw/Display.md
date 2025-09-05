@@ -2,16 +2,24 @@
 
 # Display:
 
-
 ## block:
 
-a block element is by default something like a `div`.
-
-block elements:
+block elements are elements that:
 
 - default width is the full width of the parent
 - adds line breaks before and after the element
 - respects padding & margins, width & height
+
+an example of a block-element would be things like:
+
+- div
+- section
+- h1 -> h6
+- p
+- nav
+- footer
+
+and other container elements
 
 ---
 
@@ -36,13 +44,13 @@ div {
 
 ## inline:
 
-inline elements like `span` are completely different.
+inline elements like `span`, `a`, `img` are elements whose width and height are determined by the content as they take just enough space to fit their content.
 
 inline elements:
 
-- width is set by the content can't be overwritten
+- width is set by the content & can't be overwritten -by default-
 - no line-break
-- doesn't respect width & height, but respects padding & margins horizontally only
+- doesn't respect width & height, but respects padding & margins **horizontally only**
 
 ---
 
@@ -68,7 +76,7 @@ span {
 
 inline-block elements are a mix of `inline` & `block` elements.
 
-inline-block:
+inline-block elements:
 
 - allows element to be before & after it
 - respects width & height, margin & padding

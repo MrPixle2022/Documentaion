@@ -7,13 +7,15 @@
 margin can be set via the `margin` property.
 
 ```css
-margin: value; /*adds margin all around*/
-margin: top right bottom left;
-margin: y-value x-value; /*add margin on both axis*/
-margin-top: value; /*add margin to the top*/
-margin-bottom: value; /*add margin to the bottom*/
-margin-right: value; /*add margin to the right*/
-margin-left: value; /*add margin to the left*/
+ {
+	margin: value; /*adds margin all around*/
+	margin: top right bottom left;
+	margin: y-value x-value; /*add margin on both axis*/
+	margin-top: value; /*add margin to the top*/
+	margin-bottom: value; /*add margin to the bottom*/
+	margin-right: value; /*add margin to the right*/
+	margin-left: value; /*add margin to the left*/
+}
 ```
 
 ---
@@ -33,7 +35,6 @@ div {
 h2 {
 	margin: 0;
 }
-
 ```
 
 ![Margin none](Images/MarginNone.png)
