@@ -37,8 +37,6 @@ h2 {
 }
 ```
 
-![Margin none](Images/MarginNone.png)
-
 ---
 
 ```css
@@ -50,8 +48,6 @@ h2 {
 	margin: 100px;
 }
 ```
-
-![Margin](Images/MarginExample.png)
 
 ---
 
@@ -65,5 +61,3 @@ h2 {
 	margin: 100px auto;
 }
 ```
-
-![MarginAuto](Images/MarginAuto.png)

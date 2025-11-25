@@ -17,8 +17,7 @@ border-style: dotted | solid | wavy | dashed | etc...;
 /*also can use 4 value for top right bottom left in order*/
 ```
 
-> [!NOTE]  
-> all these properties can be set for a specific side using border-{top | left | bottom | right}-{property}
+> [!NOTE] all these properties can be set for a specific side using border-{top | left | bottom | right}-{property}
 
 ```css
 border: thickness style color;
@@ -51,5 +50,3 @@ border: thickness style color;
 	border: 10px red solid;
 }
 ```
-
-![Border](Images/Border.png)

@@ -42,8 +42,6 @@ div {
 }
 ```
 
-![Background Color](Images/Background%20Color.png)
-
 ---
 
 ## background-image:
@@ -56,8 +54,6 @@ div {
 	background-image: url("/MyProfilePic.png");
 }
 ```
-
-![Background Image](Images/Background%20Image.png)
 
 ---
 
@@ -77,8 +73,6 @@ div {
 	background-repeat: no-repeat;
 }
 ```
-
-![Background Repeat](Images/Background%20Repeat.png)
 
 ---
 
@@ -119,8 +113,6 @@ div {
 }
 ```
 
-![Background position](Images/BackgroundPosition.png)
-
 ---
 
 ## background-size:
@@ -141,5 +133,3 @@ div {
 	background-size: 20%;
 }
 ```
-
-![Background size](Images/Background-size.png)

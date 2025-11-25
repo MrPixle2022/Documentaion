@@ -32,8 +32,6 @@ now lets apply the float and allow the elements to flow to the left of their pre
 }
 ```
 
-![FloatLeft](Images/FloatLeft.png)
-
 we will see that the elements aligned next to each other, but the elements next to them will also flow, to fix this we can either make it so the children cover all the parent's width, or use the `clear` rule on an element, for this case an empty div will do the job
 
 ```html
@@ -52,5 +50,3 @@ we will see that the elements aligned next to each other, but the elements next 
 	clear: both; /* this will stop the float on both sides of the div */
 }
 ```
-
-![ClearBoth](image.png)
