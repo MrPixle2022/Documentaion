@@ -6,6 +6,8 @@ in php defining the variables is done by using `${varname}` for example `$name`,
 
 ```php
 $myVar= 1;
+
+$myVar; //1
 ```
 
 also keep in mind that php is a dynamically-typed language, so the type of data stored in a variable could be anything.
@@ -13,6 +15,20 @@ also keep in mind that php is a dynamically-typed language, so the type of data 
 ```php
 $myVar = 1;
 $myVar = "1";
+```
+
+we can also integrate values of variables inside text as in using `${}` in javascript but in php we just use the variable:
+
+```php
+$name = "pxl";
+echo "my name is $pxl"; //my name is pxl
+```
+
+and also we can:
+
+```php
+$verb = "eat";
+echo "I'm ${verb}ing"; // I'm eating
 ```
 
 ---
