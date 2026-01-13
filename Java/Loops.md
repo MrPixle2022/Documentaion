@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Loops:
 
 loops allows for a chunk of code to be repeated as long as a defined condition yields true.
@@ -18,15 +20,16 @@ for example:
 
 ```java
 for(int x = 0; x <= 10; x++){
-    // ---    
+    // ---
 }
 ```
 
-also when working with arrays we can use a short form:
+also when working with arrays we can use java's equivalent to a `foreach` loop:
 
 ```java
+// the : is like the in keyword
 for(type variable : array){
-    
+
 }
 ```
 

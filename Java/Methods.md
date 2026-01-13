@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Methods:
 
 methods are OOP's equivalent to functions, to define a method your file must use the class form:
@@ -12,7 +14,7 @@ under the `main` method we can create a new method using the following format:
 
 ```java
 [access-modifier] [static] [return-type] [name]([params]){
-    //body    
+    //body
 }
 ```
 
@@ -41,8 +43,7 @@ sum(1, 2); // 3
 
 it's important to note that using `sum` refers to the function while `sum()` refers to the return value
 
-> [!IMPORTANT]
-> only static methods can directly be called inside another static method, so you may want to make all methods in you main java file static for now
+> [!IMPORTANT] only static methods can directly be called inside another static method, so you may want to make all methods in you main java file static for now
 
 ---
 
@@ -62,7 +63,7 @@ for situations where you want to get a huge number of arguments but are unsure o
 static int sum(int...number){
     int total = 0;
     for(int i: number) total += i;
-    
+
     return total;
 }
 ```
