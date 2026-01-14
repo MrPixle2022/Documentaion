@@ -100,6 +100,45 @@ Car car = new Car(4, 6, false);
 
 ---
 
+## Wrapper classes:
+
+wrapper classes allow primitive types -i.e. int, float, boolean, etc...- to become objects and allows them to be used with the collections frameworks -i.e. ArrayList<T>, etc...-.
+
+this list includes:
+
+- Integer
+- Double
+- Boolean
+- Character
+- etc..
+
+```java
+// notice using `new` is not required
+Integer integer = 12;
+Double dbl = 14;
+```
+
+> [!Note] using `new` is not needed here, this is called **auto-boxing**, which is the same when using type `String`
+
+also we can do the opposite and **unbox** those classes:
+
+```java
+Integer x = 10;
+int y = x;
+```
+
+wrapper classes can be used to parse values into their type, stringfy them, validate their type:
+
+```java
+String x = Integer.toString(12);
+int y = Integer.parseInt("123");
+// Character alone
+boolean z = Character.isLetter('A');
+boolean w = Character.isUpperCase('A');
+```
+
+---
+
 ## Static:
 
 the `static` keyword is used to define attributes/methods that belong to the class and don't require an object to be accessible, for example this is our class:
@@ -143,8 +182,6 @@ class Cat extends Animal{
 }
 ```
 
-since Cat is based of `Animal` we technically consider type `Cat` as type `Animal` but of course doing so deprives us from all the extra things found in the `Cat` class alone.
-
 when using inheritance with a super class we must initialize an object of the super class in the constructor of the sub class using the `super` keyword which just is like a constructor for the parent class:
 
 ```java
@@ -157,6 +194,96 @@ class Cat extends Cat{
     super(type);
   }
 }
+```
+
+---
+
+## Polymorphism:
+
+let's say we have the class `Animal` as a basis to `Cat`, `Dog` and `Fish`:
+
+```java
+Class Animal{/* some code */}
+
+class Cat extends Animal {/* code */}
+class Dog extends Animal {/* code */}
+class Fish extends Animal {/* code */}
+```
+
+and we want an array whose content could be objects of `Cat`, `Dog` and `Fish`, but the problem is how can we do so when each type is it's own different type?. Simple, use the basis they all share which is either `Object` -all classes' basis- and `Animal` their direct super class:
+
+```java
+Animal[] animals = {new Dog(), new Cat(), new Fish(), new Animal()};
+```
+
+since these classes are based of `Animal` we technically consider type `Cat` as type `Animal`.
+
+```java
+// valid code
+Animal cat = new Cat();
+```
+
+but of course doing so deprives us from all the extra things found in the `Cat` and the other classes alone meaning things that are not implemented in the `Animal` class unless we use typecasting, for example with the animals array we can:
+
+```java
+Cat cat1 = (Cat) animals[1];
+```
+
+this is called `Polymorphism`, for class `Animal` is present in multiple forms being:
+
+1. Animal
+1. Cat
+1. Dog
+1. Fish
+
+> [!TIP] Polymorphism is achievable through interfaces and abstract classes as well
+
+---
+
+## Runtime polymorphism:
+
+runtime polymorphism is like when we use a method inherited from the super class, but it's execution is dependent on the type that is to be decided at runtime.
+
+```java
+abstract class Animal{
+  abstract void speak();
+}
+```
+
+then we will have:
+
+```java
+class Dog extends Animal{
+  @Override
+  void speak(){
+    System.out.println("Woof Woof");
+  }
+}
+```
+
+and another class
+
+```java
+class Cat extends Animal{
+  @Override
+  void speak(){
+    System.out.println("Meow Meow");
+  }
+}
+```
+
+finally our main code:
+
+```java
+Animal animal; //generic type
+Scanner input = new Scanner(System.in);
+
+int aType = input.nextInt();
+
+if(aType == 1) animal = new Cat(); //assign at run time
+else animal = new Dog(); //assign at run time
+
+animal.speak();
 ```
 
 ---
