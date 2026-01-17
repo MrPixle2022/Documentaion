@@ -164,7 +164,20 @@ car.getTopSpeed(); //ERROR
 Car.getTopSpeed(car); //450
 ```
 
-static is used for utility methods and shard resources between objects where it makes no sense that a member belongs to the object rather then the class, think of the `Math` class whose methods and fields are mostly static
+static is used for utility methods and shard resources between objects where it makes no sense that a member belongs to the object rather then the class, think of the `Math` class whose methods and fields are mostly static.
+
+there is also what is called a `static` block, which is used to initialize static fields once, so as not to re-initialize them on each object instantiation:
+
+```java
+public class MyClass{
+  public static int myField;
+
+  static{
+    //this block is executed only once, on class saved into memory
+    myField = 12;
+  }
+}
+```
 
 ---
 
