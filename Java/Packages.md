@@ -2,32 +2,24 @@
 
 # Packages:
 
-a package in java is the equivalent to namespaces in .net, they help organize your project plus they along side access-modifiers can change the visibility of classes, interfaces, methods, etc...
+in java packages are used to organize projects by separating the source files into directories/folders this is the package.
 
-packages are named in a reverse-domain method like:
-
-```java
-package com.example
-```
-
-and can be imported as:
+even further we can add the path of the package in each class in that directory:
 
 ```java
-import com.example
+// src/utils/Car.java
+package src.utils;
 ```
 
-> [!TIP] when importing a package for it's static method, field, etc..., say the `Math.PI` you can make a `static` import:
+later on we can import the content of the package using:
 
 ```java
-import static java.lang.Math.PI;
+import src.utils.*;//import all direct files in utils
+import src.utils.MyClass; //import the MyClass
 ```
 
-this way we have access to the `PI` directly without the need to use `Math.PI`.
-
-also we have a wildcard import `*`:
+a popular habit in the java community is to use the project name in a reverse-domain:
 
 ```java
-import com.myPkg.*
+package com.projectName;
 ```
-
-which will import everything from `myPkg` directly, not the sub-folders, so a package like `com.myPkg.utils` is not included in this import

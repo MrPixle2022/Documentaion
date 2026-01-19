@@ -36,3 +36,15 @@ javac HelloWorld.java
 # this generated a `HelloWorld.class` file which is a binary executable via the jvm
 java HelloWorld #we are running the .class binary executable.
 ```
+
+---
+
+## How java runs:
+
+the java code runs on the `JVM` or the java virtual machine, using the `jvm` means the code becomes platform-independent, keep mind that in spite of this fact `jvm` is platform-dependent.
+
+jvm runs `byte-code`, but your code isn't in byte-code, is it?, well we have the java compiler `javac` which will compile the source code into byte code and then it runs on the jvm.
+
+note that jvm only runs **1 single file**, the main file, aka the file with the `main` method.
+
+in addition to `JVM`, `JRE` OR Java runtime environment runs which has tools for storing classes and libraries, etc..., it also checks your bytecode and does some other things.

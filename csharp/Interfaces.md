@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Interfaces:
 
 just like an abstract class interfaces are non-instantiable types that define what will the inheriting types at least have, they enforce the existence of every property and method on the extending type.

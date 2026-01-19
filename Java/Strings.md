@@ -10,6 +10,17 @@ String str2 = "";
 String str3 = String.valueOf(12.2); //"12.2"
 ```
 
+in java using something like:
+
+```java
+String name1 = "Amr";
+String name2 = "Amr";
+```
+
+both `name1` and `name2` reference the very same object in the heap, in java strings are stored in a `string constant pool` inside the heap, so strings are immutable, but wait!, we can change and concatenate strings, this actually makes a new string, it's a new object.
+
+for mutable strings you can use either `StringBuilder` and `StringBuffer`.
+
 ---
 
 ## length():
@@ -141,8 +152,7 @@ str.isEmpty(); //false
 
 ## lastIndexOf():
 
-the `lastIndexOf` function is used to find the last occurrence of the given substring in the string and can optionally
-be given an index to start looking from:
+the `lastIndexOf` function is used to find the last occurrence of the given substring in the string and can optionally be given an index to start looking from:
 
 ```java
 String.lastIndexOf(String str);

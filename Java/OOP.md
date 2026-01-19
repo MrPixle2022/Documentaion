@@ -53,7 +53,7 @@ System.out.println(car.topSpeed); //213
 > [!NOTE] if we print the object itself, **by default** this invokes the `.toString` method which **by default** will log:
 
 ```text
-[type]@[address]
+[type]@[hashCode]
 ```
 
 of course the insist on **by default** is to alert you that the `toString` method can be overridden to alter its behavior.
@@ -100,6 +100,41 @@ Car car = new Car(4, 6, false);
 
 ---
 
+## Inner classes:
+
+Sometimes you will have a one-use-class and that use is tied to one class, we can simply define a class inside the other:
+
+```java
+class A{
+  /* A content*/
+  // inner-class
+  class B{
+  /* B content*/
+  }
+}
+```
+
+the class `B` is in-accessible directly however we can get it using `A.B` and need an object of `A`:
+
+```java
+A objA = new A();
+A.B objB = obj.new B();
+```
+
+we can also make the inner class **static**, and only in this case can a class be static.
+
+we can declare anonymous inner classes:
+
+```java
+A objC = new A(){
+  /*new implementation*/
+};
+```
+
+in this case we are declaring an anonymous inner class in A.
+
+---
+
 ## Wrapper classes:
 
 wrapper classes allow primitive types -i.e. int, float, boolean, etc...- to become objects and allows them to be used with the collections frameworks -i.e. ArrayList<T>, etc...-.
@@ -141,43 +176,80 @@ boolean w = Character.isUpperCase('A');
 
 ## Static:
 
-the `static` keyword is used to define attributes/methods that belong to the class and don't require an object to be accessible, for example this is our class:
+in java some parts of a class can be `static`, a static member is a member **belonging to the class not the object**
+
+normal fields and methods only belong to the object and are inaccessible via the class name:
 
 ```java
-class Car{
-  int topSpeed  = 300;
+public Car{
+  public String model = "model";
+}
 
-  Car(int speed){
-    this.topSpeed = speed;
-  }
+Car car = new Car();
 
-  static int getTopSpeed(Car car){
-    return car.topSpeed;
-  }
+car.model; //model
+Car.model; //ERROR
+```
+
+we get an error because `model` belongs to the object not the class, however if it was a static field then the case would have been inverted, where:
+
+```java
+Car.model; //model
+car.model; //ERROR
+```
+
+---
+
+## Static fields:
+
+we can set a field -or more- to be `static`, a static field is accessible for the class and are shared between the objects, so all of them will use the very same one.
+
+```java
+public class Car{
+  public static model = "";
 }
 ```
 
-```java
-Car car = new Car(450);
-
-car.getTopSpeed(); //ERROR
-Car.getTopSpeed(car); //450
-```
-
-static is used for utility methods and shard resources between objects where it makes no sense that a member belongs to the object rather then the class, think of the `Math` class whose methods and fields are mostly static.
-
-there is also what is called a `static` block, which is used to initialize static fields once, so as not to re-initialize them on each object instantiation:
+on initializing a static variable you may assume it's better to be done in the `constructor`, the problem being that this means the variable will be reinitialized every instantiation, instead use a `static block`:
 
 ```java
-public class MyClass{
-  public static int myField;
+public class Car{
+  public static model = "";
 
   static{
-    //this block is executed only once, on class saved into memory
-    myField = 12;
+    model = "this is the static model!";
+    System.out.println(model);
   }
 }
 ```
+
+all code in the `static block` runs once before even the constructor,it's called on the class being loaded by the java class loader.
+
+we can manually load classes using:
+
+```java
+Class.forName("Car");
+```
+
+> [!TIP] static variables are useable inside non-static methods, and they don't require the use of the `this` keyword
+
+---
+
+## Static methods:
+
+a `static` method is class member that is accessible only by the class name and is inaccessible via objects.
+
+```java
+public class Square(){
+  public static double area(double length){
+    return length * length;
+  }
+}
+
+Square.area(10.0);
+```
+
+inside a `static method` we **can't directly access non-static variables**, instead we can pass the object as an argument and work on it.
 
 ---
 
@@ -341,35 +413,6 @@ public class Circle extends Shape{
     return Math.PI * radius * radius;
   }
 }
-```
-
----
-
-## Interfaces:
-
-an interface includes a blueprint for all classes based of it, every thing in the interface is mandatory to implement in a subclass:
-
-```java
-interface Prey{
-  void flee();
-}
-```
-
-and for the subclass:
-
-```java
-class Rabbit extends Prey{
-  @Override
-  void flee(){
-    System.out.println("Fleeing danger");
-  }
-}
-```
-
-an upside to interfaces over abstract classes is that a class can implement more then one interface which will be separated by a `,`:
-
-```java
-public class Human extends Prey, Predator{ /* class content*/ }
 ```
 
 ---
