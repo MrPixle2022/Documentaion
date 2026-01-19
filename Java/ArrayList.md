@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Array List:
 
 the `ArrayList<T>` is a a dynamic array meaning it can remove/add elements to it, when using the `ArrayList` we can only pass it a reference type that extends `Object` so primitive types such as:
@@ -9,6 +11,7 @@ the `ArrayList<T>` is a a dynamic array meaning it can remove/add elements to it
 won't work, instead we use `Integer`, `String,` , etc...
 
 import the `ArrayList<T>` via:
+
 ```java
 import java.util.ArrayList;
 ```
@@ -20,6 +23,8 @@ ArrayList<Integer> arr = new ArrayList<>(); //empty list
 ArrayList<String> arr2 = new ArrayList<String>(4); //a list of 4 string
 ArrayList<Double> arr3 = new ArrayList<>(Arrays.asList(1.2, 2.4, 4.5));
 ```
+
+the `ArrayList<T>` extends the `List<T>` class.
 
 ---
 
