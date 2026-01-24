@@ -18,18 +18,18 @@ the `css rule` is an entire block, composed of the selector, `{ }` -deceleration
 ```css
 /*all of this is a rule*/
 selector {
-	property1: value; /*declaration*/
-	property2: value; /*declaration*/
+  property1: value; /*declaration*/
+  property2: value; /*declaration*/
 }
 ```
 
 > [!TIP] multiple selectors can share a rule, separate each with a `,`
 
 ```css
-/* pick each p that is a children of a div & also pick ul */
+/* pick each p that is a children of a div & also pick every ul */
 div p,
 ul {
-	/* your css here */
+  /* your css here */
 }
 ```
 
@@ -41,7 +41,7 @@ the `element selector` other ways know as `typed selector` allows you to target 
 
 ```css
 tag-name {
-	/*your css here*/
+  /*your css here*/
 }
 ```
 
@@ -56,7 +56,7 @@ for example:
 ```css
 /** Element Selector -> tag */
 p {
-	color: red;
+  color: red;
 }
 ```
 
@@ -68,7 +68,7 @@ using the class selector you can target multiple elements that have the `class` 
 
 ```css
 .class-name {
-	/* your css here */
+  /* your css here */
 }
 ```
 
@@ -84,7 +84,7 @@ for example:
 ```css
 /** Class selector -> .Class-name  */
 .specialP {
-	color: blue;
+  color: blue;
 }
 ```
 
@@ -93,7 +93,7 @@ for example:
 ```css
 /* the element with both class1 and class2 together*/
 .class1.class2 {
-	/*your css here*/
+  /*your css here*/
 }
 ```
 
@@ -106,7 +106,7 @@ the id selector allows you to target an element with a specific value to the `id
 ```css
 /* nestable */
 #id-name {
-	/*your css here*/
+  /*your css here*/
 }
 ```
 
@@ -123,58 +123,7 @@ for example:
 ```css
 /** Id selector -> #Id-name*/
 #specialP {
-	color: green;
-}
-```
-
----
-
-## descendent selector:
-
-the `descendent selector` aka the ` ` allows you to target specific element based on it's parent.
-
-```css
-selector1 selector2 {
-	/*css here*/
-}
-```
-
-the `selector2` is the one we are targeting, we are targeting `selector2` that is a child of `selector1`.
-
-```html
-<div>
-	<h2>Title</h2>
-	<p>Paragraph inside div</p>
-</div>
-<p>Paragraph outside div</p>
-```
-
-```css
-/* div.p (In OOP style) */
-div p {
-	color: red;
-}
-```
-
-also this can be nested:
-
-```css
-div {
-	/* div style */
-	p {
-		/* p style */
-	}
-}
-```
-
-for example:
-
-```css
-div {
-	color: #00f;
-	ul {
-		color: #f00;
-	}
+  color: green;
 }
 ```
 
@@ -186,19 +135,56 @@ div {
 
 in this category we have:
 
-#### descendant selector:
+### descendant selector:
 
-this is just a ` ` between two selectors, it picks any element that is a descendent of the first selector -doesn't have to be direct child-.
+the `descendent selector` aka the ` ` allows you to target specific element based on it's parent.
+
+```css
+selector1 selector2 {
+  /*css here*/
+}
+```
+
+the `selector2` is the one we are targeting, we are targeting `selector2` that is a child of `selector1`.
+
+```html
+<div>
+  <h2>Title</h2>
+  <p>Paragraph inside div</p>
+</div>
+<p>Paragraph outside div</p>
+```
+
+```css
+/* div.p (In OOP style) */
+div p {
+  color: red;
+}
+```
+
+also this can be nested:
+
+```css
+div {
+  /* div style */
+  p {
+    /* p style */
+  }
+}
+```
 
 for example:
 
 ```css
-/* every p inside div */
-div p {
+div {
+  color: #00f;
+  ul {
+    color: #f00;
+  }
 }
 ```
 
-#### child selector:
+### child selector:
 
 this is a `>` between two selectors, it picks any element that is a **direct** child of the first selector.
 
@@ -210,7 +196,7 @@ ul > li {
 }
 ```
 
-#### next sibling selector:
+### next sibling selector:
 
 this is a `+` between two selectors and is used to pick an element which is the next -directly- to the first selector.
 
@@ -222,9 +208,9 @@ ul + button {
 }
 ```
 
-#### subsequent sibling selector:
+### subsequent sibling selector:
 
-this is a `~` between two selectors and is used to pick an element which comes after the first selector but both **must** share the same parent.
+this is a `~` between two selectors and is used to pick an element which comes after the first selector but both **must** share the same direct parent no matter the distance between them.
 
 for example
 

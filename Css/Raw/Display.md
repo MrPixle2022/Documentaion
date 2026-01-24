@@ -1,8 +1,8 @@
 <!-- @format -->
 
-# Display:
+# Display
 
-## block:
+## block
 
 block elements are elements that:
 
@@ -31,10 +31,10 @@ and other container elements
 
 ```css
 div {
-	display: block;
-	background: #ddd;
-	padding: 10px;
-	margin: 10px;
+  display: block;
+  background: #ddd;
+  padding: 10px;
+  margin: 10px;
 }
 ```
 
@@ -42,7 +42,7 @@ div {
 
 ---
 
-## inline:
+## inline
 
 inline elements like `span`, `a`, `img` are elements whose width and height are determined by the content as they take just enough space to fit their content.
 
@@ -62,9 +62,9 @@ inline elements:
 
 ```css
 span {
-	background: #eee;
-	width: 1000000px;
-	padding: 20px;
+  background: #eee;
+  width: 1000000px;
+  padding: 20px;
 }
 ```
 
@@ -72,7 +72,7 @@ span {
 
 ---
 
-## inline block:
+## inline block
 
 inline-block elements are a mix of `inline` & `block` elements.
 
@@ -91,9 +91,9 @@ inline-block elements:
 
 ```css
 section {
-	display: inline-block;
-	background: #636363;
-	width: 400px;
+  display: inline-block;
+  background: #636363;
+  width: 400px;
 }
 ```
 
