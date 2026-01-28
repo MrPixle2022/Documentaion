@@ -1,6 +1,6 @@
 <!-- @format -->
 
-# Variables:
+# Variables
 
 variables in c# can be defined by a type, have a dynamic type or be a constant.
 
@@ -16,7 +16,7 @@ a `var`'s type is implicitly set by the compiler, whilst a `const` is assigned o
 
 ---
 
-## Built in types:
+## Built in types
 
 in c# we have a set of types we can make use of, from integers to floating points and decimals and booleans.
 
@@ -79,7 +79,7 @@ remember that you must check for nullables before using them to avoid warning an
 
 ---
 
-## Anonymous types:
+## Anonymous types
 
 anonymous types are used with the `var` keyword, using the following:
 

@@ -1,12 +1,12 @@
 <!-- @format -->
 
-# Classes:
+# Classes
 
 classes represent the basis of the c# as it is an Object-Oriented language, Classes can extend one another and represent a blueprint for their own instances and even other classes.
 
 ---
 
-## Creating a class:
+## Creating a class
 
 create a class using the `class` keyword followed by it's name and can optionally define an access modifier before `class` for more control if needed:
 
@@ -23,16 +23,20 @@ then define your fields, fields are the data with in the class and the syntax is
 
 access modifiers like `public`, `protected` and `private`, the default for all is `private`.
 
-now define the `constructor`, a `constructor` is a **public** method whose name is the same as the `class`'s, you don't specify the return type.
+---
 
-a `constructor` is the method responsible for creating objects of a class.
+## Constructors
+
+a constructor is used to define additional logic and accept data on an object initialization.
+
+define the `constructor` using the class Name:
 
 ```csharp
 class Animal {
-	public Animal() {
-		//assign fields here
-		//this: refers to the object not the class here
-	}
+ public Animal() {
+  //assign fields here
+  //this: refers to the object not the class here
+ }
 }
 ```
 
@@ -46,9 +50,40 @@ class ClassName(arguments){
 }
 ```
 
+inside the constructor and other methods inside a class non-static fields should be accessed through the `this` object which represents the object that will be created.
+
 ---
 
-## Access modifiers:
+## Finalizers
+
+a class's `finalizers` are used to trigger code on dispose of an object by the `CLR's` garbage collector.
+
+a finalizer is defined like an empty constructor with `~` before the class name:
+
+```csharp
+~Person()
+{
+  System.Console.WriteLine("Bye " + Name);
+}
+```
+
+the GC manages memory automatically in C#. When an object is no longer referenced, the GC will eventually reclaim that memory.
+
+However, the exact timing of when the destructor (finalizer) is called is non-deterministic. It may not be called immediately when the object goes out of scope.
+
+Therefore, relying on destructors for critical resource management (like file handles, database connections, etc.) is discouraged.
+
+Instead, it's recommended to implement the IDisposable interface and use the Dispose pattern for deterministic cleanup of resources.
+
+objects can get deposed when:
+
+1. end of application
+2. on full memory while running application
+3. GC.Collect() called manually
+
+---
+
+## Access modifiers
 
 Access modifiers are keywords that define the accessibility or scope of a type (like a class) or a member (like a method or field). They are a fundamental part of encapsulation in C#.
 
@@ -100,7 +135,7 @@ public class Car : Vehicle
 
 ---
 
-## Statics:
+## Statics
 
 any class member marked with the `static` keyword is a callable by **only** the class it self, not by any object or instance of it.
 
@@ -120,7 +155,7 @@ Animal.count;
 
 ---
 
-## Creating objects of a class:
+## Creating objects of a class
 
 to create an object of class use the class as a type.
 
@@ -148,13 +183,36 @@ Animal.AnimalHealth getHealth = new();
 
 ---
 
-## Structs:
+## Field's getter and setter
+
+on a class we have a field, a variable on a class, we can define a getter and setter to control how the value of the field or the value assigned to it is handled:
+
+```csharp
+//basic get and set
+public int Length {get; set;}
+
+// additional logic, requires a pre-existing field for the property to define getters and setters
+// value is a keyword in `set`
+private int _width
+public int Width {
+  get => _width;
+  set => _width = value;
+}
+
+//read-only (getter, no setter)
+private int _height
+public int Height => _height;
+```
+
+---
+
+## Structs
 
 structs are data strictures that are pretty similar to a class but they use the `struct` keyword instead of the class, and they are passed by value not by reference.
 
 ---
 
-## Inheritance:
+## Inheritance
 
 we can set a class to inherit from another using `:` after the class name, then when we create the constructor use `: base(--)` -if the parent requires some data- just before the `{}`.
 
@@ -211,7 +269,7 @@ else
 
 ---
 
-## Virtual and override:
+## Virtual and override
 
 marking a method as `virtual` allows any inheriting class to **override** that method.
 
@@ -234,7 +292,7 @@ public override void MakeSound() {
 
 ---
 
-## Abstract classes:
+## Abstract classes
 
 abstract classes are classes marked by the `abstract` keyword, abstract classes defined a basis for other classes to inherit but they them selves are not instantiatable themselves.
 

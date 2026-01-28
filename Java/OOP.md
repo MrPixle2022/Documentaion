@@ -1,6 +1,6 @@
 <!-- @format -->
 
-# OOP:
+# OOP
 
 java is an `OOP` language, meaning its basis is objects, objects are reference-types that hold data -attributes- and do actions -method-.
 
@@ -8,7 +8,7 @@ an object is usually based of a class that acts as the blueprint to all objects 
 
 ---
 
-## Class:
+## Class
 
 define a class using the following:
 
@@ -60,7 +60,7 @@ of course the insist on **by default** is to alert you that the `toString` metho
 
 ---
 
-## Constructors:
+## Constructors
 
 a `constructor` is a special method that is used to initialize objects, they are helpful in many ways like passing data to an object to use for its attributes.
 
@@ -100,7 +100,7 @@ Car car = new Car(4, 6, false);
 
 ---
 
-## Inner classes:
+## Inner classes
 
 Sometimes you will have a one-use-class and that use is tied to one class, we can simply define a class inside the other:
 
@@ -135,7 +135,7 @@ in this case we are declaring an anonymous inner class in A.
 
 ---
 
-## Wrapper classes:
+## Wrapper classes
 
 wrapper classes allow primitive types -i.e. int, float, boolean, etc...- to become objects and allows them to be used with the collections frameworks -i.e. ArrayList<T>, etc...-.
 
@@ -174,7 +174,7 @@ boolean w = Character.isUpperCase('A');
 
 ---
 
-## Static:
+## Static
 
 in java some parts of a class can be `static`, a static member is a member **belonging to the class not the object**
 
@@ -200,7 +200,7 @@ car.model; //ERROR
 
 ---
 
-## Static fields:
+## Static fields
 
 we can set a field -or more- to be `static`, a static field is accessible for the class and are shared between the objects, so all of them will use the very same one.
 
@@ -235,7 +235,7 @@ Class.forName("Car");
 
 ---
 
-## Static methods:
+## Static methods
 
 a `static` method is class member that is accessible only by the class name and is inaccessible via objects.
 
@@ -253,7 +253,7 @@ inside a `static method` we **can't directly access non-static variables**, inst
 
 ---
 
-## Inheritance:
+## Inheritance
 
 inheritance is a concept in OOP where multiple types share a singular basis like a class or an interface, in java we can declare an inheritance using the `extends` keyword, for example:
 
@@ -283,7 +283,7 @@ class Cat extends Cat{
 
 ---
 
-## Polymorphism:
+## Polymorphism
 
 let's say we have the class `Animal` as a basis to `Cat`, `Dog` and `Fish`:
 
@@ -325,7 +325,7 @@ this is called `Polymorphism`, for class `Animal` is present in multiple forms b
 
 ---
 
-## Runtime polymorphism:
+## Runtime polymorphism
 
 runtime polymorphism is like when we use a method inherited from the super class, but it's execution is dependent on the type that is to be decided at runtime.
 
@@ -373,7 +373,7 @@ animal.speak();
 
 ---
 
-## Abstract classes:
+## Abstract classes
 
 an abstract class is a class that can't be instantiated but is used as a basis for classis to inherit from, it includes methods and fields that either abstract -must be implemented- or concrete -inherited with along with their default implementation-.
 
@@ -417,7 +417,7 @@ public class Circle extends Shape{
 
 ---
 
-## Method Overriding:
+## Method Overriding
 
 method overriding is like overloading a method, however now the method is defined in the parent class and the overload is in the sub class, the `.toString` method is the method that is mostly overridden.
 

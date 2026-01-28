@@ -1,76 +1,94 @@
-# Config:
+# Git config
 
-configuring git can be split into two sections.
+using the `git config` command we can configure a lot of aspects about git on 3 main levels:
 
-- local -> in the `.git/config` file
-- global -> stored in the home directory `~/.gitconfig`
+1. system
+1. global
+1. local
 
-you can set, get, update or delete the configs, but get is the default.
-
-you can read all the configs using:
+each level overwrites the one above it.
 
 ```bash
-# getting optically use (--get)
-git config --list --local # list all local configs
-git config --list # global
-
-# setting use the (--add)
-git config --add --global init.defaultBranch main #init.defaultBranch = main
+git config --system
+git config --global
+git config #local as it is the default
 ```
 
-it's important to know if their are any duplicates git picks the latest
+we can find the config files using:
+
+```bash
+git config --list --show-origin
+```
+
+the files exist as follows on windows:
+
+1. system -> `[path to git]\etc\gitconfig`
+1. global -> `[path to user]\.gitconfig`
+1. local -> `.\.git\config`
+
+and we can change the default config file to another one using:
+
+```bash
+git config -f <file>
+```
+
+as an admin.
 
 ---
 
-## Adding values:
+## Adding values
 
-
-to add values to your gitconfig -wether locally or globally- you provide them as key-value pairs.
-
-for example:
+we can add values to the config by targeting a level and adding a key-value pair, for values already in the configuration file:
 
 ```bash
-# adds Webflyx.cto field with value of `Mr_Pixel` LOCALLY
-git config --add --local webflyx.cto Mr_Pixel
+# defining the email and name of this user
+git config --global user.email "someone@email.com"
+git config --global user.name "someone"
+
+# rename the default branch master -> main
+git config --global init.defaultbranch main
+
+# specify which code editor to use when you need to type a message or handle a conflict
+git config --global core.editor "path\to\your\editor"
 ```
 
-the `webflyx` is called a section while `cto` is called a field.
+> [!NOTE]
+> git doesn't warn about duplicate keys, when git encounters them it will use the last value it founds
 
 ---
 
-## Reading keys:
+## Viewing values
 
-using the `get` flag we can read the values of the given key.
+we can view the configurations using the `--list` option:
 
 ```bash
-git config --get webflyx.ceo
-# the same since get is the default
-git config webflyx.cto
+git config --list
+git config --list --global #list global config
 ```
+
+to get a specific value use the key name:
+
+```bash
+# reads the current name
+git config user.name
+```
+
+in the line above `user` is a section and `name` is a key.
 
 ---
 
-## Removing keys:
+## Unsetting values
 
-we can use the `unset` flag to **remove** a key:
-
-```bash
-git config --unset webflyx.valuation
-```
-
-know that if you have duplicate fields that git will pick the last one, and to remove all duplicates use the `unset-all` flag
+in git we can remove -unset- a value using the `--unset` option, it will find the first key and remove it along with it's value:
 
 ```bash
+git config --unset section.key
 # if you have duplicate keys
 git config --unset-all section.key
 ```
 
----
-
-## Remove sections:
-
-to remove a section use the `remove-section`  flag followed by the section
+we can also git rid of a section all together:
 
 ```bash
-git config --remove-section webflyx
+git config --remove-section section
 ```

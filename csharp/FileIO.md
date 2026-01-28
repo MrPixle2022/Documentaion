@@ -1,18 +1,42 @@
-# FileIo:
+# FileIo
 
 to interact with the file system .net provides some useful types like:
 
--   `DirectoryInfo`
--   `Directory`
--   `File`
--   `FileInfo`
--   `Path`
+- `DirectoryInfo`
+- `Directory`
+- `File`
+- `FileInfo`
+- `Path`
 
-the `XInfo` vs `X` difference is that the `DirectoryInfo` -for example- is an insatiable object that can be used for multiple operations while the `Directory` -for example- is for single use as it uses static methods.
+classes ending with `Info` differ from the other as in `DirectoryInfo` -for example- is an insatiable object that can be used for multiple operations while the `Directory` class -for example- is for using static methods.
 
 ---
 
-## DirectoryInfo:
+## File stream
+
+opening a file is creating a new stream of data that must be closed when done with as to not cause a memory leak, to avoid doing this manually use the `using` block, which will close a stream automatically:
+
+```csharp
+FileInfo info = new FileInfo("Mechanics101.txt");
+
+if (info.Exists)
+{
+  // OpenRead() returns a FileStream
+  using (Stream s = info.OpenRead())
+  // to write use the `StreamWriter` class
+  using (StreamReader reader = new StreamReader(s))
+  {
+      string content = reader.ReadToEnd();
+      Console.WriteLine(content);
+  }
+}
+```
+
+in this example the 2 `using` blocks are nested and we don't have to encapsulate the later between `{ }`
+
+---
+
+## DirectoryInfo
 
 the `DirectoryInfo` class is used to create objects that reference directories.
 
@@ -36,7 +60,7 @@ directoryInfo.Delete();
 
 ---
 
-## FileInfo:
+## FileInfo
 
 the `FileInfo` class is used to create objects that reference files even if the file is yet to exist.
 
@@ -58,7 +82,7 @@ foreach (FileInfo file in filesInfo)
 
 ---
 
-## File:
+## File
 
 the `File` class is useful to interact with files in you file system.
 

@@ -1,6 +1,6 @@
 <!-- @format -->
 
-# Postgresql:
+# Postgresql
 
 ---
 
@@ -12,7 +12,7 @@ note you can use `\q` to exit & `\?` to show help
 
 ---
 
-## Create a database:
+## Create a database
 
 first check your dbs using `\l`, by default it will display 3, but to create one use:
 
@@ -24,7 +24,7 @@ important not to forget the `;` and the capitalization.
 
 ---
 
-## Connecting to a database:
+## Connecting to a database
 
 using:
 
@@ -40,7 +40,7 @@ or if you are already in psql use:
 
 ---
 
-## Dropping databases:
+## Dropping databases
 
 to drop -aka remove- a data base use:
 

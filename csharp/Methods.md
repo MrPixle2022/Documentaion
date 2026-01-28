@@ -1,12 +1,12 @@
 <!-- @format -->
 
-# Methods:
+# Methods
 
 in c# we have methods which are class members that are used to do repetitive task.
 
 ---
 
-## Declare a method:
+## Declare a method
 
 declare a method using:
 
@@ -50,7 +50,7 @@ PrintArray([1, 2, 3, 4], "{0} is the element");
 
 ---
 
-## Params with default values:
+## Params with default values
 
 to define a param with a default value use `=` in the param declaration.
 
@@ -67,7 +67,7 @@ SumInt(2, 4); // 6
 
 ---
 
-## Unknown number of params:
+## Unknown number of params
 
 add the keyword `params` before the **last** param's type turns it into an array that takes any number of parameters.
 
@@ -86,7 +86,7 @@ GetSumM(1, 2, 3, 4, 5);
 
 ---
 
-## In, out and ref params:
+## In, out and ref params
 
 we can optionally add `in`, `ref,` or `out` before a param to indicate that this will be passed by **reference** not by value.
 
@@ -167,7 +167,7 @@ System.Console.WriteLine("this is the original {0}", vector3); //(10, 2, 30)
 
 ---
 
-## Named params:
+## Named params
 
 parameters can be passed without order **if** their names are used.
 
@@ -189,7 +189,7 @@ PrintInfo(name: "amr", zip: 10);
 
 ---
 
-## Method overloading:
+## Method overloading
 
 overloading means defining different methods with the same name.
 
@@ -216,7 +216,7 @@ Sum2(x, y);
 
 ---
 
-## Lambda methods:
+## Lambda methods
 
 lambda methods are a short syntax for simple methods that are usually used as a callback, usually with methods that are of one-use that we don't care about very often and often used with delegates as they are used as params to specify custom logic.
 
@@ -255,3 +255,26 @@ DoubleIt doubleIt = (double x) => x * 2;
 // typeof x is predefined by the `DoubleIt` delegate
 DoubleIt doubleIt2 = x => x * 2;
 ```
+
+---
+
+## Extension methods
+
+extension methods are used to add functionality to types without changing the course code, this is useful with 3rd party code that we don't have direct access to and we need additional functionality of a library type.
+
+define an extension method as follows
+
+```csharp
+//some class
+public static class StringExtensions
+{
+  // This method extends the 'string' type
+  public static bool IsCapitalized(this string str)
+  {
+      if (string.IsNullOrEmpty(str)) return false;
+      return char.IsUpper(str[0]);
+  }
+}
+```
+
+now the `IsCapitalized` is found on the `string` class.

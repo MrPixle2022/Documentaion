@@ -58,3 +58,40 @@ selector {
   gap: 2px;
 }
 ```
+
+---
+
+## Flex shrink/grow
+
+the `flex-grow` and `flex-shrink` are used on flex items to control how the items use the extra space in the parent, the value used for these 2 represents the ratio to other flex items
+
+```css
+selector {
+  flex-shrink: 0; /*the ration of growth when there is extras space in the parent*/
+  flex-grow: 1; /*the ration if shrinking when the container can't fit all items*/
+}
+```
+
+---
+
+## Align self
+
+the `align-self` is used on the flex item and can be used to overwrite the alignment of the parent container.
+
+```css
+selector {
+  algin-self: auto; /*stretch, flex-start, flex-end, center, baseline*/
+}
+```
+
+---
+
+## Order:
+
+the `order` is used on the flex items to overwrite the order of the flex item among it's siblings without changing the html markup.
+
+```css
+selector {
+  order: 0;
+}
+```
