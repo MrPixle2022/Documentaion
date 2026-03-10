@@ -1,6 +1,6 @@
 <!-- @format -->
 
-# Arrays:
+# Arrays
 
 defining arrays in c# is a bit different than other language, you usually have to define the type, use the `new` keyword and use `{}` instead of `[]`.
 
@@ -19,13 +19,12 @@ faveNums[2];
 //index: 2 -> 2
 ```
 
-> [!IMPORTANT] on fixed arrays `Append` and `Prepend` don't work.
-
+> [!IMPORTANT] on fixed arrays `Append` and `Prepend` don't work.  
 > [!IMPORTANT] When using var as a type all elements must be of same type.
 
 ---
 
-## Matrixes:
+## Matrixes
 
 we can define a multi-dimensional array using `[,]` in the type and defining rows and columns:
 
@@ -40,7 +39,7 @@ System.Console.WriteLine(matrix[0, 1]);
 
 ---
 
-## Sort(array):
+## Sort(array)
 
 the `Sort` is an array static method that can sort an array.
 
@@ -51,7 +50,7 @@ Array.Sort(array1);
 
 ---
 
-## Reverse(array):
+## Reverse(array)
 
 the `Reverse` is a static array method that reverses the order of an array.
 
@@ -62,7 +61,7 @@ Array.Reverse(array1);
 
 ---
 
-## IndexOf(array, element):
+## IndexOf(array, element)
 
 the `IndexOf` is a static method that returns the index of an element in the given array, if not found it returns `-1`.
 
@@ -73,7 +72,7 @@ Array.IndexOf(array1, 1); //0
 
 ---
 
-## SetValue(value, index):
+## SetValue(value, index)
 
 the `SetValue` is a method that updates the value at `index`.
 
@@ -84,7 +83,7 @@ array1.SetValue(10, array1.Length - 1);// 4 -> 10
 
 ---
 
-## Copy(source, destination, number):
+## Copy(source, destination, number)
 
 the `Copy` is a static method used to copy a portion of an array onto another one.
 
@@ -96,7 +95,7 @@ Array.Copy(array1, array2, 1); //copy array1 onto array2 taking the first -1- el
 
 ---
 
-## Fill(array, value):
+## Fill(array, value)
 
 the `Fill` is a static method that can fill an array with `value`.
 

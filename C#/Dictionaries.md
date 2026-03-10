@@ -1,4 +1,4 @@
-# Dictionary:
+# Dictionary
 
 Dictionary are a sequence of key-value pairs included in the `System.Collections.Generic` namespace.
 
@@ -25,7 +25,7 @@ Dictionary<string, string> superHeros = new()
 
 ---
 
-## Add(T key, K value):
+## Add(T key, K value)
 
 the `Add` method adds a new pair to the sequence.
 
@@ -35,7 +35,7 @@ superHeros.Add("Superman", "Clark Kent");
 
 ---
 
-## Remove(T key, out K value):
+## Remove(T key, out K value)
 
 the `Remove` method removes the pair using the key to find it, it requires one parameter only but has an overload that uses an out parameter to return the value associated with the `key`:
 
@@ -45,7 +45,7 @@ superHeros.Remove("Batman");
 
 ---
 
-## ContainsValue(K value):
+## ContainsValue(K value)
 
 the `ContainsValue` method returns a boolean, it check if the `value` is in the sequence or not.
 
@@ -55,7 +55,7 @@ superHeros.ContainsValue("Clark Kent");
 
 ---
 
-## ContainsKey(T key):
+## ContainsKey(T key)
 
 the `ContainsKey` method returns a boolean, it check if the `key` is in the sequence or not.
 
@@ -65,7 +65,7 @@ superHeros.ContainsKey("Batman");
 
 ---
 
-## GetValueOrDefault(T key, T defaultValue):
+## GetValueOrDefault(T key, T defaultValue)
 
 the `GetValueOrDefault` tries to find the `key` in the sequence, if not found it returns the `defaultValue`.
 
@@ -75,7 +75,7 @@ var unknownHero = superHeros.GetValueOrDefault("SomeDude", "not-found");
 
 ---
 
-## TryGetValue(T key, out K? value):
+## TryGetValue(T key, out K? value)
 
 the `TryGetValue` method returns a boolean if the value of the key exists, if so it returns the value in the `value`.
 
@@ -85,7 +85,7 @@ superHeros.TryGetValue("Superman", out string? supermanIdentify);
 
 ---
 
-## Clear():
+## Clear()
 
 the `Clear` method empties the dictionary.
 

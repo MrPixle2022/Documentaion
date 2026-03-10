@@ -1,4 +1,4 @@
-# Operator overloading:
+# Operator overloading
 
 to overload an operator use:
 
@@ -80,24 +80,24 @@ public class Box
 
 also we can overload the following operators:
 
--   \+
--   \-
--   \*
--   /
--   %
--   !
--   == -> return a **boolean**
--   != -> return a **boolean**
--   \> -> return a **boolean**
--   \>= -> return a **boolean**
--   < -> return a **boolean**
--   <= -> return a **boolean**
--   ++
--   \--
+- \+
+- \-
+- \*
+- /
+- %
+- !
+- == -> return a **boolean**
+- != -> return a **boolean**
+- \> -> return a **boolean**
+- \>= -> return a **boolean**
+- < -> return a **boolean**
+- <= -> return a **boolean**
+- ++
+- \--
 
 ---
 
-## Conversion:
+## Conversion
 
 using operator overloading we can determine the behavior of a class on conversion from or to.
 

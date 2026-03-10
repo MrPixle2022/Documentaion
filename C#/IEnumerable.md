@@ -1,6 +1,6 @@
 <!-- @format -->
 
-# IEnumerable:
+# IEnumerable
 
 the `IEnumerable` interface is the shared base by the native collections like:
 
@@ -14,7 +14,7 @@ etc ..., the IEnumerable allows a type to be enumerable, meaning it can be used 
 
 ---
 
-## Custom Enumerable:
+## Custom Enumerable
 
 to create a custom enumerable create a class that inherits from the `IEnumerable` interface.
 

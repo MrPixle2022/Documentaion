@@ -1,6 +1,6 @@
 <!-- @format -->
 
-# Delegates:
+# Delegates
 
 delegates are a special type that allows you to define the signature of a method, and since it's a type after all it allows you to create variables storing methods instead of their return values.
 
@@ -48,7 +48,7 @@ RunAdd(Add);
 
 ---
 
-## Multicast delegates:
+## Multicast delegates
 
 multicast delegates allows you to combine methods and delegates, on execution they run every method **in order**.
 
@@ -65,7 +65,7 @@ also note we can use the `+=` operator to do the same.
 
 ---
 
-## Func & Predicate:
+## Func & Predicate
 
 the `Func` delegate is used to simply define a signature for a method -usually a lambada-, it take any number of generics with each defining a parameter type, but **always** the last generic is the return type.
 

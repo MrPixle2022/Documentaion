@@ -1,12 +1,12 @@
 <!-- @format -->
 
-# Conditions:
+# Conditions
 
 conditions allows control over the application's behavior if a condition is met or not.
 
 ---
 
-## If:
+## If
 
 using the `if` your are allowed to define a code block that is to run when the condition is true.
 
@@ -22,7 +22,7 @@ now the message will only be printed if x is >= 10 -which is true in this case-.
 
 ---
 
-## Else if:
+## Else if
 
 for more control over the app we can add another block that checks another condition after an `if` block.
 
@@ -41,7 +41,7 @@ so this will only run if the first condition is false.
 
 ---
 
-## Else:
+## Else
 
 in some cases we may want to control what happens if no condition is met. this is done in a `else` block, which runs after every `if` and `else if` block
 
@@ -63,17 +63,17 @@ this will run the `else` block since the other two conditions are false.
 
 ---
 
-## Combining conditions:
+## Combining conditions
 
 to combine multiple conditions into one we use one of the following:
 
--   `&&` and -> true if both sides are true
--   `||` or -> true if at least one side is true
--   `!` not -> doesn't combine but used to control conditions, it inverts true to false and vice versa
+- `&&` and -> true if both sides are true
+- `||` or -> true if at least one side is true
+- `!` not -> doesn't combine but used to control conditions, it inverts true to false and vice versa
 
 ---
 
-## Switch:
+## Switch
 
 the `switch` statement allows you to depend on a variables value for a condition.
 
@@ -129,9 +129,20 @@ switch (x)
 }
 ```
 
+also there is a special syntax for when assigning a value based on a switch case:
+
+```csharp
+var x = expression switch{
+  case1 => value,
+  case2 => value,
+  case3 or case4 => value,
+  _ => default_value;
+}
+```
+
 ---
 
-## Ternary operator:
+## Ternary operator
 
 ternary operator is a one-line conditional expression that can be used for assignments and checks.
 

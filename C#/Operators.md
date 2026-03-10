@@ -2,17 +2,17 @@
 
 # Operators
 
-## Arithmetic operators:
+## Arithmetic operators
 
 arithmetic operators allow us to urn basic mathematical operations, like summing, subtracting, multiplying and dividing.
 
 the operators in question are:
 
--   `+` -> adds the values to the left and the right
--   `-` -> subtracts the values to the left and the right
--   `*` -> multiplies the values to the left and the right
--   `/` -> divides the values to the left and the right
--   `%` -> returns the reminder of the division
+- `+` -> adds the values to the left and the right
+- `-` -> subtracts the values to the left and the right
+- `*` -> multiplies the values to the left and the right
+- `/` -> divides the values to the left and the right
+- `%` -> returns the reminder of the division
 
 we also have `++` and `--` which adds or subtracts **one** from the value, but depending on their position, they may cause a slight difference.
 
@@ -36,7 +36,7 @@ here we use the `++` to increment our variable by one. we see that it can be use
 
 ---
 
-## Assignment operators:
+## Assignment operators
 
 assignment operators allow us to assign a value to a variable, we have `+=`, `-=`, `*=`, `/=`, `%=` all do the operation using the variable's value.
 
@@ -61,39 +61,39 @@ be aware that since this is an integer, if the operation returns a float or a de
 
 ---
 
-## Relational Operators:
+## Relational Operators
 
 relational operators allow us to compare values.
 
 in this list we have:
 
--   `==` -> equal to
--   `!=` -> not equal
--   `>` -> greater than
--   `<` -> less than
--   `>=` -> greater than or equal to
--   `<=` -> less then or equal to
+- `==` -> equal to
+- `!=` -> not equal
+- `>` -> greater than
+- `<` -> less than
+- `>=` -> greater than or equal to
+- `<=` -> less then or equal to
 
 relational operators returns a boolean.
 
 ---
 
-## Logical Operators:
+## Logical Operators
 
 logical operators allow us to combine multiple conditions together.
 
--   `&&` -> and -> true if both sides are true
--   `||` -> or -> true if at least one side is true
--   `!` -> not -> doesn't combine but used to control conditions, it inverts true to false and vice versa
+- `&&` -> and -> true if both sides are true
+- `||` -> or -> true if at least one side is true
+- `!` -> not -> doesn't combine but used to control conditions, it inverts true to false and vice versa
 
 ---
 
-## Miscellaneous Operators:
+## Miscellaneous Operators
 
 Miscellaneous are special operators that don't fall under any of the other categories.
 
--   `sizeof(x)` -> returns the size of `x`
--   `typeOf(type)` -> returns the type of a class
--   `? :` -> the ternary operator is used to create simple condition checks that return a value based on the condition.
--   `value is Type` -> checks if a `value` is a of type `Type`
--   `as` -> the `as` is used to cast values into other type.
+- `sizeof(x)` -> returns the size of `x`
+- `typeOf(type)` -> returns the type of a class
+- `? :` -> the ternary operator is used to create simple condition checks that return a value based on the condition.
+- `value is Type` -> checks if a `value` is a of type `Type`
+- `as` -> the `as` is used to cast values into other type.

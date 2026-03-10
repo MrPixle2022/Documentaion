@@ -10,7 +10,7 @@ for example if we have this table:
 
 ```sql
 CREATE TABLE users (
-  id INTEGER AUTO_INCREMENT NULL,
+  id INTEGER AUTO_INCREMENT NOT NULL,
   name VARCHAR(250) NULL,
   age INT NOT NULL DEFAULT 0 ,
   balance INT NULL DEFAULT 0 ,
