@@ -27,9 +27,22 @@ there are some ways to define generic:
 ```go
 [T any] //any type
 [T t1 | t2] //either of type t1 or t2
-[T Numeric] //int or float64 only
+[T comparable] //only types that support `==` and `!=` (int, floats, strings, bool)
 [T ~t1] //t1 or any type that is based of ~t1 like for example:
 
 type MyInt int;
-[T ~int] //int or MyInt would work
+[T ~int] //this type and all underlying types, int or MyInt would work
+```
+
+custom constrains can be defined using interfaces:
+
+```go
+// Integer constraint allowing only int and int64
+type Integer interface {
+    int | int64
+}
+
+func Add[T Integer](a, b T) T {
+    return a + b // Legal because both int and int64 support '+'
+}
 ```

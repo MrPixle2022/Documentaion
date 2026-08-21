@@ -126,3 +126,11 @@ for i := range t.NumField() {
     fmt.Printf("Field: %s, JSON Tag: %s, Help Tag: %s\n", field.Name, field.Tag.Get("json"), field.Tag.Get("help"))
 }
 ```
+
+more struct tags for the json package:
+
+- `json:"-"` ignore this field
+- `json:"-,"` name of the field is `-`
+- `json:",omitempty"` skips if the value is the zero value of it's type
+- `json:",string"` forces encoding into string
+- `json:",omitzero"` skip if the value equals zero of it's type
