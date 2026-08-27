@@ -1,202 +1,119 @@
-# Operators:
+# Operators
 
----
+in C, we have many types of operators, this includes:
 
 ## Arithmetic operators
 
-arithmetic operators are used for simple mathematical operations, they are:
-
 - \+
 - \-
+- \*
 - /
 - %
-- \*
-- \+\+
-- \-\-
 
-note that when dividing using integers we can't store decimals, instead we get lose all values after the `.`, so for example:
+they are used for math
 
-```c
-int x = 2;
-int y = 3;
-int z = x / y; //0
-float z2 = x / y; //0.0000000
+## Comparison operators
 
-float y2 = 3;
-float z3 = x / y2; //0.666667
-```
+- ==
+- ≠
+- \>
+- <
+- ≥
+- ≤
 
-another example:
+used to compare 2 operands
 
-```c
-int x = 5;
-int y = 3;
-int z = x / y; // 1
-```
+## Logical operators
 
-lastly we have the increment `++` & the decrement `--`, both update the value by `1`, BUT, take note how you use them, because they can be used before and after a variable and they behave slightly different.
+- &&
+- ||
+- !
 
-if used after a variable, then this means:
+to combine conditions together, or flip a condition
 
-use the old value, the update it by 1.
-
-for example:
+## Ternary operator
 
 ```c
-int x = 5;
-printf("%d\n", x++); // 5
-//here x = 6
+condition ? true_block : false_block;
 ```
 
-while if used before the variable it means:
+## Bitwise operators
 
-update the value then use the variable.
+bitwise operators affect the binary representation of data, they require understanding on binary system:
 
-so for example:
+- & → copies a bit to the result if it’s one in both operands (AND)
 
 ```c
-int y = 3;
-printf("%d", ++y); // 4
-// here y = 4
+7 & 5
+/*
+ 7: 00 00 01 11
+ 5: 00 00 01 01
+ --------&-----
+ =: 00 00 01 01
+*/
+//returns 5
 ```
 
----
-
-## Augmented assignment operators:
-
-augmented assignment operators are used for re-assigning the value of the same variable, in this category we have:
-
-- +=
-- -=
-- *=
-- /=
-- %=
-
-each is like the following:
+- | → copies the bit if it exists in one operand (OR)
 
 ```c
-int x = 0;
-x += 1;// x = x + 1
-x -= 1;// x = x - 1
-x *= 4;// x = x * 4
-x /= 5;// x = x / 5
-x %= 2;// x = x % 2
+7 | 5
+/*
+7: 00 00 01 11
+5: 00 00 01 01
+------|-------
+=: 00 00 01 11 (7)
+*/
 ```
 
----
-
-## Relational operators:
-
-relational operators are used to compare values to gether, for conditions & boolean checks, this list includes:
-
-- == -> true if both sides are equal
-- !== -> true if both side are **not** equal
-- \> -> true if left is greater than right
-- < -> true if right is greater than left
-- \>= & <= -> same,but also if equal
-
----
-
-## Logical operators:
-
-logical operators are used to combine conditions into one.
-
-- && -> `AND`, true if both conditions are
-- || -> `OR`, true if **at least one** condition is
-- ! -> `NOT`, flips true into false and vice versa
-
----
-
-## Bitwise operators:
-
-bitwise operators are used to preform operations on individual bits.
-
-in this list we have:
-
-**&**:
-
-the **AND** operator check every bit of the two arguments, if both are `1` it returns `1` else returns `0`.
+- ^ → returns a bit only if it exists in a single operand but not both (XOR)
 
 ```c
-int x = 5; // 00 000 101
-int y = 7; // 00 000 111
-
-printf("%d \n", x & y); // 5
+7 ^ 5
+/*
+7: 00 00 01 11
+5: 00 00 01 01
+--------^-----
+=: 00 00 00 10 (2)
+*/
 ```
 
-so what happened is as follows:
-
-```text
-00 000 101 -> 5
-AND
-00 000 111 -> 7
-----------
-00 000 101 -> 5
-```
-
-**|**:
-
-the **OR** operator looks if at least one bit is `1` it returns 1 otherwise it's 0.
+it can be also used to eliminate duplicate data, for example:
 
 ```c
-int x = 5; // 00 000 101
-int y = 7; // 00 000 111
-
-printf("%d \n", x | y); // 7
+7 ^ 5 ^ 5 //returns 7
 ```
 
-so what is happing is:
+since both `5` have the same representation the `^` XOR will return 0 for all their fields leaving only the `7`
 
-```text
-00 000 101 -> 5
-OR
-00 000 111 -> 7
-----------
-00 000 111 -> 7
-```
-
-**^**:
-
-the **XOR** or exclusive or operator returns one only if the two bits are different
+- ~ (or `!` in rust)→ flips the bits (NOT)
 
 ```c
-int x = 5; // 00 000 101
-int y = 7; // 00 000 111
-
-printf("%d \n", x ^ y); // 2
+~5
+/*
+5: 00 00 01 01
+~: 11 11 10 10 (250 or -6)
+*/
 ```
 
-so what is happing is:
-
-```text
-00 000 101 -> 5
-XOR
-00 000 111 -> 7
-----------
-00 000 010 -> 2
-```
-
-**~**:
-
-the **NOT** operator basically inverts 1 -> 0 & 0 -> 1
+- << → shifts all bits to the left by the given number (Left shift)
 
 ```c
-printf("%d \n", ~255); // -256 (since we it's a 32 bit we are using)
+5 << 2
+/*
+5: 00 00 01 01
+<< by 2
+=: 00 01 01 00 (20)
+*/
 ```
 
-**>>** and **<<**:
-
-the **RIGHT-SHIFT >>** & the **LEFT-SHIFT <<** are used to move the bits by `n` number of steps in the given direction.
+- \>> → shifts all bits to the right by the given number (Right shift)
 
 ```c
-printf("%d", 6 >> 1); // 3
-printf("%d", 6 << 1); // 312
-```
-
-so what happens is:
-
-```tex
-00 000 110 -> 6
->> 1
-00 000 011 -> 3
+20 >> 2
+/*
+20: 00 01 01 00
+>> by 2
+ =: 00 00 01 01 (5)
+*/
 ```

@@ -1,29 +1,23 @@
-# Union:
+# Union
 
-a union is a type that can be one of several types, so it behaves like a `sum type` but a less stricter one.
+a union is a custom-defined type, similar to a struct it stores members of different types, however in a union, all members **share the same memory**, meaning we can only use one value at a time
 
-a union is defined using `typedef union` and you define what it could be:
-
-```c
-typedef union AgeOrName {
-    int age;
-    char* name;
-} age_or_name_t;
-```
-
-then we use it to create variables:
+just like a struct, a union is required to be preceded by `union` at any use, unless of course it's given an alias via `typedef`
 
 ```c
-age_or_name_t age_or_name = {.age = 29};
-age_or_name.age; // 29
+union MyUnion {
+    int num;
+    char letter;
+    char str[30];
+};
 ```
 
-ok!, but what would happen if we... say tried to access the name?
+then we can use that union as follows:
 
-we get undefined behavior... no error, no warning, but why?
+```c
+union MyUnion u1;
+u1.num = 10; // u1 has the value of 10
+u1.letter = 'h'; //u1 has the value of h, no longer has 10
+```
 
-this is actually because the `union` allocates the size of the **largest type** and uses this allocated memory for any type it may possibly be.
-
-so what happens is, we defined a union for a `char* ` and `int`, when we set `age` we wrote that value in the union memory, and when we tried to access `name` latter what happened is that we read the value of `age` but tired to interpret it as a `char* ` so we get garbage data.
-
-the sizeof a union is the size of the biggest possible type.
+the size of a union is always that of it's biggest member, in this case it's **30 bytes** as the biggest member is `str`

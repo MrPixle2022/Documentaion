@@ -1,4 +1,4 @@
-# Arrays:
+# Arrays
 
 arrays are zero-indexed and fixed-sized collection of data of the same type, arrays are stored as a contiguous block of memory just like structs.
 
@@ -22,7 +22,7 @@ int length = sizeof(x) / sizeof(x[0]);
 
 ---
 
-## Updating values:
+## Updating values
 
 we can update the value of an element by it's index, for example:
 
@@ -34,7 +34,7 @@ arr[4]; //5
 
 ---
 
-## Matrix:
+## Matrix
 
 a matrix or a 2D array is an array of arrays.
 
@@ -59,7 +59,7 @@ mat[0][2]; // 3
 
 ---
 
-## Index:
+## Index
 
 the index represents the position of an element in the array, it ranges from `0 -> size - 1`, actually:
 
@@ -90,7 +90,7 @@ arr[0] == *(arr+0) == *ptr == 0[arr];
 
 ---
 
-## Elements offset:
+## Elements offset
 
 if we have for example an array of structs, each with 3 integers and we have an array of lets say 3, the offset can be calculated as follows:
 
@@ -103,7 +103,7 @@ s3  24  28  32
 
 ---
 
-## Arrays casting:
+## Arrays casting
 
 let's assume we have a struct called `coordinate` which has 3 integers, and we have an array of that struct.
 
@@ -127,11 +127,11 @@ ptr[2]; // 3
 ptr[3]; // 4
 ```
 
-the number of elements in `ptr` = elements per structs * number of structs so in this case 9
+the number of elements in `ptr` = elements per structs \* number of structs so in this case 9
 
 ---
 
-## Array decay:
+## Array decay
 
 an array name may decay into pointer, meaning then name becomes just a pointer to it's first element.
 
@@ -164,3 +164,49 @@ int (*)[5] // a pointer to an **array** of 5 integers
 ```
 
 - initialization -> on initializing an array it's allocated fully in memory and doesn't decay into a pointer
+
+---
+
+## Array pointers vs array decay to pointers
+
+using the array's name alone, the array name decays to a pointer to the first element to the array:
+
+```c
+int arr[5];
+arr[2] = 1;
+printf("%zu\n", array); //address of the first element as a +ve integer
+printf("%zu\n", &array); //array didn't decay, this is a pointer to the entire array
+```
+
+the difference is important when we want to apply pointer arithmetic, for example:
+
+```c
+arr + 1;
+```
+
+this will move the pointer by 1 unit of the size of an int, since the array has decayed to `int*` and the size of int is often 4 bytes, however:
+
+```c
+&arr + 1;
+```
+
+will move the pointer by the size of the entire array, so **5 \* sizeof(int)**
+
+this also matters with `2D arrays`:
+
+```c
+int matrix[3][5] = {
+    {0, 1, 2, 3, 4},
+    {5, 6, 7, 8, 9},
+    {10, 11, 12, 13, 14},
+}
+```
+
+if we:
+
+```c
+printf("matrix[1] + 1: %zu\n", matrix[1] + 1);
+printf("&matrix[1]: %zu\n", &matrix[1] + 1);
+```
+
+the same behavior happens, where `matrix[1]` would move by the size of an integer, while `&matrix[1]` moves by the size of `int[5]`

@@ -1,8 +1,8 @@
-# Allocation:
+# Allocation
 
 ---
 
-## malloc:
+## malloc
 
 the `malloc` -included in the **stdlib.h**- is used to dynamically allocate memory by bytes, we pass it how many bytes we want to reserve and it returns the address to the allocated bytes.
 
@@ -24,7 +24,7 @@ here we are awaiting a user input, based on the given integer we are deciding ho
 
 ---
 
-## free:
+## free
 
 having reserved memory, we must clear it after usage, this can be done using the `free` method, we pass it the pointer to the data we want to free.
 
@@ -39,7 +39,7 @@ if we forget using `free` it may cause a memory leak in the heap.
 
 ---
 
-## calloc:
+## calloc
 
 the `calloc` behaves similarly to the `malloc` function but it initializes the bytes to 0, it takes 2 arguments:
 
@@ -51,7 +51,7 @@ it it's also a part of the `stdlib.h` file and behaves just like `malloc`
 
 ---
 
-## realloc:
+## realloc
 
 the `realloc` function is used to reallocate memory, it can be used to create dynamic array.
 

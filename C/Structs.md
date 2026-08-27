@@ -1,8 +1,10 @@
-# Structs:
+# Structs
 
-in c a struct is a custom-defined block that holds related data, the order of those fields does matter as it may affect your memory layout and thus hurt the performance of your program.
+in c a struct is a user-defined type that is used to group related values into on place, each variable in a struct is referred to as **member**
 
-a named struct is defined and used always proceeded with the `struct` keyword.
+structs -unlike arrays- can hoist values of different types
+
+a named struct is defined and used always proceeded with the `struct` keyword, members can be accessed simply using the struct object the `.`:
 
 ```c
 struct Coordinate{
@@ -10,8 +12,15 @@ struct Coordinate{
     int y;
     int z;
 }
-// returns a struct of Coordinate
-struct Coordinate make_coordinate(int x, int y, int z);
+
+struct Coordinate coordinate = {
+    1, //x
+    2, //y
+    3 //z
+};
+coordinate.x = 0;
+coordinate.y = 1;
+coordinate.z = 3;
 ```
 
 if you wish to get rid of having to write `struct` each time then consider using typedef on an anonymous struct or a named one.
@@ -44,13 +53,20 @@ struct Coordinate c3 = {
 
 ---
 
-## Extracting values:
+## Struct pointer
 
-as a struct is a block of data, we will for sure want to get those values, we have two ways to do so, one with a struct and one with a struct pointer.
+struct pointer can be used to pass structs by reference rather then by value, specially as an argument to a function
+
+a struct pointer can be de-referenced as usual to access the actual struct, however note that the `.` operator takes precedence over the `*` operator, hence the pointer dereferencing must be enclose within a pair of `()` and outside the pair is where the data is accessed
 
 ```c
-structName.filed;
-structPointer->filed;
+struct Coordinate* ptr = &coordinate;
+*ptr.x; //Invalid
+(*ptr).x; //valid
 ```
 
-> [NOTE] we can update the values on a struct.
+we can also shorten this by using the `->` operator directly on the pointer, which allows us to extract a field without having to dereference the pointer ourselves:
+
+```c
+ptr->x=12;
+```

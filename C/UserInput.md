@@ -1,4 +1,4 @@
-# User input:
+# User input
 
 to accept user input in c we can use the `scanf` method, the method takes the FS for our type and an address to store the given value in, getting the address can be done with a pointer or using `&varName` to get the memory address.
 
@@ -22,33 +22,40 @@ printf("GPA -> ");
 scanf(" %f", &gpa); //the space before %f ignores the \n
 ```
 
+note that `scanf` returns `1` for success and `EOF` for failure
+
 ---
 
-## fgets:
+## fgets
 
-when handling strings it's recommended to use the `fgets` method instead, to the method we pass the variable, input size & the source which is often stdin.
+`fgets` is the replacement for the `gets` function, `fgets` stands for **"file get string"**, this function takes the following arguments in order:
+
+1. string (char pointer)
+1. size of string (accounting for the `\0` or null terminator)
+1. stream/source (usually a file, but we can use `stdin`)
+
+the signature or the `fgets` function is as follows:
 
 ```c
-fgets(name, sizeof(name), stdin);
+char *fgets(char *str, int num, FILE *stream);
 ```
 
-but still we may encounter the `\n` problem again, this time we require another function which is `getchar`.
+the function will stop reading on:
+
+- encountering a new line
+- filling the buffer
+- reading `EOF` or end of file
+
+note the function will retain the `\n` character, and will also append the `\0` in the end of the string, so the buffer must account for 1 additional byte for the null-terminator
+
+it returns the pointer provided to it -akd the `str` argument-, or `NULL` if it fails to read.
+
+---
+
+## getchar
+
+if we only want to read 1 character we can use `getchar`, this function will read one character from the user input and return it in it's ASCII code format
 
 ```c
-getchar();//pulls the first char from the input buffer
-fgets(name, sizeof(name), stdin);
-```
-
-now there is also another `\n` problem, the one after typing the name, this will be inserted into the string & to remove it we require yet another method, but this time it comes from a header file, specifically the `string.h`
-
-```c
-#include <string.h>
-```
-
-and this file gives us a lot of useful method to handle strings, the one we are using is `strlen` which checks for the length of the given string.
-
-```c
-getchar();
-fgets(name, sizeof(name), stdin);
-name[strlen(name) - 1] = '\0';//replacing the last char `\n` with the null-terminator
+char a = getchar();
 ```
