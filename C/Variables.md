@@ -54,6 +54,8 @@ some types's size differ between devices, this can lead to unexpected behavior, 
 
 ## Type casting
 
+type casting is the process of converting some data of one type to another it can be done in 2 ways
+
 ### Implicit
 
 implicit conversion happens automatically, it’s done by the compiler, it often happens when a smaller type is assigned to a larger one, in this cases the compiler will promote the smaller type to a bigger one.

@@ -177,6 +177,8 @@ int* y = (int*)ptr; //cast it into a pointer to an integer
 printf("%d\n", *y); //dereference the casted pointer
 ```
 
+void pointer don't support basic arithmetics, as the compiler doesn't know the size or type of what it references nor the offset, hence it's recommend to cast the pointer before moving it
+
 ---
 
 ## NULL pointers
