@@ -1,10 +1,10 @@
-# Remote:
+# Remote
 
 a remote repo is an external repo whose history matches that of your local one.
 
 ---
 
-## Add a remote:
+## Add a remote
 
 to add a remote repo use the following command:
 
@@ -19,9 +19,9 @@ it's usually named `origin` which is the main stream you work in as it is usuall
 
 ---
 
-## Fetch:
+## Fetch
 
-adding a remote doesn't mean that magically we have all the content from the local one, no we have to manually grab those changes & we do that via the `fetch ` command:
+adding a remote doesn't mean that magically we have all the content from the local one, no we have to manually grab those changes & we do that via the `fetch` command:
 
 ```bash
 git fetch
@@ -51,7 +51,7 @@ git rebase <remote>/<remote_branch>
 
 ---
 
-## Push:
+## Push
 
 to push your changes to a remote use the `push` command:
 
@@ -63,7 +63,7 @@ git push <remote> :<remote_branch> #pushes an empty branch to a remote one -dele
 
 ---
 
-## Pull:
+## Pull
 
 the `pull` command allows us th get the changed files from a remote and merge them with the current local branch, not just the **metadata** we get from `fetch`
 

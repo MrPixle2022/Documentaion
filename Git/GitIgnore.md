@@ -1,4 +1,4 @@
-# GitIgnore:
+# GitIgnore
 
 the `.gitignore` file is used to define files that are not to be tracked by git in this repo, they won't be included in the repository.
 
@@ -6,13 +6,13 @@ the `.gitignore` doesn't have to be at the root, you can have multiple ones spre
 
 ---
 
-## Exclude:
+## Exclude
 
 the `.git/info/exclude` file is where you define files that are ignored **only** in your local repo, not ignored for all.
 
 ---
 
-## Patterns:
+## Patterns
 
 in the `.gitignore` we could use some patterns to make it easier to match files that we want to exclude, we can use things like `*`, `/`:
 

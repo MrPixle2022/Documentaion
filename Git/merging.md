@@ -1,6 +1,6 @@
 <!-- @format -->
 
-# Merging:
+# Merging
 
 when merging two branches together we create what is called a merge-commit, which is a commit with **2** parents, representing the latest commit of both merging branches
 
@@ -16,7 +16,7 @@ know that you are merging -the current branch- with `branch`.
 
 ---
 
-## Fast forward merge:
+## Fast forward merge
 
 fast-forward merge is automatically made by git when the `merge-base` is the tip of the branch you are merging onto.
 

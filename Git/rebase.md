@@ -1,6 +1,6 @@
 <!-- @format -->
 
-# Rebase:
+# Rebase
 
 rebasing allows you to move a diverging commits and move them to the tip of the branch they are diverged from.
 
