@@ -36,9 +36,11 @@ in the previous code, an array of characters of size 7 is created on the stack -
 
 ## String.h
 
-the `string.h` has many great utility functions for working with strings
+the `string.h` has many great utility functions for working with strings, all the following functions are included in the `string.h` file
 
-### strlen
+---
+
+## strlen
 
 `strlen` returns the length of the given address:
 
@@ -55,7 +57,7 @@ printf("%zu\n", strlen(alphabet));   // 26
 printf("%zu\n", sizeof(alphabet));   // 50
 ```
 
-### strcat
+## strcat
 
 the `strcat` is used to concat 2 strings, it doesn't return the result, instead it attaches the 2nd string to the first
 
@@ -77,7 +79,7 @@ strncat(myStr, " World!", 5);
 printf("%s", myStr); //Happy Worl
 ```
 
-### strcpy
+## strcpy
 
 the `strcpy` copies the value of the one string into the other
 
@@ -99,7 +101,7 @@ strncpy(str2, str1, 6);
 printf("%s\n", str2); //Hello code!
 ```
 
-### strcmp
+## strcmp
 
 `strcmp` checks if 2 strings or equal or not, returning 0 for true, and any other value false
 
@@ -138,4 +140,86 @@ if (cmp > 0) {
 } else {
   printf("%s is equal to %s\n", myStr1, myStr2); //printed
 }
+```
+
+---
+
+## memcpy
+
+the `memcpy` is used to copy some data from a place to another, this function operators on **raw byte buffers** not NULL-terminated strings
+
+the definition is as follows:
+
+```c
+void *memcpy(void *restrict dest, const void *restrict src, size_t n);
+```
+
+only `n` bytes are copied
+
+an example would be:
+
+```c
+int arr1[5], arr2[5];
+memcpy(arr1, arr2, sizeof(arr1));  // copies all 5 integers
+```
+
+> [!IMPORTANT] the `dist` and `src` must not overlap, if they overlap then this is undefined behavior
+
+---
+
+## memmove
+
+the `memmove` acts like `memcpy` however it's safe when both src and dist overlap
+
+```c
+void *memmove(void *dest, const void *src, size_t n);
+```
+
+for example:
+
+```c
+char s[] = "hello world";
+memmove(&s[0], &s[6], 5);  // s is now "world world"
+```
+
+`memmove` is best used when shifting elements within a single array
+
+---
+
+## memset
+
+the `memset` function fills the first `n` bytes of `s` by the byte value of `c` (cast to unsigned char), the function returns `s`
+
+```c
+void *memset(void *s, int c, size_t n);
+```
+
+it's commonly used to **zero-intialize** buffers and structs
+
+```c
+int buf[100];
+memset(buf, 0, sizeof(buf));  // sets all 100 ints to 0
+
+char str[64];
+memset(str, 0, sizeof(str));  // NUL-terminate / clear
+```
+
+> [!IMPORTANT], setting `c` to `1` will actually set every byte to `0x01` or `0x01010101` on 32-bit system
+
+---
+
+## memcmp
+
+the `memcmp` is used to compare the first `n` bytes of `s1` and `s2` byte by byte as `unsigned char`
+
+```c
+int memcmp(const void *s1, const void *s2, size_t n);
+```
+
+the function returns `0` for match, `> 0` if the first differing byte in `s1` is less than in `s2`, `<0` if the first differing byte in `s1` is greater than in `s2`
+
+```c
+struct Point { int x, y; };
+struct Point a = {1, 2}, b = {1, 2};
+if (memcmp(&a, &b, sizeof a) == 0) /* equal */
 ```
